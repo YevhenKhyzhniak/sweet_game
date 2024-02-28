@@ -15,6 +15,7 @@
 		0C90783F2B8FB0D000F316EA /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 0C90783E2B8FB0D000F316EA /* RswiftLibrary */; };
 		0C9078412B8FB0D000F316EA /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 0C9078402B8FB0D000F316EA /* rswift */; };
 		0C9078492B8FB1DC00F316EA /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9078482B8FB1DC00F316EA /* ViewModifiers.swift */; };
+		0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90784E2B8FC53C00F316EA /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0C9078332B8FA73D00F316EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0C90783B2B8FAFD700F316EA /* SweetBlissGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetBlissGame.swift; sourceTree = "<group>"; };
 		0C9078482B8FB1DC00F316EA /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		0C90784E2B8FC53C00F316EA /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +62,10 @@
 		0C90782A2B8FA73C00F316EA /* sweet_game */ = {
 			isa = PBXGroup;
 			children = (
+				0C9078452B8FB1CE00F316EA /* core */,
 				0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */,
 				0C90782D2B8FA73C00F316EA /* ContentView.swift */,
-				0C9078452B8FB1CE00F316EA /* core */,
+				0C90784D2B8FC52600F316EA /* launch_scene */,
 				0C90783A2B8FAFA000F316EA /* sweet_bliss_scene */,
 				0C90782F2B8FA73D00F316EA /* Assets.xcassets */,
 				0C9078312B8FA73D00F316EA /* sweet_game.entitlements */,
@@ -93,6 +96,14 @@
 				0C9078482B8FB1DC00F316EA /* ViewModifiers.swift */,
 			);
 			path = core;
+			sourceTree = "<group>";
+		};
+		0C90784D2B8FC52600F316EA /* launch_scene */ = {
+			isa = PBXGroup;
+			children = (
+				0C90784E2B8FC53C00F316EA /* LaunchView.swift */,
+			);
+			path = launch_scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C90782E2B8FA73C00F316EA /* ContentView.swift in Sources */,
+				0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */,
 				0C90783C2B8FAFD700F316EA /* SweetBlissGame.swift in Sources */,
 				0C90782C2B8FA73C00F316EA /* sweet_gameApp.swift in Sources */,
 				0C9078492B8FB1DC00F316EA /* ViewModifiers.swift in Sources */,
