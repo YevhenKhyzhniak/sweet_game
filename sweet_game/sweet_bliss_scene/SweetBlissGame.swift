@@ -9,15 +9,20 @@ import SwiftUI
 
 struct SweetBlissGame: View {
     
-    @State private var ratio: CGFloat = 0
-    @State private var startX: CGFloat? = nil
+    @State private var basketPosition: BasketPosition = .center
     
     var body: some View {
         GeometryReader { proxy in
-            self.basketView()
-                .offset(x: self.startX == nil ? proxy.size.width / 4 : (proxy.size.width / 2) * ratio, y: proxy.size.height - 150)
-                .gesture(DragGesture(minimumDistance: 0)
-                    .onChanged({ update(value: $0, proxy: proxy) }))
+            ZStack {
+                self.basketView()
+                    .offset(x: self.makeBasketXOffset(proxy.size), y: proxy.size.height - 150)
+                HStack {
+                    self.leftArrowView()
+                    Spacer(minLength: 0)
+                    self.rightArrowView()
+                }
+                .offset(y: proxy.size.height - 150)
+            }
         }
         .background(Image(R.image.app_background.name).resizable().scaledToFill())
         .ignoresSafeArea()
@@ -26,33 +31,62 @@ struct SweetBlissGame: View {
     private func basketView() -> some View {
         Image(R.image.bliss_game_busket.name)
     }
+    
+    private func leftArrowView() -> some View {
+        Button(action: {
+            withAnimation {
+                switch self.basketPosition {
+                case .center:
+                    self.basketPosition = .leading
+                case .trailing:
+                    self.basketPosition = .center
+                default:
+                    break
+                }
+            }
+        }, label: {
+            Image(R.image.left_arrow.name)
+                .padding(.leading, 10)
+        })
+    }
+    
+    private func rightArrowView() -> some View {
+        Button(action: {
+            withAnimation {
+                switch self.basketPosition {
+                case .center:
+                    self.basketPosition = .trailing
+                case .leading:
+                    self.basketPosition = .center
+                default:
+                    break
+                }
+            }
+        }, label: {
+            Image(R.image.right_arrow.name)
+                .padding(.trailing, 10)
+        })
+    }
 }
 
 extension SweetBlissGame {
     
-    private func update(value: DragGesture.Value, proxy: GeometryProxy) {
-        debugPrint(value, proxy)
-        if startX == nil {
-            startX = value.translation.width / 4
-        }
-        
-        var point = value.location.x - startX!
-        let delta = proxy.size.width
-        
-        if point < 0 {
-            startX = value.location.x
-            point = 0
-            
-        } else if delta < point {
-            startX = value.location.x - delta
-            point = delta
-        }
-        
-        var ratio = point / delta
-        
-        self.ratio = ratio
+    enum BasketPosition {
+        case leading
+        case trailing
+        case center
     }
     
+    private func makeBasketXOffset(_ viewSize: CGSize) -> CGFloat {
+        switch self.basketPosition {
+        case .center:
+            return 0
+        case .leading:
+            return -viewSize.width/4
+        case .trailing:
+            return viewSize.width/4
+        }
+    }
 }
 
 #Preview {
