@@ -14,14 +14,9 @@ struct SweetBlissGame: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                self.basketView()
-                    .offset(x: self.makeBasketXOffset(proxy.size), y: proxy.size.height - 150)
-                HStack {
-                    self.leftArrowView()
-                    Spacer(minLength: 0)
-                    self.rightArrowView()
-                }
-                .offset(y: proxy.size.height - 150)
+                self.backingBackgroundView(proxy.size).offset(y: proxy.size.height - 190)
+                self.basketView().offset(x: self.makeBasketXOffset(proxy.size), y: proxy.size.height - 240)
+                self.controlBasketButtonsView().offset(y: proxy.size.height - 235)
             }
         }
         .background(Image(R.image.app_background.name).resizable().scaledToFill())
@@ -30,6 +25,14 @@ struct SweetBlissGame: View {
     
     private func basketView() -> some View {
         Image(R.image.bliss_game_busket.name)
+    }
+    
+    private func controlBasketButtonsView() -> some View {
+        HStack {
+            self.leftArrowView()
+            Spacer(minLength: 0)
+            self.rightArrowView()
+        }
     }
     
     private func leftArrowView() -> some View {
@@ -46,6 +49,9 @@ struct SweetBlissGame: View {
             }
         }, label: {
             Image(R.image.left_arrow.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 64, height: 64)
                 .padding(.leading, 10)
         })
     }
@@ -64,8 +70,18 @@ struct SweetBlissGame: View {
             }
         }, label: {
             Image(R.image.right_arrow.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 64, height: 64)
                 .padding(.trailing, 10)
         })
+    }
+    
+    private func backingBackgroundView(_ viewSize: CGSize) -> some View {
+        Image(R.image.backing.name)
+            .resizable()
+            .scaledToFit()
+            .frame(width: viewSize.width, height: viewSize.height / 4)
     }
 }
 
