@@ -15,7 +15,7 @@ struct SweetBlissGameLevel: Codable, Hashable {
     
     init(level: Int) {
         self.level = level
-        self.unlocked = level == 1 ? .finished : .locked
+        self.unlocked = level == 1 ? .unlocked : .locked
     }
     
     let level: Int

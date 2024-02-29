@@ -9,9 +9,6 @@ import SwiftUI
 
 struct SweetBlissGameLevelView: View {
     
-    @Storage(key: "SweetBlissGameLevels", defaultValue: [])
-    static var levels: [SweetBlissGameLevel]
-    
     @Injected(\.router) private var router
     @State private var levelsMuttable: [SweetBlissGameLevel] = []
     
@@ -28,7 +25,7 @@ struct SweetBlissGameLevelView: View {
                          self.router.presentFullScreen(.showMain)
                      }
                      Spacer(minLength: 1)
-                     LevelTopView()
+                     TopView(title: "Levels")
                          .padding(.trailing, 40)
                      Spacer(minLength: 1)
                  }
@@ -37,8 +34,11 @@ struct SweetBlissGameLevelView: View {
                      LazyVGrid(columns: columns, spacing: 10) {
                          ForEach(self.levelsMuttable, id: \.self) { data in
                              LevelRow(data: data) {
-                                 if data.unlocked == .unlocked {
+                                 switch data.unlocked {
+                                 case .unlocked, .finished:
                                      self.router.presentFullScreen(.showSweetBlissGame(data))
+                                 default:
+                                     break
                                  }
                              }
                          }
@@ -56,10 +56,10 @@ struct SweetBlissGameLevelView: View {
      }
     
     private func onStart() {
-        if Self.levels.isEmpty {
-            Self.levels = (1...30).map { SweetBlissGameLevel(level: $0)}
+        if SweetBlissGameLevelBusines.levels.isEmpty {
+            SweetBlissGameLevelBusines.levels = (1...30).map { SweetBlissGameLevel(level: $0)}
         }
-        self.levelsMuttable = Self.levels
+        self.levelsMuttable = SweetBlissGameLevelBusines.levels
     }
 }
 
@@ -80,7 +80,7 @@ struct LevelRow: View {
     @ViewBuilder
     private func imageView() -> some View {
         switch self.data.unlocked {
-        case .unlocked:
+        case .unlocked, .finished:
             Image(R.image.level_row_locked.name).resizable().scaledToFit().frame(width: 70, height: 70)
         default:
             Image(R.image.level_row_unlocked.name).resizable().scaledToFit().frame(width: 70, height: 70)
@@ -88,7 +88,9 @@ struct LevelRow: View {
     }
 }
 
-struct LevelTopView: View {
+struct TopView: View {
+    
+    let title: String
     
     var body: some View {
         Image(R.image.balance_row.name)
@@ -98,7 +100,7 @@ struct LevelTopView: View {
     }
     
     private func overlayContent() -> some View {
-        Text("Levels").font(.footnote).bold().foregroundColor(.white)
+        Text(self.title).font(.footnote).bold().foregroundColor(.white)
     }
 }
 

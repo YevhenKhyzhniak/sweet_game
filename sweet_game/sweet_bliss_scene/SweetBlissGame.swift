@@ -12,6 +12,8 @@ struct SweetBlissGame: View {
     @State private var basketPosition: BasketPosition = .center
     @Injected(\.router) private var router
     
+    let level: SweetBlissGameLevel
+    
     var body: some View {
         GeometryReader { proxy in
             ZStack {
@@ -39,6 +41,9 @@ struct SweetBlissGame: View {
         }
         .background(Image(R.image.app_background.name).resizable().scaledToFill())
         .ignoresSafeArea()
+        .onDisappear {
+            SweetBlissGameLevelBusines.unlockNextLevel(current: self.level)
+        }
     }
     
     private func basketView() -> some View {
@@ -130,5 +135,5 @@ extension SweetBlissGame {
 }
 
 #Preview {
-    SweetBlissGame()
+    SweetBlissGame(level: .init(level: 1))
 }
