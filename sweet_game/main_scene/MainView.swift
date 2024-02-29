@@ -47,8 +47,8 @@ struct MainView: View {
                     }
                 }
                 
-                ShopButtonView() {
-                    //
+                ButtonView(title: "Shop") {
+                    self.router.presentFullScreen(.shopShop)
                 }
             }
             .padding(.top, 60)

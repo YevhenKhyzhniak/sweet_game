@@ -12,6 +12,7 @@ enum ViewSpec: Hashable {
     case showSweetBlissLevels
     case showSweetBlissGame(SweetBlissGameLevel)
     case showMain
+    case shopShop
 }
 
 extension ViewSpec: Identifiable {
@@ -27,12 +28,14 @@ public class MainRouter: Router {
     @ViewBuilder
     func buildView(spec: ViewSpec, route: Route) -> some View {
         switch spec {
-        case .showSweetBlissGame:
-            SweetBlissGame()
+        case let .showSweetBlissGame(level):
+            SweetBlissGame(level: level)
         case .showSweetBlissLevels:
             SweetBlissGameLevelView()
         case .showMain:
             MainView()
+        case .shopShop:
+            ShopView()
         }
     }
 }

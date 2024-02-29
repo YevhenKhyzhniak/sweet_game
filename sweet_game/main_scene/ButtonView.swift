@@ -1,5 +1,5 @@
 //
-//  ShopButtonView.swift
+//  ButtonView.swift
 //  sweet_game
 //
 //  Created by Yevhen Khyzhniak on 29.02.2024.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct ShopButtonView: View {
+struct ButtonView: View {
     
+    let title: String
     let action: () -> Void
     
     var body: some View {
@@ -26,10 +27,10 @@ struct ShopButtonView: View {
     }
     
     private func overlayContent() -> some View {
-        Text("Shop").bold().foregroundColor(.white)
+        Text(self.title).bold().foregroundColor(.white)
     }
 }
 
 #Preview {
-    ShopButtonView() {}
+    ButtonView(title: "Shop") {}
 }
