@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "Type=Left lg.png",
+      "filename" : "Info bar.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Type=Left lg 1.png",
+      "filename" : "Info bar 1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
