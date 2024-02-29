@@ -10,6 +10,7 @@ import SwiftUI
 struct LaunchView: View {
     
     @State private var progressValue = 0.0
+    @Injected(\.router) private var router
     
     var body: some View {
         Image(R.image.app_background.name).resizable().scaledToFill()
@@ -22,7 +23,8 @@ struct LaunchView: View {
                 .padding(.bottom, 50)
                 .padding(.horizontal)
                 .tint(.green)
-                .scaleEffect(x: 1, y: 4, anchor: .center), alignment: .bottom
+                .scaleEffect(x: 1, y: 4, anchor: .center)
+                .opacity(self.progressValue < 100 ? 1.0 : 0.0), alignment: .bottom
         )
         
         .onAppear {
@@ -40,6 +42,7 @@ struct LaunchView: View {
                     
                 } else {
                     timer.invalidate()
+                    self.router.presentFullScreen(.showMain)
                 }
             }
         }

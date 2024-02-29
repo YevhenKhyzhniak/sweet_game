@@ -10,6 +10,7 @@ import SwiftUI
 struct SweetBlissGame: View {
     
     @State private var basketPosition: BasketPosition = .center
+    @Injected(\.router) private var router
     
     var body: some View {
         GeometryReader { proxy in
@@ -17,6 +18,23 @@ struct SweetBlissGame: View {
                 self.backingBackgroundView(proxy.size).offset(y: proxy.size.height - 190)
                 self.basketView().offset(x: self.makeBasketXOffset(proxy.size), y: proxy.size.height - 240)
                 self.controlBasketButtonsView().offset(y: proxy.size.height - 235)
+                VStack {
+                    HStack {
+                        BackButtonView() {
+                            self.router.presentFullScreen(.showSweetBlissLevels)
+                        }
+                        Spacer(minLength: 1)
+                        BalanceRowView()
+                        Spacer(minLength: 1)
+                        PauseButtonView() {
+                            
+                        }
+                    }
+                    
+                    self.betTopView(size: proxy.size)
+                }
+                .offset(y: 40)
+                .padding(.horizontal)
             }
         }
         .background(Image(R.image.app_background.name).resizable().scaledToFill())
@@ -82,6 +100,12 @@ struct SweetBlissGame: View {
             .resizable()
             .scaledToFit()
             .frame(width: viewSize.width, height: viewSize.height / 4)
+    }
+    
+    private func betTopView(size: CGSize) -> some View {
+        Image(R.image.bet_top.name)
+            .resizable()
+            .frame(width: size.width - 40, height: 65)
     }
 }
 

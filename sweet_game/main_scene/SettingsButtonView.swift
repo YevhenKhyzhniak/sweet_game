@@ -24,6 +24,23 @@ struct SettingsButtonView: View {
     }
 }
 
+struct PauseButtonView: View {
+    
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            self.action()
+        } label: {
+            Image(R.image.pause_button.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40)
+        }
+
+    }
+}
+
 #Preview {
     SettingsButtonView {}
 }

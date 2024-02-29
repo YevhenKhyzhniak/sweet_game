@@ -9,9 +9,27 @@ import SwiftUI
 
 @main
 struct sweet_gameApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    var context: AppContext?
+    
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        
+        self.context = AppContext(router: MainRouter.init(isPresented: .constant(.showMain)))
+        
+        return true
     }
 }

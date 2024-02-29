@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @Injected(\.router) private var router
+    
     var body: some View {
         ZStack {
             Image(R.image.app_background.name).resizable().scaledToFill()
@@ -36,7 +39,7 @@ struct MainView: View {
                     Spacer(minLength: 1)
                     
                     MainRowView(title: "bliss") {
-                        
+                        self.router.presentFullScreen(.showSweetBlissLevels)
                     }
                     
                     MainRowView(title: "joys") {

@@ -9,8 +9,13 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
+    
+    @Injected(\.router) private var router
+    
     var body: some View {
-        MainView()
+        RouterView(router: self.router) {
+            LaunchView()
+        }
     }
     
 }
