@@ -16,7 +16,7 @@ struct LaunchView: View {
         Image(R.image.app_background.name).resizable().scaledToFill()
         .ignoresSafeArea()
         .overlay(
-            Image(R.image.launch_logo.name)
+            Image(R.image.launch_logo.name).resizable().frame(width: 200, height: 200)
         )
         .overlay(
             ProgressView(value: progressValue, total: 100.0)

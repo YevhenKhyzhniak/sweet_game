@@ -12,6 +12,8 @@ struct SweetBlissGameLevelView: View {
     @Injected(\.router) private var router
     @State private var levelsMuttable: [SweetBlissGameLevel] = []
     
+    @State private var showErrorToStart: Bool = false
+    
      let columns = [
          GridItem(.adaptive(minimum: 80))
      ]
@@ -35,7 +37,11 @@ struct SweetBlissGameLevelView: View {
                          LevelRow(data: data) {
                              switch data.unlocked {
                              case .unlocked, .finished:
-                                 self.router.presentFullScreen(.showSweetBlissGame(data))
+                                 if SweetGameLevelBusines.heartRate > 0 {
+                                     self.router.presentFullScreen(.showSweetBlissGame(data))
+                                 } else {
+                                     self.showErrorToStart = true
+                                 }
                              default:
                                  break
                              }
@@ -50,13 +56,20 @@ struct SweetBlissGameLevelView: View {
          .onAppear {
              self.onStart()
          }
+         
+         .simpleToast(isPresented: self.$showErrorToStart, options: .init(alignment: .center, dismissOnTap: false, edgesIgnoringSafeArea: .all)) {
+             ErrorMessage {
+                 self.router.presentFullScreen(.shopShop)
+             }
+             .padding()
+         }
      }
     
     private func onStart() {
-        if SweetBlissGameLevelBusines.levels.isEmpty {
-            SweetBlissGameLevelBusines.levels = (1...30).map { SweetBlissGameLevel(level: $0)}
+        if SweetGameLevelBusines.levels.isEmpty {
+            SweetGameLevelBusines.levels = (1...30).map { SweetBlissGameLevel(level: $0)}
         }
-        self.levelsMuttable = SweetBlissGameLevelBusines.levels
+        self.levelsMuttable = SweetGameLevelBusines.levels
     }
 }
 

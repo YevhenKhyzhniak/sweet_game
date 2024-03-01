@@ -7,13 +7,16 @@
 
 import Foundation
 
-class SweetBlissGameLevelBusines {
+class SweetGameLevelBusines {
     
     @Storage(key: "SweetBlissGameLevels", defaultValue: [])
     static var levels: [SweetBlissGameLevel]
     
+    @Storage(key: "SweetGame.Candies", defaultValue: 1000)
+    static var candies: Int
     
-    @Storage(key: "SweetBlissGameLevelsHeartRate", defaultValue: 100.0)
+    
+    @Storage(key: "SweetBlissGameLevelsHeartRate", defaultValue: 75.0)
     static var heartRate: Double
     
     static func unlockNextLevel(current data: SweetBlissGameLevel) {

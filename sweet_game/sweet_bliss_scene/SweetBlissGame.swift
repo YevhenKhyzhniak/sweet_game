@@ -19,28 +19,92 @@ struct SweetBlissGameControl {
 
 struct SweetBlissGame: View {
     
+    enum GameResult: Int, Identifiable {
+        case win = 0
+        case lose = 1
+        case pause = 2
+        
+        var id: Int {
+            return self.rawValue
+        }
+    }
+    
     @Injected(\.router) private var router
     
     let level: SweetBlissGameLevel
-    let heartRateIncrement = 20.0
+    let heartRateIncrement = 25.0
     
     @State private var items: [GameItems] = []
     @State private var onStart: Bool = false
+    @State private var gameResult: GameResult? = nil
     
-    @State private var heartRate: Double = SweetBlissGameLevelBusines.heartRate
+    @State private var heartRate: Double = 0.0 {
+        willSet {
+            SweetGameLevelBusines.heartRate = newValue
+        }
+    }
+    @State private var candies: Int = 0 {
+        willSet {
+            SweetGameLevelBusines.candies = newValue
+        }
+    }
     
     @ViewBuilder
     var body: some View {
         self.contentView()
             .onReceive(SweetBlissGameControl.catchGameItem) { item in
+                guard self.heartRate > 0 else {
+                    DispatchQueue.main.async {
+                        SweetBlissGameControl.onStart.send(false)
+                        self.gameResult = .lose
+                    }
+                    return
+                }
+                
                 self.items.append(item)
                 
-                if item == .bomb {
+                if item == .bomb || item == .сaterpillar {
                     self.heartRate -= heartRateIncrement
                 }
                 
-                self.checkWinLose()
+                self.checkWinLose(item)
                 
+            }
+            .onAppear {
+                self.heartRate = SweetGameLevelBusines.heartRate
+                self.candies = SweetGameLevelBusines.candies
+            }
+            .onDisappear {
+                SweetBlissGameControl.onStart.send(false)
+            }
+            .simpleToast(item: self.$gameResult, options: .init(alignment: .center, dismissOnTap: false, edgesIgnoringSafeArea: .all)) {
+                switch self.gameResult {
+                case .win:
+                    YouWinView {
+                        SweetGameLevelBusines.unlockNextLevel(current: self.level)
+                        self.router.presentFullScreen(.showSweetBlissLevels)
+                    } mainMenu: {
+                        self.router.presentFullScreen(.showMain)
+                    }
+                    .padding()
+                case .lose:
+                    YouLoseView {
+                        self.router.presentFullScreen(.shopShop)
+                    } mainMenu: {
+                        self.router.presentFullScreen(.showMain)
+                    }
+                    .padding()
+                case .pause:
+                    PauseView {
+                        self.gameResult = nil
+                        SweetBlissGameControl.onStart.send(true)
+                    } mainMenu: {
+                        self.router.presentFullScreen(.showMain)
+                    }
+                    .padding()
+                default:
+                    EmptyView()
+                }
             }
     }
     
@@ -55,27 +119,35 @@ struct SweetBlissGame: View {
                                 self.router.presentFullScreen(.showSweetBlissLevels)
                             }
                             Spacer(minLength: 5)
-                            BalanceRowView()
+                            BalanceRowView(balance: self.candies)
                             Spacer(minLength: 5)
                             PauseButtonView() {
-                                SweetBlissGameControl.onStart.send(false)
+                                self.onPauseMethod()
                             }
                         }
                         self.betTopView()
                     }
-                   .padding(.top, 60).padding(.horizontal, 8), alignment: .top
+                   .padding(.top, 40).padding(.horizontal, 8), alignment: .top
                 )
                 .overlay(
                     self.controlBasketButtonsView().padding(.bottom, 80), alignment: .bottom
                 )
                 .overlay(self.heartRateView().padding(30), alignment: .bottomLeading)
+                .blur(radius: self.gameResult != nil ? 1.0 : 0.0)
+                .disabled(self.gameResult != nil)
         } else {
             Image(R.image.app_background.name)
                 .resizable()
                 .ignoresSafeArea()
+                .overlay(HStack {
+                    Text("Click to the game").foregroundColor(.white)
+                    Image(R.image.click_to_the_game.name)
+                }.padding())
                 .containerShape(Rectangle())
                 .onTapGesture {
-                    self.onStart.toggle()
+                    withAnimation {
+                        self.onStart.toggle()
+                    }
                 }
         }
     }
@@ -93,10 +165,19 @@ struct SweetBlissGame: View {
     }
     
     private func heartRateView() -> some View {
-        ProgressView(value: heartRate, total: 100.0)
-            .tint(.purple)
-            .padding()
-            .frame(width: UIScreen.main.bounds.width / 3, height: 30)
+        HStack(spacing: 0) {
+            Image(R.image.heart.name).resizable().frame(width: 30, height: 30)
+            Image(R.image.heart_rate.name)
+                .resizable()
+                .overlay(
+                    ProgressView(value: heartRate, total: 100.0)
+                        .tint(.purple)
+                        .padding(.leading, 5)
+                        .padding(.trailing, 3)
+                        .scaleEffect(x: 1, y: 2, anchor: .center)
+                )
+                .frame(width: UIScreen.main.bounds.width / 3, height: 15)
+        }
     }
     
     private func leftArrowView() -> some View {
@@ -168,51 +249,73 @@ extension SweetBlissGame {
         switch Level(value: self.level.level) {
         case .low:
             HStack {
-                Image(R.image.marshmallow.name)
+                Image(R.image.marshmallow.name).resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .marshmallow}.count, 10)).font(.caption2).foregroundColor(.white)
             }
         case .normal:
             HStack {
-                Image(R.image.marshmallow.name)
+                Image(R.image.marshmallow.name).resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .marshmallow}.count, 10)).font(.caption2).foregroundColor(.white)
                 
-                Image(R.image.chupachups.name)
+                Image(R.image.chupachups.name).resizable().scaledToFit()
                 Text(String(format: "%d/%d", self.items.filter{$0 == .chupachups}.count, 10)).font(.caption2).foregroundColor(.white)
             }
         case .hard:
             HStack {
-                Image(R.image.marshmallow.name)
+                Image(R.image.marshmallow.name).resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .marshmallow}.count, 10)).font(.caption2).foregroundColor(.white)
                 
-                Image(R.image.chupachups.name)
+                Image(R.image.chupachups.name).resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .chupachups}.count, 10)).font(.caption2).foregroundColor(.white)
                 
-                Image(R.image.candy_one.name)
+                Image(R.image.candy_one.name).resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .candyOne}.count, 10)).font(.caption2).foregroundColor(.white)
             }
         }
     }
     
-    private func checkWinLose() {
-        Task {
-            
-            guard self.heartRate > 0 else {
-                return
+    private func checkWinLose(_ newItem: GameItems) {
+        let level = Level(value: self.level.level)
+        switch level {
+        case .low:
+            if newItem == .marshmallow {
+                self.candies += 10
             }
-            
-            let level = Level(value: self.level.level)
-            switch level {
-            case .low:
-                if self.items.filter {$0 == .marshmallow}.count == 10 {
-                    
+            if self.items.filter({$0 == .marshmallow}).count >= 10 {
+                DispatchQueue.main.async {
+                    SweetBlissGameControl.onStart.send(false)
+                    self.gameResult = .win
                 }
-            case .normal:
-                break
-            case .hard:
-                break
             }
-            
+        case .normal:
+            if [.marshmallow, .chupachups].contains(where: {$0 == newItem}){
+                self.candies += 10
+            }
+            if self.items.filter({$0 == .marshmallow}).count >= 10
+            && self.items.filter({$0 == .chupachups}).count >= 10 {
+                DispatchQueue.main.async {
+                    SweetBlissGameControl.onStart.send(false)
+                    self.gameResult = .win
+                }
+            }
+        case .hard:
+            if [.marshmallow, .chupachups, .candyOne].contains(where: {$0 == newItem}) {
+                self.candies += 10
+            }
+            if self.items.filter({$0 == .marshmallow}).count >= 10
+            && self.items.filter({$0 == .chupachups}).count >= 10
+            && self.items.filter({$0 == .candyOne}).count >= 10 {
+                DispatchQueue.main.async { 
+                    SweetBlissGameControl.onStart.send(false)
+                    self.gameResult = .win
+                }
+            }
         }
+    }
+    
+    private func onPauseMethod() {
+        SweetBlissGameControl.onStart.send(false)
+        self.gameResult = .pause
     }
 }
 
@@ -347,7 +450,7 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
     }
     
     func dropBall() {
-        self.gameItem = GameItems.allCases.randomElement()!
+        self.gameItem = [GameItems.marshmallow, .chupachups].randomElement()!//.allCases.randomElement()!
         let topppi : CGFloat = frame.height - frame.height * 0.12
         let randomX = CGFloat.random(in: 0...UIScreen.main.bounds.width)
         let ball = SKSpriteNode(imageNamed: self.gameItem?.image ?? R.image.bomb.name)

@@ -21,7 +21,6 @@ struct ButtonView: View {
                 .overlay(
                     self.overlayContent()
                 )
-                .frame(width: UIScreen.main.bounds.width - 40, height: 50)
         }
 
     }

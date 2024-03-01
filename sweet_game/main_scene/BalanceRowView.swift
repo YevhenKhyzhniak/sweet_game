@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BalanceRowView: View {
     
+    let balance: Int
+    
     var body: some View {
         Image(R.image.balance_row.name)
             .resizable()
@@ -22,11 +24,11 @@ struct BalanceRowView: View {
         HStack {
             Text("Balance:").font(.footnote).bold().padding(.trailing, 5).foregroundColor(.white)
             Image(R.image.candy.name)
-            Text("1000").font(.footnote).bold().foregroundColor(.white)
+            Text(String(format: "%d", balance)).font(.footnote).bold().foregroundColor(.white)
         }
     }
 }
 
 #Preview {
-    BalanceRowView()
+    BalanceRowView(balance: 1000)
 }

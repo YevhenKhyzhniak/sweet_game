@@ -11,6 +11,17 @@ struct ShopView: View {
     
     @Injected(\.router) private var router
     
+    @State private var heartRate: Double = 0.0 {
+        willSet {
+            SweetGameLevelBusines.heartRate = newValue
+        }
+    }
+    @State private var candies: Int = 0 {
+        willSet {
+            SweetGameLevelBusines.candies = newValue
+        }
+    }
+    
     var body: some View {
         VStack {
             HStack(spacing: 10) {
@@ -35,6 +46,11 @@ struct ShopView: View {
             Spacer(minLength: 1)
         }
         .background(Image(R.image.app_background.name).scaleEffect(1.2))
+        .onAppear {
+            print(SweetGameLevelBusines.heartRate)
+            self.heartRate = SweetGameLevelBusines.heartRate
+            self.candies = SweetGameLevelBusines.candies
+        }
     }
     
     private func overlayContent() -> some View {
@@ -53,7 +69,7 @@ struct ShopView: View {
                 
                 VStack {
                     Group {
-                        Text("You have: ").font(.footnote).foregroundColor(.white) + Text(String(format: "%d%@", 75, "%")).font(.footnote).foregroundColor(.pink)
+                        Text("You have: ").font(.footnote).foregroundColor(.white) + Text(String(format: "%.f %@", heartRate, "%")).font(.footnote).foregroundColor(.pink)
                         Text("Price: ").font(.footnote).foregroundColor(.white) + Text("120 candy").font(.footnote).foregroundColor(.pink)
                     }
                     .frame(maxWidth: .infinity, alignment: .trailing)
@@ -63,7 +79,12 @@ struct ShopView: View {
             .padding(.top, 15)
             
             ButtonView(title: "BUY") {
-                //
+                if self.candies >= 120 {
+                    if self.heartRate <= 75 {
+                        self.heartRate += 25
+                        self.candies -= 120
+                    }
+                }
             }
             .scaleEffect(0.9)
         }
