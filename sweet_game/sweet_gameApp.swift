@@ -15,6 +15,7 @@ struct sweet_gameApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            //SweetBlissGame(level: .init(level: 1))
         }
     }
 }

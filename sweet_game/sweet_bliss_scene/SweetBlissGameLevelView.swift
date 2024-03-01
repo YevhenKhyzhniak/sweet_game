@@ -17,38 +17,35 @@ struct SweetBlissGameLevelView: View {
      ]
 
      var body: some View {
-         ZStack {
-             Image(R.image.app_background.name).resizable().scaledToFill()
-             VStack(spacing: 10) {
-                 HStack(spacing: 10) {
-                     BackButtonView() {
-                         self.router.presentFullScreen(.showMain)
-                     }
-                     Spacer(minLength: 1)
-                     TopView(title: "Levels")
-                         .padding(.trailing, 40)
-                     Spacer(minLength: 1)
+         VStack(spacing: 10) {
+             HStack(spacing: 10) {
+                 BackButtonView() {
+                     self.router.presentFullScreen(.showMain)
                  }
-                 
-                 ScrollView {
-                     LazyVGrid(columns: columns, spacing: 10) {
-                         ForEach(self.levelsMuttable, id: \.self) { data in
-                             LevelRow(data: data) {
-                                 switch data.unlocked {
-                                 case .unlocked, .finished:
-                                     self.router.presentFullScreen(.showSweetBlissGame(data))
-                                 default:
-                                     break
-                                 }
+                 Spacer(minLength: 1)
+                 TopView(title: "Levels")
+                     .padding(.trailing, 40)
+                 Spacer(minLength: 1)
+             }
+             .padding(.horizontal)
+             
+             ScrollView {
+                 LazyVGrid(columns: columns, spacing: 10) {
+                     ForEach(self.levelsMuttable, id: \.self) { data in
+                         LevelRow(data: data) {
+                             switch data.unlocked {
+                             case .unlocked, .finished:
+                                 self.router.presentFullScreen(.showSweetBlissGame(data))
+                             default:
+                                 break
                              }
                          }
                      }
                  }
              }
              .padding(.horizontal)
-             .padding(.top, 60)
          }
-         .ignoresSafeArea()
+         .background(Image(R.image.app_background.name).scaleEffect(1.2))
          
          .onAppear {
              self.onStart()
@@ -94,6 +91,8 @@ struct TopView: View {
     
     var body: some View {
         Image(R.image.balance_row.name)
+            .resizable()
+            .scaledToFit()
             .overlay(
                 self.overlayContent()
             )

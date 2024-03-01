@@ -28,6 +28,7 @@
 		0C9078772B90AF5200F316EA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9078762B90AF5200F316EA /* Router.swift */; };
 		0C927F9F2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift */; };
 		0C927FA32B90D40600AD261D /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927FA22B90D40600AD261D /* ShopView.swift */; };
+		0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927FA72B90DC6A00AD261D /* GameItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		0C9078762B90AF5200F316EA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0C927F9E2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetBlissGameLevelBusines.swift; sourceTree = "<group>"; };
 		0C927FA22B90D40600AD261D /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		0C927FA72B90DC6A00AD261D /* GameItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				0C90783B2B8FAFD700F316EA /* SweetBlissGame.swift */,
 				0C90786A2B90A43100F316EA /* SweetBlissGameLevel.swift */,
 				0C90786F2B90ACCD00F316EA /* BackButtonView.swift */,
+				0C927FA72B90DC6A00AD261D /* GameItems.swift */,
 			);
 			path = sweet_bliss_scene;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				0C90782E2B8FA73C00F316EA /* ContentView.swift in Sources */,
 				0C927FA32B90D40600AD261D /* ShopView.swift in Sources */,
 				0C927F9F2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift in Sources */,
+				0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */,
 				0C90785A2B9097B600F316EA /* MainView.swift in Sources */,
 				0C9078772B90AF5200F316EA /* Router.swift in Sources */,
 				0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */,

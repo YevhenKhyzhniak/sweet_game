@@ -12,8 +12,8 @@ struct MainView: View {
     @Injected(\.router) private var router
     
     var body: some View {
-        ZStack {
-            Image(R.image.app_background.name).resizable().scaledToFill()
+        //ZStack {
+            //Image(R.image.app_background.name)
             VStack(spacing: 1) {
                 
                 HStack {
@@ -26,7 +26,7 @@ struct MainView: View {
                     }.padding(.trailing)
                 }
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     
                     Spacer(minLength: 1)
                     
@@ -51,10 +51,10 @@ struct MainView: View {
                     self.router.presentFullScreen(.shopShop)
                 }
             }
-            .padding(.top, 60)
-            .padding(.bottom, 60)
-        }
-        .ignoresSafeArea()
+            .background(Image(R.image.app_background.name).scaleEffect(1.2))
+            .padding(.horizontal)
+        //}
+       // .ignoresSafeArea()
     }
 }
 

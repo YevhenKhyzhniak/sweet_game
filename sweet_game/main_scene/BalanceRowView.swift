@@ -11,6 +11,8 @@ struct BalanceRowView: View {
     
     var body: some View {
         Image(R.image.balance_row.name)
+            .resizable()
+            .scaledToFit()
             .overlay(
                 self.overlayContent()
             )

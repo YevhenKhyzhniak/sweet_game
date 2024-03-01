@@ -12,6 +12,10 @@ class SweetBlissGameLevelBusines {
     @Storage(key: "SweetBlissGameLevels", defaultValue: [])
     static var levels: [SweetBlissGameLevel]
     
+    
+    @Storage(key: "SweetBlissGameLevelsHeartRate", defaultValue: 100.0)
+    static var heartRate: Double
+    
     static func unlockNextLevel(current data: SweetBlissGameLevel) {
         if let index = Self.levels.firstIndex(where: {$0.level == data.level}) {
             guard Self.levels.count > index + 1 else { return }

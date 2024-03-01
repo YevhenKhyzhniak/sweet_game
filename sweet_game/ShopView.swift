@@ -12,34 +12,29 @@ struct ShopView: View {
     @Injected(\.router) private var router
     
     var body: some View {
-        ZStack {
-            Image(R.image.app_background.name).resizable().scaledToFill()
-            VStack {
-                HStack(spacing: 10) {
-                    BackButtonView() {
-                        self.router.presentFullScreen(.showMain)
-                    }
-                    Spacer(minLength: 1)
-                    TopView(title: "Shop")
-                        .padding(.trailing, 40)
-                    Spacer(minLength: 1)
+        VStack {
+            HStack(spacing: 10) {
+                BackButtonView() {
+                    self.router.presentFullScreen(.showMain)
                 }
-                .padding([.horizontal, .bottom])
-                
-                
-                Image(R.image.main_row.name)
-                    .resizable()
-                    .overlay(
-                        self.overlayContent()
-                    )
-                    .frame(width: UIScreen.main.bounds.width - 40, height: 150)
-                
+                Spacer(minLength: 1)
+                TopView(title: "Shop")
+                    .padding(.trailing, 40)
                 Spacer(minLength: 1)
             }
-            .padding(.top, 60)
-            .padding(.bottom, 60)
+            .padding([.horizontal, .bottom])
+            
+            
+            Image(R.image.main_row.name)
+                .resizable()
+                .overlay(
+                    self.overlayContent()
+                )
+                .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+            
+            Spacer(minLength: 1)
         }
-        .ignoresSafeArea()
+        .background(Image(R.image.app_background.name).scaleEffect(1.2))
     }
     
     private func overlayContent() -> some View {

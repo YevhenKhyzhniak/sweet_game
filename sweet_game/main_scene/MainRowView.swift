@@ -17,11 +17,9 @@ struct MainRowView: View {
             self.action()
         } label: {
             Image(R.image.main_row.name)
-                .resizable()
                 .overlay(
                     self.overlayContent()
                 )
-                .frame(width: UIScreen.main.bounds.width - 40, height: 150)
         }
     }
     

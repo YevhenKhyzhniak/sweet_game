@@ -17,6 +17,9 @@ struct BackButtonView: View {
             self.action()
         } label: {
             Image(R.image.left_arrow.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
         }
 
     }
