@@ -11,6 +11,7 @@ import Combine
 enum ViewSpec: Hashable {
     case showSweetBlissLevels
     case showSweetBlissGame(SweetBlissGameLevel)
+    case showSweetGameJoys
     case showMain
     case shopShop
 }
@@ -32,6 +33,8 @@ public class MainRouter: Router {
             SweetBlissGame(level: level)
         case .showSweetBlissLevels:
             SweetBlissGameLevelView()
+        case .showSweetGameJoys:
+            SweetGameJoysView()
         case .showMain:
             MainView()
         case .shopShop:

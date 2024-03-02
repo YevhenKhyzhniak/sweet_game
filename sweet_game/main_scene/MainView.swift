@@ -44,7 +44,7 @@ struct MainView: View {
                 .padding(.horizontal, 4)
                 
                 MainRowView(title: "joys") {
-                    
+                    self.router.presentFullScreen(.showSweetGameJoys)
                 }
                 .frame(height: 150)
                 .padding(.horizontal, 4)
