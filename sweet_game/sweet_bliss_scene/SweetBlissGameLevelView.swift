@@ -31,7 +31,7 @@ struct SweetBlissGameLevelView: View {
              }
              .padding(.horizontal)
              
-             ScrollView {
+             ScrollView(showsIndicators: false) {
                  LazyVGrid(columns: columns, spacing: 10) {
                      ForEach(self.levelsMuttable, id: \.self) { data in
                          LevelRow(data: data) {
@@ -59,7 +59,7 @@ struct SweetBlissGameLevelView: View {
          
          .simpleToast(isPresented: self.$showErrorToStart, options: .init(alignment: .center, dismissOnTap: false, edgesIgnoringSafeArea: .all)) {
              ErrorMessage {
-                 self.router.presentFullScreen(.shopShop)
+                 self.router.presentFullScreen(.showShop)
              }
              .padding()
          }

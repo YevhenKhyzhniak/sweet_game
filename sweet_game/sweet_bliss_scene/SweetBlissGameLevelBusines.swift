@@ -15,6 +15,9 @@ class SweetGameLevelBusines {
     @Storage(key: "SweetGame.Candies", defaultValue: 1000)
     static var candies: Int
     
+    @Storage(key: "SweetGame.Sound", defaultValue: true)
+    static var sound: Bool
+    
     
     @Storage(key: "SweetBlissGameLevelsHeartRate", defaultValue: 75.0)
     static var heartRate: Double

@@ -111,3 +111,45 @@ struct ErrorMessage: View {
         .background(Image(R.image.modal_window.name).resizable())
     }
 }
+
+struct SettingsView: View {
+    
+    @State private var sound: Bool = false {
+        willSet {
+            SweetGameLevelBusines.sound = newValue
+        }
+    }
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            
+            Image(R.image.sound_on.name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 30)
+                .opacity(self.sound ? 1.0 : 0.5)
+                .onTapGesture {
+                    self.sound.toggle()
+                }
+                .padding()
+            
+            ButtonView(title: "PRIVACY POLICY") {
+                ///
+            }
+            .frame(height: 50)
+            .padding(.horizontal, 20)
+            
+            ButtonView(title: "TERMS OF USE") {
+                ///
+            }
+            .frame(height: 50)
+            .padding(.horizontal, 20)
+            
+        }
+        .padding()
+        .background(Image(R.image.modal_window.name).resizable())
+        .onAppear {
+            self.sound = SweetGameLevelBusines.sound
+        }
+    }
+}

@@ -72,6 +72,7 @@ struct SweetGameJoysView: View {
                 break
             case .take:
                 self.candies += self.candiesDeposit
+                self.candiesDeposit = 1
                 self.retryState = .idle
                 self.generateItems()
             case .retry:
@@ -107,7 +108,7 @@ struct SweetGameJoysView: View {
             
             HStack {
                 Button {
-                    if self.candiesDeposit > 0 {
+                    if self.candiesDeposit > 1 {
                         self.candiesDeposit -= 1
                     }
                 } label: {
@@ -176,8 +177,11 @@ extension SweetGameJoysView {
                     self.candies -= self.candiesDeposit
                     self.retryState = .retry
                 }
+                self.candiesDeposit = 1
+                PlaySound.run3()
             } else {
                 self.candiesDeposit += self.candiesDeposit
+                PlaySound.run2()
             }
         }
     }

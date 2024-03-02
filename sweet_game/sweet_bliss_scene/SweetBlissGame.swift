@@ -89,7 +89,7 @@ struct SweetBlissGame: View {
                     .padding()
                 case .lose:
                     YouLoseView {
-                        self.router.presentFullScreen(.shopShop)
+                        self.router.presentFullScreen(.showShop)
                     } mainMenu: {
                         self.router.presentFullScreen(.showMain)
                     }
@@ -111,7 +111,7 @@ struct SweetBlissGame: View {
     @ViewBuilder
     private func contentView() -> some View {
         if self.onStart {
-            SweetBlissGameSpriteContentView(size: UIScreen.main.bounds.size)
+            SweetBlissGameSpriteContentView(size: UIScreen.main.bounds.size, level: Level(value: self.level.level))
                 .overlay(
                     VStack {
                         HStack {
@@ -242,6 +242,24 @@ extension SweetBlissGame {
                 self = .low
             }
         }
+        
+        func makeRandomItems() -> [GameItems] {
+            var result = GameItems.allCases
+            switch self {
+            case .low:
+                result.append(contentsOf: Array(repeating: .marshmallow, count: 6))
+                return result
+            case .normal:
+                result.append(contentsOf: Array(repeating: .marshmallow, count: 3))
+                result.append(contentsOf: Array(repeating: .chupachups, count: 3))
+                return result
+            case .hard:
+                result.append(contentsOf: Array(repeating: .marshmallow, count: 3))
+                result.append(contentsOf: Array(repeating: .chupachups, count: 3))
+                result.append(contentsOf: Array(repeating: .candyOne, count: 3))
+                return result
+            }
+        }
     }
     
     @ViewBuilder
@@ -322,9 +340,11 @@ extension SweetBlissGame {
 struct SweetBlissGameSpriteContentView: View {
     
     let size: CGSize
+    let level: SweetBlissGame.Level
     
     var scene: SKScene {
         let scene = SweetBlissGameSprite(size: size)
+        scene.level = self.level
         scene.scaleMode = .fill
         return scene
     }
@@ -371,6 +391,7 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
     
     var basket: SKSpriteNode!
     var gameItem: GameItems?
+    var level: SweetBlissGame.Level!
     
     override func didMove(to view: SKView) {
         self.onStart()
@@ -450,7 +471,7 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
     }
     
     func dropBall() {
-        self.gameItem = [GameItems.marshmallow, .chupachups].randomElement()!//.allCases.randomElement()!
+        self.gameItem = self.level.makeRandomItems().randomElement()!
         let topppi : CGFloat = frame.height - frame.height * 0.12
         let randomX = CGFloat.random(in: 0...UIScreen.main.bounds.width)
         let ball = SKSpriteNode(imageNamed: self.gameItem?.image ?? R.image.bomb.name)
@@ -491,13 +512,10 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
             self.dropBall()
         } else {
             if object.name == "basket" {
-                //soundaOff()
-                print("Catch The Object")
+                PlaySound.run()
                 if let item = self.gameItem {
                     SweetBlissGameControl.catchGameItem.send(item)
                 }
-            } else {
-                print("DONT Catch The Object")
             }
             destroy(ball)
             self.dropBall()

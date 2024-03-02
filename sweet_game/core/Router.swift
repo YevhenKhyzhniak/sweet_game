@@ -13,7 +13,7 @@ enum ViewSpec: Hashable {
     case showSweetBlissGame(SweetBlissGameLevel)
     case showSweetGameJoys
     case showMain
-    case shopShop
+    case showShop
 }
 
 extension ViewSpec: Identifiable {
@@ -37,7 +37,7 @@ public class MainRouter: Router {
             SweetGameJoysView()
         case .showMain:
             MainView()
-        case .shopShop:
+        case .showShop:
             ShopView()
         }
     }

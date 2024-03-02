@@ -13,7 +13,7 @@ struct LaunchView: View {
     @Injected(\.router) private var router
     
     var body: some View {
-        Image(R.image.app_background.name).resizable().scaledToFill()
+        Image(R.image.app_background.name).resizable().scaleEffect(1.2)
         .ignoresSafeArea()
         .overlay(
             Image(R.image.launch_logo.name).resizable().frame(width: 200, height: 200)
