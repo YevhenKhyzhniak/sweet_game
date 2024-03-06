@@ -45,6 +45,8 @@ struct LaunchView: View {
                     self.router.presentFullScreen(.showMain)
                 }
             }
+            
+            ATTracking.requestTracking()
         }
     }
 }

@@ -33,6 +33,7 @@
 		0C927F9F2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift */; };
 		0C927FA32B90D40600AD261D /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927FA22B90D40600AD261D /* ShopView.swift */; };
 		0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927FA72B90DC6A00AD261D /* GameItems.swift */; };
+		0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		0C927F9E2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetBlissGameLevelBusines.swift; sourceTree = "<group>"; };
 		0C927FA22B90D40600AD261D /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
 		0C927FA72B90DC6A00AD261D /* GameItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItems.swift; sourceTree = "<group>"; };
+		0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTracking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				0C90786D2B90A77F00F316EA /* Storage.swift */,
 				0C9078762B90AF5200F316EA /* Router.swift */,
 				0C69E4B92B9254ED00D671FA /* SimpleToast.swift */,
+				0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				0C90786B2B90A43100F316EA /* SweetBlissGameLevel.swift in Sources */,
 				0C69E4C42B9308AC00D671FA /* PlaySound.swift in Sources */,
 				0C90783C2B8FAFD700F316EA /* SweetBlissGame.swift in Sources */,
+				0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */,
 				0C90782C2B8FA73C00F316EA /* sweet_gameApp.swift in Sources */,
 				0C9078622B909F1B00F316EA /* SettingsButtonView.swift in Sources */,
 				0C69E4C12B92EDFA00D671FA /* SweetGameJoysView.swift in Sources */,
@@ -346,6 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -401,6 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -421,6 +427,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Game";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Use device id tracking technology to provide personalized ads for you. The collected data will not be associated with you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -429,8 +437,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -460,6 +468,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Game";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Use device id tracking technology to provide personalized ads for you. The collected data will not be associated with you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -468,8 +478,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
