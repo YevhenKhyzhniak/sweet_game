@@ -21,6 +21,9 @@ struct ContentView: View {
     
     var body: some View {
         self.contentView()
+            .onAppear {
+                self.appState.onCheckAppState()
+            }
             .onReceive(self.appState.state) { state in
                 debugPrint("App State Receive - \(state.self)")
                 self.state = state
@@ -31,17 +34,15 @@ struct ContentView: View {
     private func contentView() -> some View {
         switch self.state {
         case .idle:
-            LaunchView() {
-                self.appState.onCheckAppState()
-            }
+            LaunchView() {}
         case .game:
             RouterView(router: self.router) {
                 LaunchView() {
                     self.router.presentFullScreen(.showMain)
                 }
             }
-        case .web(let url): // тут не понятно де ту урлу юзать, поки залишив так
-            WebView(webViewLogic: .init(appID: "1111", initialUrlConst: self.initURLConst))
+        case .web(let url):
+            WebView(webViewLogic: .init(url: url))
         }
     }
     

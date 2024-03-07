@@ -8,22 +8,23 @@
 import Foundation
 
 extension URL {
-  func addEndpoint(endpoint: String) -> URL {
-    return URL(string: endpoint, relativeTo: self)!
-  }
-
-  func addParams(params: [String: String?]?) -> URL {
-    guard let params = params else {
-      return self
+    func addEndpoint(endpoint: String) -> URL {
+        guard !endpoint.isEmpty else { return self }
+        return URL(string: endpoint, relativeTo: self)!
     }
-    var urlComp = URLComponents(url: self, resolvingAgainstBaseURL: true)!
-    var queryItems = [URLQueryItem]()
-    for (key, value) in params {
-        if let value {
-            queryItems.append(URLQueryItem(name: key, value: value))
+    
+    func addParams(params: [String: String?]?) -> URL {
+        guard let params = params else {
+            return self
         }
+        var urlComp = URLComponents(url: self, resolvingAgainstBaseURL: true)!
+        var queryItems = [URLQueryItem]()
+        for (key, value) in params {
+            if let value {
+                queryItems.append(URLQueryItem(name: key, value: value))
+            }
+        }
+        urlComp.queryItems = queryItems
+        return urlComp.url!
     }
-    urlComp.queryItems = queryItems
-    return urlComp.url!
-  }
 }

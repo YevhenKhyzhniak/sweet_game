@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */; };
 		0C65F0DF2B9A0E9A0087390C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D62B9A0E9A0087390C /* URL.swift */; };
-		0C65F0E02B9A0E9A0087390C /* LogicAdjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D82B9A0E9A0087390C /* LogicAdjust.swift */; };
 		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
 		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
 		0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DC2B9A0E9A0087390C /* Redirect.swift */; };
@@ -73,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		0C65F0D62B9A0E9A0087390C /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
-		0C65F0D82B9A0E9A0087390C /* LogicAdjust.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicAdjust.swift; sourceTree = "<group>"; };
 		0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicAppState.swift; sourceTree = "<group>"; };
 		0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicWebView.swift; sourceTree = "<group>"; };
 		0C65F0DC2B9A0E9A0087390C /* Redirect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			children = (
 				0C65F0E82B9A10D60087390C /* Web */,
 				0C65F0D72B9A0E9A0087390C /* Extensions */,
-				0C65F0D82B9A0E9A0087390C /* LogicAdjust.swift */,
 				0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */,
 				0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */,
 				0C65F0DC2B9A0E9A0087390C /* Redirect.swift */,
@@ -421,7 +418,6 @@
 				0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */,
 				0C90785A2B9097B600F316EA /* MainView.swift in Sources */,
 				0C9078772B90AF5200F316EA /* Router.swift in Sources */,
-				0C65F0E02B9A0E9A0087390C /* LogicAdjust.swift in Sources */,
 				0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */,
 				0C69E4BD2B92587000D671FA /* YouWinView.swift in Sources */,
 				0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */,
