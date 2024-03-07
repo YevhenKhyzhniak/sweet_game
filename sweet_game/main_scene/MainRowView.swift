@@ -16,7 +16,7 @@ struct MainRowView: View {
         Button {
             self.action()
         } label: {
-            Image(R.image.main_row.name)
+            Image("main_row")
                 .resizable()
                 .overlay(
                     self.overlayContent()
@@ -28,7 +28,7 @@ struct MainRowView: View {
         VStack(spacing: 10) {
             HStack {
                 Text("Play").foregroundColor(.white)
-                Image(R.image.right_arrow_alt.name)
+                Image("right_arrow_alt")
                 Spacer(minLength: 1)
             }
             .padding(.top, 15)

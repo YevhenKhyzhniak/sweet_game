@@ -36,7 +36,7 @@ struct ShopView: View {
             .padding([.horizontal, .bottom])
             
             
-            Image(R.image.main_row.name)
+            Image("main_row")
                 .resizable()
                 .overlay(
                     self.overlayContent()
@@ -45,7 +45,7 @@ struct ShopView: View {
             
             Spacer(minLength: 1)
         }
-        .background(Image(R.image.app_background.name).scaleEffect(1.2))
+        .background(Image("app_background").scaleEffect(1.2))
         .onAppear {
             print(SweetGameLevelBusines.heartRate)
             self.heartRate = SweetGameLevelBusines.heartRate
@@ -56,7 +56,7 @@ struct ShopView: View {
     private func overlayContent() -> some View {
         VStack(spacing: 10) {
             HStack {
-                Image(R.image.heart.name)
+                Image("heart")
                 VStack {
                     Group {
                         Text("Extra life").foregroundColor(.white)

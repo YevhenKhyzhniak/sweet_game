@@ -15,7 +15,7 @@ struct SettingsButtonView: View {
         Button {
             self.action()
         } label: {
-            Image(R.image.settings_button.name)
+            Image("settings_button")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 40, height: 40)
@@ -32,7 +32,7 @@ struct PauseButtonView: View {
         Button {
             self.action()
         } label: {
-            Image(R.image.pause_button.name)
+            Image("pause_button")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 40, height: 40)

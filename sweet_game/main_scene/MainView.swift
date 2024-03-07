@@ -30,7 +30,7 @@ struct MainView: View {
                 
                 Spacer(minLength: 1)
                 
-                Image(R.image.launch_logo.name)
+                Image("launch_logo")
                     .resizable()
                     .scaledToFit()
                     .frame(height: UIScreen.main.bounds.height / 4)
@@ -60,7 +60,7 @@ struct MainView: View {
             .padding(.bottom, 8)
             .disabled(self.showSettings)
         }
-        .background(Image(R.image.app_background.name).scaleEffect(1.2))
+        .background(Image("app_background").scaleEffect(1.2))
         .padding(.horizontal)
         .blur(radius: self.showSettings ? 5.0 : 0.0)
         .onTapGesture {

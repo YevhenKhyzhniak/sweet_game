@@ -51,7 +51,7 @@ struct SweetBlissGameLevelView: View {
              }
              .padding(.horizontal)
          }
-         .background(Image(R.image.app_background.name).scaleEffect(1.2))
+         .background(Image("app_background").scaleEffect(1.2))
          
          .onAppear {
              self.onStart()
@@ -91,9 +91,9 @@ struct LevelRow: View {
     private func imageView() -> some View {
         switch self.data.unlocked {
         case .unlocked, .finished:
-            Image(R.image.level_row_locked.name).resizable().scaledToFit().frame(width: 70, height: 70)
+            Image("level_row_locked").resizable().scaledToFit().frame(width: 70, height: 70)
         default:
-            Image(R.image.level_row_unlocked.name).resizable().scaledToFit().frame(width: 70, height: 70)
+            Image("level_row_unlocked").resizable().scaledToFit().frame(width: 70, height: 70)
         }
     }
 }
@@ -103,7 +103,7 @@ struct TopView: View {
     let title: String
     
     var body: some View {
-        Image(R.image.balance_row.name)
+        Image("balance_row")
             .resizable()
             .scaledToFit()
             .overlay(

@@ -23,27 +23,27 @@ enum GameItems: String, CaseIterable, Hashable {
     var image: String {
         switch self {
         case .bomb:
-            return R.image.bomb.name
+            return "bomb"
         case .cake:
-            return R.image.cake.name
+            return "cake"
         case .candyOne:
-            return R.image.candy_one.name
+            return "candy_one"
         case .candyTwo:
-            return R.image.candy_two.name
+            return "candy_two"
         case .candyTree:
-            return R.image.candy_three.name
+            return "candy_three"
         case .chocolate:
-            return R.image.chocolate.name
+            return "chocolate"
         case .cookie:
-            return R.image.cookie.name
+            return "cookie"
         case .donut:
-            return R.image.donut.name
+            return "donut"
         case .marshmallow:
-            return R.image.marshmallow.name
+            return "marshmallow"
         case .сaterpillar:
-            return R.image.сaterpillar.name
+            return "сaterpillar"
         case .chupachups:
-            return R.image.chupachups.name
+            return "chupachups"
         }
     }
 }

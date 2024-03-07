@@ -46,7 +46,7 @@ struct SweetGameJoysView: View {
             self.makeBottomTakeButtonView()
             
         }
-        .background(Image(R.image.app_background.name).scaleEffect(1.2))
+        .background(Image("app_background").scaleEffect(1.2))
         .padding(.horizontal)
         .onAppear {
             self.candies = SweetGameLevelBusines.candies
@@ -87,13 +87,13 @@ struct SweetGameJoysView: View {
     
     @ViewBuilder
     private func gameRow(_ item: GameItem) -> some View {
-        Image(item.isOpened ? R.image.level_row_unlocked.name : R.image.level_row_locked.name )
+        Image(item.isOpened ? "level_row_unlocked" : "level_row_locked" )
             .resizable()
             .scaledToFit()
             .frame(width: 40, height: 40)
             .overlay(
                 ZStack {
-                    Image(R.image.bomb.name).resizable().scaledToFit().opacity(item.isBomb ? 1.0 : 0.0)
+                    Image("bomb").resizable().scaledToFit().opacity(item.isBomb ? 1.0 : 0.0)
                     Circle().frame(width: 10, height: 10).foregroundColor(.white).opacity(item.isBomb ? 0.0 : 1.0)
                 }
                     .opacity(item.isOpened ? 1.0 : 0.0)
@@ -112,18 +112,18 @@ struct SweetGameJoysView: View {
                         self.candiesDeposit -= 1
                     }
                 } label: {
-                    Image(R.image.left_arrow.name)
+                    Image("left_arrow")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 30, height: 30)
                 }
                 
-                Image(R.image.balance_row.name)
+                Image("balance_row")
                     .resizable()
                     .scaledToFit()
                     .overlay(
                         HStack {
-                            Image(R.image.candy.name)
+                            Image("candy")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 20, height: 20)
@@ -139,7 +139,7 @@ struct SweetGameJoysView: View {
                         self.candiesDeposit += 1
                     }
                 } label: {
-                    Image(R.image.right_arrow.name)
+                    Image("right_arrow")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 30, height: 30)
@@ -148,7 +148,7 @@ struct SweetGameJoysView: View {
         }
         .padding()
         .background(
-            Image(R.image.main_row.name)
+            Image("main_row")
                 .resizable()
         )
     }

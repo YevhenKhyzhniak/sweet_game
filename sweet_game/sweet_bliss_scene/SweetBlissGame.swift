@@ -136,12 +136,12 @@ struct SweetBlissGame: View {
                 .blur(radius: self.gameResult != nil ? 1.0 : 0.0)
                 .disabled(self.gameResult != nil)
         } else {
-            Image(R.image.app_background.name)
+            Image("app_background")
                 .resizable()
                 .ignoresSafeArea()
                 .overlay(HStack {
                     Text("Click to the game").foregroundColor(.white)
-                    Image(R.image.click_to_the_game.name)
+                    Image("click_to_the_game")
                 }.padding())
                 .containerShape(Rectangle())
                 .onTapGesture {
@@ -153,7 +153,7 @@ struct SweetBlissGame: View {
     }
     
     private func basketView() -> some View {
-        Image(R.image.bliss_game_busket.name)
+        Image("bliss_game_busket")
     }
     
     private func controlBasketButtonsView() -> some View {
@@ -166,8 +166,8 @@ struct SweetBlissGame: View {
     
     private func heartRateView() -> some View {
         HStack(spacing: 0) {
-            Image(R.image.heart.name).resizable().frame(width: 30, height: 30)
-            Image(R.image.heart_rate.name)
+            Image("heart").resizable().frame(width: 30, height: 30)
+            Image("heart_rate")
                 .resizable()
                 .overlay(
                     ProgressView(value: heartRate, total: 100.0)
@@ -186,7 +186,7 @@ struct SweetBlissGame: View {
                 SweetBlissGameControl.moveTo.send(.leading)
             }
         }, label: {
-            Image(R.image.left_arrow.name)
+            Image("left_arrow")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 64, height: 64)
@@ -200,7 +200,7 @@ struct SweetBlissGame: View {
                 SweetBlissGameControl.moveTo.send(.trailing)
             }
         }, label: {
-            Image(R.image.right_arrow.name)
+            Image("right_arrow")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 64, height: 64)
@@ -209,7 +209,7 @@ struct SweetBlissGame: View {
     }
     
     private func betTopView() -> some View {
-        Image(R.image.bet_top.name)
+        Image("bet_top")
             .resizable()
             .frame(height: 65)
             .overlay(
@@ -267,26 +267,26 @@ extension SweetBlissGame {
         switch Level(value: self.level.level) {
         case .low:
             HStack {
-                Image(R.image.marshmallow.name).resizable().scaledToFit().frame(width: 30, height: 30)
+                Image("marshmallow").resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .marshmallow}.count, 10)).font(.caption2).foregroundColor(.white)
             }
         case .normal:
             HStack {
-                Image(R.image.marshmallow.name).resizable().scaledToFit().frame(width: 30, height: 30)
+                Image("marshmallow").resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .marshmallow}.count, 10)).font(.caption2).foregroundColor(.white)
                 
-                Image(R.image.chupachups.name).resizable().scaledToFit()
+                Image("chupachups").resizable().scaledToFit()
                 Text(String(format: "%d/%d", self.items.filter{$0 == .chupachups}.count, 10)).font(.caption2).foregroundColor(.white)
             }
         case .hard:
             HStack {
-                Image(R.image.marshmallow.name).resizable().scaledToFit().frame(width: 30, height: 30)
+                Image("marshmallow").resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .marshmallow}.count, 10)).font(.caption2).foregroundColor(.white)
                 
-                Image(R.image.chupachups.name).resizable().scaledToFit().frame(width: 30, height: 30)
+                Image("chupachups").resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .chupachups}.count, 10)).font(.caption2).foregroundColor(.white)
                 
-                Image(R.image.candy_one.name).resizable().scaledToFit().frame(width: 30, height: 30)
+                Image("candy_one").resizable().scaledToFit().frame(width: 30, height: 30)
                 Text(String(format: "%d/%d", self.items.filter{$0 == .candyOne}.count, 10)).font(.caption2).foregroundColor(.white)
             }
         }
@@ -427,7 +427,7 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.name = "backLines"
         
-        let background = SKSpriteNode(imageNamed: R.image.app_background.name)
+        let background = SKSpriteNode(imageNamed: "app_background")
         background.position = CGPoint(x: frame.width/2, y: frame.height/2)
         background.size = CGSize(width: frame.width, height: frame.height)
         background.blendMode = .replace
@@ -449,14 +449,14 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
     
     func createBasket() {
         
-        let background = SKSpriteNode(imageNamed: R.image.backing.name)
+        let background = SKSpriteNode(imageNamed: "backing")
         background.position = CGPoint(x: frame.width/2, y: 0)
         background.size = CGSize(width: frame.width - 50, height: frame.height / 3)
         background.blendMode = .alpha
         background.zPosition = -8
         addChild(background)
         
-        basket = SKSpriteNode(imageNamed: R.image.bliss_game_busket.name)
+        basket = SKSpriteNode(imageNamed: "bliss_game_busket")
         basket.position =  CGPoint(x: UIScreen.main.bounds.width / 2, y: 100)
         basket.size = CGSize(width: UIScreen.main.bounds.width / 3 , height: 80)
         basket.physicsBody = SKPhysicsBody(rectangleOf: basket.size)
@@ -474,7 +474,7 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
         self.gameItem = self.level.makeRandomItems().randomElement()!
         let topppi : CGFloat = frame.height - frame.height * 0.12
         let randomX = CGFloat.random(in: 0...UIScreen.main.bounds.width)
-        let ball = SKSpriteNode(imageNamed: self.gameItem?.image ?? R.image.bomb.name)
+        let ball = SKSpriteNode(imageNamed: self.gameItem?.image ?? "bomb")
         ball.position = CGPoint(x: randomX, y: topppi)
         ball.size = CGSize(width: 50, height: 50)
         addChild(ball)

@@ -23,7 +23,7 @@ struct ButtonView: View {
         Button {
             self.action()
         } label: {
-            Image(self.isActive ? R.image.shop_button.name : R.image.inactive_button.name)
+            Image(self.isActive ? "shop_button" : "inactive_button")
                 .resizable()
                 .overlay(
                     self.overlayContent()

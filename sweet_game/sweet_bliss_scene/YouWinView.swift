@@ -14,7 +14,7 @@ struct YouWinView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Image(R.image.you_win.name)
+            Image("you_win")
                 .padding()
             
             ButtonView(title: "NEXT LEVEL") {
@@ -30,7 +30,7 @@ struct YouWinView: View {
             .padding(.horizontal, 20)
         }
         .padding()
-        .background(Image(R.image.modal_window.name).resizable())
+        .background(Image("modal_window").resizable())
     }
 }
 
@@ -41,7 +41,7 @@ struct YouLoseView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Image(R.image.you_lose.name)
+            Image("you_lose")
                 .padding()
             
             ButtonView(title: "SHOP") {
@@ -57,7 +57,7 @@ struct YouLoseView: View {
             .padding(.horizontal, 20)
         }
         .padding()
-        .background(Image(R.image.modal_window.name).resizable())
+        .background(Image("modal_window").resizable())
     }
 }
 
@@ -84,7 +84,7 @@ struct PauseView: View {
             .padding(.horizontal, 20)
         }
         .padding()
-        .background(Image(R.image.modal_window.name).resizable())
+        .background(Image("modal_window").resizable())
     }
 }
 
@@ -108,7 +108,7 @@ struct ErrorMessage: View {
             
         }
         .padding()
-        .background(Image(R.image.modal_window.name).resizable())
+        .background(Image("modal_window").resizable())
     }
 }
 
@@ -123,7 +123,7 @@ struct SettingsView: View {
     var body: some View {
         VStack(spacing: 20) {
             
-            Image(R.image.sound_on.name)
+            Image("sound_on")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30, height: 30)
@@ -155,7 +155,7 @@ struct SettingsView: View {
             
         }
         .padding()
-        .background(Image(R.image.modal_window.name).resizable())
+        .background(Image("modal_window").resizable())
         .onAppear {
             self.sound = SweetGameLevelBusines.sound
         }

@@ -12,7 +12,7 @@ struct BalanceRowView: View {
     let balance: Int
     
     var body: some View {
-        Image(R.image.balance_row.name)
+        Image("balance_row")
             .resizable()
             .scaledToFit()
             .overlay(
@@ -23,7 +23,7 @@ struct BalanceRowView: View {
     private func overlayContent() -> some View {
         HStack {
             Text("Balance:").font(.footnote).bold().padding(.trailing, 5).foregroundColor(.white)
-            Image(R.image.candy.name)
+            Image("candy")
             Text(String(format: "%d", balance)).font(.footnote).bold().foregroundColor(.white)
         }
     }
