@@ -134,13 +134,21 @@ struct SettingsView: View {
                 .padding()
             
             ButtonView(title: "PRIVACY POLICY") {
-                ///
+                if let url = URL(string: "https://www.sweet1bonanaza-bliss.live/topolicyapp.html") {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                }
             }
             .frame(height: 50)
             .padding(.horizontal, 20)
             
             ButtonView(title: "TERMS OF USE") {
-                ///
+                if let url = URL(string: "https://www.sweet1bonanaza-bliss.live/thetermss.html") {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url)
+                    }
+                }
             }
             .frame(height: 50)
             .padding(.horizontal, 20)
