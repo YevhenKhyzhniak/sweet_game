@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import NavigationBackport
 
 enum ViewSpec: Hashable {
     case showSweetBlissLevels
@@ -153,10 +154,10 @@ public struct RouterView<Container>: View where Container: View {
     private let initial: () -> Container
     
     public var body: some View {
-        NavigationStack(path: router.navigationPath) {
+        NBNavigationStack(path: router.navigationPath) {
             self.initial()
                 .navigationBarHidden(true)
-                .navigationDestination(for: ViewSpec.self) { spec in
+                .nbNavigationDestination(for: ViewSpec.self) { spec in
                     router.view(spec: spec, route: .navigation)
                 }
                 .sheet(item: router.presentingSheet) { spec in

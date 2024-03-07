@@ -1,0 +1,24 @@
+{
+  "originHash" : "d3d949f0309d1305d3358e7c6233a8cea1388aec794335f925e9666b27ca0842",
+  "pins" : [
+    {
+      "identity" : "appsflyerframework-dynamic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Dynamic",
+      "state" : {
+        "revision" : "001c2f56db9710a64aba8b15c8693110dde3c8eb",
+        "version" : "6.13.1"
+      }
+    },
+    {
+      "identity" : "navigationbackport",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnpatrickmorgan/NavigationBackport.git",
+      "state" : {
+        "revision" : "b002991691b54fd7b952e1e780de252620f8ac77",
+        "version" : "0.9.1"
+      }
+    }
+  ],
+  "version" : 3
+}

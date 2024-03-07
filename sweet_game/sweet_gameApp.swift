@@ -15,7 +15,9 @@ struct sweet_gameApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            //SweetBlissGame(level: .init(level: 1))
+                .onOpenURL(perform: { url in
+                    ATTracking.shared.openURL(url)
+                })
         }
     }
 }
@@ -30,6 +32,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         
         self.context = AppContext(router: MainRouter.init(isPresented: .constant(.showMain)))
+        _ = ATTracking.shared
+        
+        //OneSignal.initialize("fe9403a1-d55f-46c2-80f9-3d8914b34860", withLaunchOptions: launchOptions)
         
         return true
     }

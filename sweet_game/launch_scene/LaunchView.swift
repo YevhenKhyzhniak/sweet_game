@@ -11,6 +11,11 @@ struct LaunchView: View {
     
     @State private var progressValue = 0.0
     @Injected(\.router) private var router
+    private let action: () -> Void
+    
+    init(action: @escaping () -> Void) {
+        self.action = action
+    }
     
     var body: some View {
         Image("app_background").resizable().scaleEffect(1.2)
@@ -42,11 +47,9 @@ struct LaunchView: View {
                     
                 } else {
                     timer.invalidate()
-                    self.router.presentFullScreen(.showMain)
+                    self.action()
                 }
             }
-            
-            ATTracking.requestTracking()
         }
     }
 }
