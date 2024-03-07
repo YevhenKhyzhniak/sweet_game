@@ -17,6 +17,10 @@
 		0C65F0F62B9A1B850087390C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0F52B9A1B850087390C /* NotificationService.swift */; };
 		0C65F0FA2B9A1B850087390C /* sweet_game_notification_center.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0C65F1012B9A1BC70087390C /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1002B9A1BC70087390C /* NavigationBackport */; };
+		0C65F10D2B9A5E130087390C /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F10C2B9A5E130087390C /* OneSignalExtension */; };
+		0C65F10F2B9A5E130087390C /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F10E2B9A5E130087390C /* OneSignalFramework */; };
+		0C65F1112B9A5E130087390C /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1102B9A5E130087390C /* OneSignalInAppMessages */; };
+		0C65F1132B9A5E130087390C /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1122B9A5E130087390C /* OneSignalLocation */; };
 		0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4B92B9254ED00D671FA /* SimpleToast.swift */; };
 		0C69E4BD2B92587000D671FA /* YouWinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4BC2B92587000D671FA /* YouWinView.swift */; };
 		0C69E4C12B92EDFA00D671FA /* SweetGameJoysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4C02B92EDFA00D671FA /* SweetGameJoysView.swift */; };
@@ -119,7 +123,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C65F1112B9A5E130087390C /* OneSignalInAppMessages in Frameworks */,
+				0C65F10F2B9A5E130087390C /* OneSignalFramework in Frameworks */,
 				0C65F1012B9A1BC70087390C /* NavigationBackport in Frameworks */,
+				0C65F10D2B9A5E130087390C /* OneSignalExtension in Frameworks */,
+				0C65F1132B9A5E130087390C /* OneSignalLocation in Frameworks */,
 				0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +319,10 @@
 			packageProductDependencies = (
 				0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */,
 				0C65F1002B9A1BC70087390C /* NavigationBackport */,
+				0C65F10C2B9A5E130087390C /* OneSignalExtension */,
+				0C65F10E2B9A5E130087390C /* OneSignalFramework */,
+				0C65F1102B9A5E130087390C /* OneSignalInAppMessages */,
+				0C65F1122B9A5E130087390C /* OneSignalLocation */,
 			);
 			productName = sweet_game;
 			productReference = 0C9078282B8FA73C00F316EA /* sweet_game.app */;
@@ -346,6 +358,7 @@
 			packageReferences = (
 				0C65F0D22B9A08DC0087390C /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Dynamic" */,
 				0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */,
+				0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 			);
 			productRefGroup = 0C9078292B8FA73C00F316EA /* Products */;
 			projectDirPath = "";
@@ -742,6 +755,14 @@
 				minimumVersion = 0.9.1;
 			};
 		};
+		0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -754,6 +775,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */;
 			productName = NavigationBackport;
+		};
+		0C65F10C2B9A5E130087390C /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalExtension;
+		};
+		0C65F10E2B9A5E130087390C /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+		0C65F1102B9A5E130087390C /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalInAppMessages;
+		};
+		0C65F1122B9A5E130087390C /* OneSignalLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalLocation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

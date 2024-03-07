@@ -45,12 +45,12 @@ public class AppStateLogic {
             // 1 step
             try await ATTracking.shared.requestTracking(2.0)
             // 2 step
-            OneSignal.requestNotifications()
+            OneSignalService.requestNotifications()
             try await Task.sleep(nanoseconds: 2_000_000_000)
             
             // 3 step
             let trackingID = ATTracking.shared.getTrackingIdentifier()
-            let oneSignalID = OneSignal.getIdentifier()
+            let oneSignalID = OneSignalService.getIdentifier()
             let appsFlyerID = ATTracking.shared.appsFlyerCampaign
             
             let enrichedUrl = await self.makeEnrichedURL(initialURL, appleTrackingID: trackingID, oneSignalID: oneSignalID, appsFlyerID: appsFlyerID)

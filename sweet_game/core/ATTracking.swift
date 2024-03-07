@@ -9,6 +9,7 @@ import Foundation
 import AppTrackingTransparency
 import AppsFlyerLib
 import AdSupport
+import OneSignalFramework
 
 final class ATTracking: NSObject {
     
@@ -47,6 +48,10 @@ final class ATTracking: NSObject {
         return emptyTemplate == id ? nil : id
     }
     
+    func initOneSignal(_ options: [UIApplication.LaunchOptionsKey: Any]?) {
+        OneSignal.initialize("1111", withLaunchOptions: options)
+    }
+    
 }
 
 extension ATTracking: AppsFlyerLibDelegate {
@@ -71,32 +76,15 @@ extension ATTracking: AppsFlyerLibDelegate {
     
 }
 
-final class OneSignal {
+final class OneSignalService {
     
     class func getIdentifier() -> String? {
         return nil
     }
     
     class func requestNotifications() {
-        
+        OneSignal.Notifications.requestPermission({ accepted in
+          debugPrint("User accepted notifications: \(accepted)")
+        }, fallbackToSettings: true)
     }
 }
-
-//class WorkWithSub {
-//    
-//    static func saveNaming(str: String){ // hdjsk_jcksdl_jckds
-//        let arr = str.components(separatedBy: "_")
-//        var finalStr = ""
-//        for i in 0..<arr.count{
-//            if i == 0{
-//                finalStr.append("?sub\(i+1)=\(arr[i])")
-//            } else {
-//                finalStr.append("&sub\(i+1)=\(arr[i])")
-//            }
-//        }
-//        if UserDefaults.standard.object(forKey: "firstEntry") == nil {
-//            UserDefaults.standard.set(true, forKey: "firstEntry")
-//            UserDefaults.standard.setValue(finalStr, forKey: "savedSub")
-//        }
-//    }
-//}

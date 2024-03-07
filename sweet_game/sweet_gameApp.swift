@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OneSignalFramework
 
 @main
 struct sweet_gameApp: App {
@@ -33,10 +34,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         
         self.context = AppContext(router: MainRouter.init(isPresented: .constant(.showMain)))
-        _ = ATTracking.shared
-        
-        //OneSignal.initialize("fe9403a1-d55f-46c2-80f9-3d8914b34860", withLaunchOptions: launchOptions)
-        
+        ATTracking.shared.initOneSignal(launchOptions)
         return true
     }
     

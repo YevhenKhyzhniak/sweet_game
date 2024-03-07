@@ -1,5 +1,5 @@
 {
-  "originHash" : "d3d949f0309d1305d3358e7c6233a8cea1388aec794335f925e9666b27ca0842",
+  "originHash" : "94f51a32dbcf0f7234b3e2a1727c01c786b6b815a0cedad8e6c0763fcc0647db",
   "pins" : [
     {
       "identity" : "appsflyerframework-dynamic",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "b002991691b54fd7b952e1e780de252620f8ac77",
         "version" : "0.9.1"
+      }
+    },
+    {
+      "identity" : "onesignal-xcframework",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OneSignal/OneSignal-XCFramework.git",
+      "state" : {
+        "revision" : "68685956124c710cdc9112bc696ad30e2f58538b",
+        "version" : "5.1.3"
       }
     }
   ],
