@@ -14,7 +14,7 @@ final class ATTracking: NSObject {
     
     static let shared = ATTracking()
     
-    @Storage(key: "ATTracking.appsFlyerCampaign", defaultValue: "hdjsk_jcksdl_jckds")
+    @Storage(key: "ATTracking.appsFlyerCampaign", defaultValue: "")
     private (set) var appsFlyerCampaign: String
     
     private override init() {
@@ -74,7 +74,7 @@ extension ATTracking: AppsFlyerLibDelegate {
 final class OneSignal {
     
     class func getIdentifier() -> String? {
-        return "688768"
+        return nil
     }
     
     class func requestNotifications() {

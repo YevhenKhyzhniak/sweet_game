@@ -13,8 +13,7 @@ struct WebRepresentable: UIViewControllerRepresentable {
     var onReceiveURL: (URL) -> Void
     
     func makeUIViewController(context: Context) -> some UIViewController {
-        let storyboard = UIStoryboard(name: "WebView", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(identifier: "webStoryboard") as! WebVC
+        let controller = WebVC()
         controller.request = request
         controller.onReceiveURL = { url in
             self.onReceiveURL(url)

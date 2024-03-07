@@ -25,6 +25,7 @@ struct sweet_gameApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     var context: AppContext?
+    static var orientationLock = UIInterfaceOrientationMask.portrait
     
     func application(
         _ application: UIApplication,
@@ -37,5 +38,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         //OneSignal.initialize("fe9403a1-d55f-46c2-80f9-3d8914b34860", withLaunchOptions: launchOptions)
         
         return true
+    }
+    
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return AppDelegate.orientationLock
     }
 }

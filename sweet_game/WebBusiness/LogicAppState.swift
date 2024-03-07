@@ -49,7 +49,7 @@ public class AppStateLogic {
             try await Task.sleep(nanoseconds: 2_000_000_000)
             
             // 3 step
-            let trackingID = ATTracking.shared.getTrackingIdentifier() ?? "hdjsk_jcksdl_jckds"
+            let trackingID = ATTracking.shared.getTrackingIdentifier()
             let oneSignalID = OneSignal.getIdentifier()
             let appsFlyerID = ATTracking.shared.appsFlyerCampaign
             
@@ -63,7 +63,7 @@ public class AppStateLogic {
                 
                 debugPrint(enrichedUrl, redirectURL)
                 
-                result = enrichedUrl != redirectURL ? .web(redirectURL) : .game
+                result = enrichedUrl == redirectURL ? .web(redirectURL) : .game
             } catch {
                 result = .game
             }
@@ -83,22 +83,43 @@ public class AppStateLogic {
         appsFlyerID: String
     ) async -> URL {
         
-        var result: URL = initial
+        var params = [
+            "sub7": appleTrackingID ?? "",
+            "sub15": oneSignalID ?? ""
+        ]
         
-        let endpoint = self.makeEndpointFromAppsFlyer(appsFlyerID)
+        let appsFlyerParams = self.makeParamsFromAppsFlyer(appsFlyerID)
+        params = params.merging(appsFlyerParams, uniquingKeysWith: { (first, _) in first })
         
-        return result
-            .addEndpoint(endpoint: endpoint)
-            .addParams(params: ["sub7": appleTrackingID])
-            .addParams(params: ["sub15": oneSignalID])
+        return initial.addParams(params: params)
     }
     
-    private func makeEndpointFromAppsFlyer(_ id: String) -> String {
+    private func makeParamsFromAppsFlyer(_ id: String) -> [String: String] {
         let arr = id.split(separator: "_")
-        let finalStr = arr.enumerated().map { (index, element) in
-            return "\(index == 0 ? "?" : "&")sub\(index + 1)=\(element)"
-        }.joined()
-        return finalStr
+        var finalDict = [String: String]()
+
+        for (index, element) in arr.enumerated() {
+            finalDict["sub\(index + 1)"] = String(element)
+        }
+        return finalDict
+    }
+}
+
+extension URL {
+    
+    func addParams(params: [String: String?]?) -> URL {
+        guard let params = params else {
+            return self
+        }
+        var urlComp = URLComponents(url: self, resolvingAgainstBaseURL: true)!
+        var queryItems = [URLQueryItem]()
+        for (key, value) in params {
+            if let value, !value.isEmpty {
+                queryItems.append(URLQueryItem(name: key, value: value))
+            }
+        }
+        urlComp.queryItems = queryItems
+        return urlComp.url!
     }
     
 }

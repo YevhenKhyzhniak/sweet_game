@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */; };
-		0C65F0DF2B9A0E9A0087390C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D62B9A0E9A0087390C /* URL.swift */; };
 		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
 		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
 		0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DC2B9A0E9A0087390C /* Redirect.swift */; };
 		0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E52B9A10D60087390C /* WebRepresentable.swift */; };
 		0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E62B9A10D60087390C /* WebVC.swift */; };
-		0C65F0EB2B9A10D60087390C /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C65F0E72B9A10D60087390C /* WebView.storyboard */; };
 		0C65F0EE2B9A11900087390C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0ED2B9A11900087390C /* WebView.swift */; };
 		0C65F0F62B9A1B850087390C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0F52B9A1B850087390C /* NotificationService.swift */; };
 		0C65F0FA2B9A1B850087390C /* sweet_game_notification_center.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -71,13 +69,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C65F0D62B9A0E9A0087390C /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicAppState.swift; sourceTree = "<group>"; };
 		0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicWebView.swift; sourceTree = "<group>"; };
 		0C65F0DC2B9A0E9A0087390C /* Redirect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
 		0C65F0E52B9A10D60087390C /* WebRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRepresentable.swift; sourceTree = "<group>"; };
 		0C65F0E62B9A10D60087390C /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
-		0C65F0E72B9A10D60087390C /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
 		0C65F0ED2B9A11900087390C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = sweet_game_notification_center.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C65F0F52B9A1B850087390C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
@@ -131,19 +127,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C65F0D72B9A0E9A0087390C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				0C65F0D62B9A0E9A0087390C /* URL.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		0C65F0DD2B9A0E9A0087390C /* WebBusiness */ = {
 			isa = PBXGroup;
 			children = (
 				0C65F0E82B9A10D60087390C /* Web */,
-				0C65F0D72B9A0E9A0087390C /* Extensions */,
 				0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */,
 				0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */,
 				0C65F0DC2B9A0E9A0087390C /* Redirect.swift */,
@@ -156,7 +143,6 @@
 			children = (
 				0C65F0E52B9A10D60087390C /* WebRepresentable.swift */,
 				0C65F0E62B9A10D60087390C /* WebVC.swift */,
-				0C65F0E72B9A10D60087390C /* WebView.storyboard */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -384,7 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C9078342B8FA73D00F316EA /* Preview Assets.xcassets in Resources */,
-				0C65F0EB2B9A10D60087390C /* WebView.storyboard in Resources */,
 				0C9078302B8FA73D00F316EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +407,6 @@
 				0C69E4BD2B92587000D671FA /* YouWinView.swift in Sources */,
 				0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */,
 				0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */,
-				0C65F0DF2B9A0E9A0087390C /* URL.swift in Sources */,
 				0C90786B2B90A43100F316EA /* SweetBlissGameLevel.swift in Sources */,
 				0C69E4C42B9308AC00D671FA /* PlaySound.swift in Sources */,
 				0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */,
@@ -651,8 +635,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -693,8 +676,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
