@@ -40,7 +40,3 @@ struct PauseButtonView: View {
 
     }
 }
-
-#Preview {
-    SettingsButtonView {}
-}

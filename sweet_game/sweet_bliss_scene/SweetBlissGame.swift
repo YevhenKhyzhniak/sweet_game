@@ -527,8 +527,3 @@ class SweetBlissGameSprite: SKScene, SKPhysicsContactDelegate {
     }
     
 }
-
-
-#Preview {
-    SweetBlissGame(level: .init(level: 1))
-}

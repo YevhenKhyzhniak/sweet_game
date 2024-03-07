@@ -29,6 +29,3 @@ struct BalanceRowView: View {
     }
 }
 
-#Preview {
-    BalanceRowView(balance: 1000)
-}

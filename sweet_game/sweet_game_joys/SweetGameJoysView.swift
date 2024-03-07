@@ -209,7 +209,3 @@ extension SweetGameJoysView {
     }
     
 }
-
-#Preview {
-    SweetGameJoysView()
-}

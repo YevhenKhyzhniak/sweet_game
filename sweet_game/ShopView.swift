@@ -92,7 +92,3 @@ struct ShopView: View {
         .padding(.leading)
     }
 }
-
-#Preview {
-    ShopView()
-}

@@ -41,7 +41,3 @@ struct MainRowView: View {
         .padding(.leading)
     }
 }
-
-#Preview {
-    MainRowView(title: "Game 1") {}
-}

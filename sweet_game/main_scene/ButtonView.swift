@@ -36,7 +36,3 @@ struct ButtonView: View {
         Text(self.title).bold().foregroundColor(.white)
     }
 }
-
-#Preview {
-    ButtonView(title: "Shop") {}
-}

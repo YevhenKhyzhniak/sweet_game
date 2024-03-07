@@ -115,7 +115,3 @@ struct TopView: View {
         Text(self.title).font(.footnote).bold().foregroundColor(.white)
     }
 }
-
-#Preview {
-    SweetBlissGameLevelView()
-}
