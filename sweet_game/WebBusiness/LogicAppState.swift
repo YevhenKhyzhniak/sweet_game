@@ -53,9 +53,10 @@ public class AppStateLogic {
             // 3 step
             let trackingID = ATTracking.shared.getTrackingIdentifier()
             let oneSignalID = OneSignalService.getIdentifier()
-            let appsFlyerID = ATTracking.shared.appsFlyerCampaign
+            let appsFlyerCampaign = ATTracking.shared.appsFlyerCampaign
+            let appsFlyerID = ATTracking.shared.getAppsFlyerID()
             
-            let enrichedUrl = await self.makeEnrichedURL(initialURL, appleTrackingID: trackingID, oneSignalID: oneSignalID, appsFlyerID: appsFlyerID)
+            let enrichedUrl = await self.makeEnrichedURL(initialURL, appleTrackingID: trackingID, oneSignalID: oneSignalID, appsFlyerCampaign: appsFlyerCampaign, appsFlyerID: appsFlyerID)
             
             var result: AppState
             
@@ -82,15 +83,17 @@ public class AppStateLogic {
         _ initial: URL,
         appleTrackingID: String?,
         oneSignalID: String?,
+        appsFlyerCampaign: String,
         appsFlyerID: String
     ) async -> URL {
         
         var params = [
-            "sub7": appleTrackingID ?? "",
-            "sub15": oneSignalID ?? ""
+            "sub15": appleTrackingID ?? "",
+            "sub7": oneSignalID ?? "",
+            "sub6": appsFlyerID
         ]
         
-        let appsFlyerParams = self.makeParamsFromAppsFlyer(appsFlyerID)
+        let appsFlyerParams = self.makeParamsFromAppsFlyer(appsFlyerCampaign)
         params = params.merging(appsFlyerParams, uniquingKeysWith: { (first, _) in first })
         
         return initial.addParams(params: params)
