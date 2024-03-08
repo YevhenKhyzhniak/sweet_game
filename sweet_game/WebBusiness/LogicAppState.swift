@@ -51,12 +51,12 @@ public class AppStateLogic {
             try await Task.sleep(nanoseconds: 2_000_000_000)
             
             // 3 step
-            let trackingID = ATTracking.shared.getTrackingIdentifier()
+            //let trackingID = ATTracking.shared.getTrackingIdentifier() // unused
             let oneSignalID = OneSignalService.getIdentifier()
             let appsFlyerCampaign = ATTracking.shared.appsFlyerCampaign
             let appsFlyerID = ATTracking.shared.getAppsFlyerID()
             
-            let enrichedUrl = await self.makeEnrichedURL(initialURL, appleTrackingID: trackingID, oneSignalID: oneSignalID, appsFlyerCampaign: appsFlyerCampaign, appsFlyerID: appsFlyerID)
+            let enrichedUrl = await self.makeEnrichedURL(initialURL, appleTrackingID: nil, oneSignalID: oneSignalID, appsFlyerCampaign: appsFlyerCampaign, appsFlyerID: appsFlyerID)
             
             var result: AppState
             
