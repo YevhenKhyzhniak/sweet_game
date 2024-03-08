@@ -22,7 +22,7 @@ final class ATTracking: NSObject {
         super.init()
         
         AppsFlyerLib.shared().appsFlyerDevKey = "pMkdsDi4tKZp8nFHGaLPy6"
-        AppsFlyerLib.shared().appleAppID = "6469056521"
+        AppsFlyerLib.shared().appleAppID = "6478985125"
         AppsFlyerLib.shared().delegate = self
         
         self.startAppsFlyer()
