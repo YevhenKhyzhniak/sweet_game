@@ -14,15 +14,17 @@ struct WebView: View {
     @State private var state: LogicWebViewState = .inProcess
     
     var body: some View {
-        self.contentView()
-            .ignoresSafeArea(.all)
-            .onReceive(self.webViewLogic.state) { state in
-                self.state = state
-            }
-            .onAppear {
-                self.webViewLogic.onStart()
-                AppDelegate.disableOrientationLock()
-            }
+        ZStack {
+            Color.black.ignoresSafeArea(.all)
+            self.contentView()
+        }
+        .onReceive(self.webViewLogic.state) { state in
+            self.state = state
+        }
+        .onAppear {
+            self.webViewLogic.onStart()
+            AppDelegate.disableOrientationLock()
+        }
     }
     
     @ViewBuilder
