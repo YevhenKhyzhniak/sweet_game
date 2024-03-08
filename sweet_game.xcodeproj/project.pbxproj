@@ -82,6 +82,7 @@
 		0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = sweet_game_notification_center.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C65F0F52B9A1B850087390C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0C65F0F72B9A1B850087390C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "sweet-game-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0C69E4B92B9254ED00D671FA /* SimpleToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToast.swift; sourceTree = "<group>"; };
 		0C69E4BC2B92587000D671FA /* YouWinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouWinView.swift; sourceTree = "<group>"; };
 		0C69E4C02B92EDFA00D671FA /* SweetGameJoysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetGameJoysView.swift; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 		0C90782A2B8FA73C00F316EA /* sweet_game */ = {
 			isa = PBXGroup;
 			children = (
+				0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */,
 				0C65F0DD2B9A0E9A0087390C /* WebBusiness */,
 				0C9078452B8FB1CE00F316EA /* core */,
 				0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */,
@@ -638,6 +640,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "sweet-game-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Bonanza's Joy Bliss";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Use device id tracking technology to provide personalized ads for you. The collected data will not be associated with you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -679,6 +682,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "sweet-game-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Bonanza's Joy Bliss";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Use device id tracking technology to provide personalized ads for you. The collected data will not be associated with you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
