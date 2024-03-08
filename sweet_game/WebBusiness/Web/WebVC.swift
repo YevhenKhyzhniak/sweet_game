@@ -53,7 +53,7 @@ class WebVC: UIViewController,  WKNavigationDelegate, WKUIDelegate {
         let configuration = WKWebViewConfiguration()
         
         // Встановлюємо користувацький user-agent
-        configuration.applicationNameForUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1"
+        configuration.applicationNameForUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Mobile/15E148 Safari/604.1"
         
         return configuration
     }
