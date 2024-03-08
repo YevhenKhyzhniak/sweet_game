@@ -38,8 +38,8 @@ final class ATTracking: NSObject {
     
     func requestTracking(_ timeout: Double = 2.0) async throws {
         let duration = UInt64(timeout * 1_000_000_000)
-        let _ = await ATTrackingManager.requestTrackingAuthorization()
         try await Task.sleep(nanoseconds: duration)
+        let _ = await ATTrackingManager.requestTrackingAuthorization()
     }
     
     func getTrackingIdentifier() -> String? {
@@ -82,9 +82,12 @@ final class OneSignalService {
         return nil
     }
     
-    class func requestNotifications() {
-        OneSignal.Notifications.requestPermission({ accepted in
-          debugPrint("User accepted notifications: \(accepted)")
-        }, fallbackToSettings: true)
+    class func requestNotifications() async {
+        return await withCheckedContinuation {  continuation in
+            OneSignal.Notifications.requestPermission({ accepted in
+                debugPrint("User accepted notifications: \(accepted)")
+                continuation.resume()
+            }, fallbackToSettings: false)
+        }
     }
 }

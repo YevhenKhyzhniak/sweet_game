@@ -43,9 +43,11 @@ public class AppStateLogic {
         
         Task {
             // 1 step
+            debugPrint("call requestTracking - \(Date())")
             try await ATTracking.shared.requestTracking(2.0)
             // 2 step
-            OneSignalService.requestNotifications()
+            debugPrint("call requestNotifications - \(Date())")
+            await OneSignalService.requestNotifications()
             try await Task.sleep(nanoseconds: 2_000_000_000)
             
             // 3 step
@@ -63,7 +65,7 @@ public class AppStateLogic {
                 
                 debugPrint(enrichedUrl, redirectURL)
                 
-                result = enrichedUrl == redirectURL ? .web(redirectURL) : .game
+                result = enrichedUrl != redirectURL ? .web(redirectURL) : .game
             } catch {
                 result = .game
             }
