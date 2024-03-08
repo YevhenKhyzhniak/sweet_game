@@ -49,7 +49,7 @@ final class ATTracking: NSObject {
     }
     
     func initOneSignal(_ options: [UIApplication.LaunchOptionsKey: Any]?) {
-        OneSignal.initialize("1111", withLaunchOptions: options)
+        OneSignal.initialize("1111", withLaunchOptions: options) // b2f7f966-d8cc-11e4-bed1-df8f05be55ba
     }
     
 }
