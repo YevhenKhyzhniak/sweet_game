@@ -13,7 +13,7 @@ struct ContentView: View {
     @Injected(\.router) private var router
     @State private var state: AppState = .idle
     let appState: AppStateLogic
-    let initURLConst = "https://www.google.com/" // для перевірки запуску гри
+    let initURLConst = "https://pharaohwealth.xyz/gmainfo"//"https://www.google.com/" // для перевірки запуску гри
     
     init() {
         self.appState = AppStateLogic(redirect: RedirectLogicImpl(), initURLConst: self.initURLConst)
