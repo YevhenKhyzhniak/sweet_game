@@ -79,7 +79,7 @@ extension ATTracking: AppsFlyerLibDelegate {
 final class OneSignalService {
     
     class func getIdentifier() -> String? {
-        return nil
+        return OneSignal.User.onesignalId
     }
     
     class func requestNotifications() async {
