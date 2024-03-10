@@ -61,14 +61,14 @@ final class ATTracking: NSObject {
 extension ATTracking: AppsFlyerLibDelegate {
     
     func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
-        debugPrint(conversionInfo)
+        //debugPrint(conversionInfo)
         if let status = conversionInfo["af_status"] as? String {
             if (status == "Non-organic") {
                 if let sourceID = conversionInfo["media_source"],
                     let campaign = conversionInfo["campaign"] as? String {
                     
                     self.appsFlyerCampaign = campaign
-                    debugPrint("This is a Non-Organic install. Media source: \(sourceID)  Campaign: \(campaign)")
+                    //debugPrint("This is a Non-Organic install. Media source: \(sourceID)  Campaign: \(campaign)")
                 }
             }
 
@@ -90,7 +90,7 @@ final class OneSignalService {
     class func requestNotifications() async {
         return await withCheckedContinuation {  continuation in
             OneSignal.Notifications.requestPermission({ accepted in
-                debugPrint("User accepted notifications: \(accepted)")
+                //debugPrint("User accepted notifications: \(accepted)")
                 continuation.resume()
             }, fallbackToSettings: false)
         }

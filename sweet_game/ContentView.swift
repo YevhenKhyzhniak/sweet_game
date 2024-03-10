@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         self.contentView()
             .onReceive(self.appState.state) { state in
-                debugPrint("App State Receive - \(state.self)")
+                //debugPrint("App State Receive - \(state.self)")
                 self.state = state
             }
     }
