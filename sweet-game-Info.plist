@@ -23,5 +23,9 @@
 		<string>n38lu8286q.skadnetwork</string>
 		<string>v9wttpbfk9.skadnetwork</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>
