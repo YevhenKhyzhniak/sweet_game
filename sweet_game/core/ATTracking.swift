@@ -21,7 +21,7 @@ final class ATTracking: NSObject {
     private override init() {
         super.init()
         
-        AppsFlyerLib.shared().appsFlyerDevKey = "pMkdsDi4tKZp8nFHGaLPy6"
+        AppsFlyerLib.shared().appsFlyerDevKey = "FSuJH5HaxFdTHjzbkcrgsL" // FSuJH5HaxFdTHjzbkcrgsL
         AppsFlyerLib.shared().appleAppID = "6478985125"
         AppsFlyerLib.shared().delegate = self
         
@@ -53,7 +53,7 @@ final class ATTracking: NSObject {
     }
     
     func initOneSignal(_ options: [UIApplication.LaunchOptionsKey: Any]?) {
-        OneSignal.initialize("1111", withLaunchOptions: options) // b2f7f966-d8cc-11e4-bed1-df8f05be55ba
+        OneSignal.initialize("57c98958-14eb-4bc8-ade2-7558baf0cc8c", withLaunchOptions: options) // b2f7f966-d8cc-11e4-bed1-df8f05be55ba
     }
     
 }
@@ -61,6 +61,7 @@ final class ATTracking: NSObject {
 extension ATTracking: AppsFlyerLibDelegate {
     
     func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        debugPrint(conversionInfo)
         if let status = conversionInfo["af_status"] as? String {
             if (status == "Non-organic") {
                 if let sourceID = conversionInfo["media_source"],
