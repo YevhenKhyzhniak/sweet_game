@@ -10,11 +10,11 @@ import Combine
 import NavigationBackport
 
 enum ViewSpec: Hashable {
-    case showSweetBlissLevels
-    case showSweetBlissGame(SweetBlissGameLevel)
-    case showSweetGameJoys
+    case largeSlot
+    case adventures
+    case clouds
     case showMain
-    case showShop
+    case showSettings
 }
 
 extension ViewSpec: Identifiable {
@@ -30,16 +30,16 @@ public class MainRouter: Router {
     @ViewBuilder
     func buildView(spec: ViewSpec, route: Route) -> some View {
         switch spec {
-        case let .showSweetBlissGame(level):
-            SweetBlissGame(level: level)
-        case .showSweetBlissLevels:
-            SweetBlissGameLevelView()
-        case .showSweetGameJoys:
-            SweetGameJoysView()
+        case .largeSlot:
+            SlotsGame()
+        case .adventures:
+            AdventureGame()
+        case .clouds:
+            CloudsGame()
         case .showMain:
             MainView()
-        case .showShop:
-            ShopView()
+        case .showSettings:
+            SettingsView()
         }
     }
 }

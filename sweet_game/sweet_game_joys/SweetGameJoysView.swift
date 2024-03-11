@@ -11,9 +11,9 @@ struct SweetGameJoysView: View {
     
     @Injected(\.router) private var router
     
-    @State private var candies: Int = 0 {
+    @State private var coins: Int = 0 {
         willSet {
-            SweetGameLevelBusines.candies = newValue
+            SweetGameLevelBusines.coins = newValue
         }
     }
     
@@ -33,7 +33,7 @@ struct SweetGameJoysView: View {
                     self.router.presentFullScreen(.showMain)
                 }
                 Spacer(minLength: 5)
-                BalanceRowView(balance: self.candies)
+                BalanceRowView(balance: self.coins)
                 Spacer(minLength: 5)
             }
             Spacer(minLength: 5)
@@ -49,7 +49,7 @@ struct SweetGameJoysView: View {
         .background(Image("app_background").scaleEffect(1.2))
         .padding(.horizontal)
         .onAppear {
-            self.candies = SweetGameLevelBusines.candies
+            self.coins = SweetGameLevelBusines.coins
             self.generateItems()
         }
     }
@@ -71,7 +71,7 @@ struct SweetGameJoysView: View {
             case .idle:
                 break
             case .take:
-                self.candies += self.candiesDeposit
+                self.coins += self.candiesDeposit
                 self.candiesDeposit = 1
                 self.retryState = .idle
                 self.generateItems()
@@ -135,7 +135,7 @@ struct SweetGameJoysView: View {
                     )
 
                 Button {
-                    if self.candiesDeposit < self.candies {
+                    if self.candiesDeposit < self.coins {
                         self.candiesDeposit += 1
                     }
                 } label: {
@@ -170,11 +170,11 @@ extension SweetGameJoysView {
                 self.gameItems[index].isOpened = true
             }
             if result.isBomb {
-                if candies < self.candiesDeposit {
-                    self.candies = 0
+                if coins < self.candiesDeposit {
+                    self.coins = 0
                     self.retryState = .retry
                 } else {
-                    self.candies -= self.candiesDeposit
+                    self.coins -= self.candiesDeposit
                     self.retryState = .retry
                 }
                 self.candiesDeposit = 1

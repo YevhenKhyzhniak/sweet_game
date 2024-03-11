@@ -36,6 +36,10 @@ public class AppStateLogic {
             self.state.send(self.appState)
             return
         }
+        
+        self.state.send(.game)
+        return
+        
         guard let initialURL = URL(string: self.initialURLConstant) else {
             self.state.send(.game)
             return

@@ -43,9 +43,9 @@ struct SweetBlissGame: View {
             SweetGameLevelBusines.heartRate = newValue
         }
     }
-    @State private var candies: Int = 0 {
+    @State private var coins: Int = 0 {
         willSet {
-            SweetGameLevelBusines.candies = newValue
+            SweetGameLevelBusines.coins = newValue
         }
     }
     
@@ -72,7 +72,7 @@ struct SweetBlissGame: View {
             }
             .onAppear {
                 self.heartRate = SweetGameLevelBusines.heartRate
-                self.candies = SweetGameLevelBusines.candies
+                self.coins = SweetGameLevelBusines.coins
             }
             .onDisappear {
                 SweetBlissGameControl.onStart.send(false)
@@ -80,16 +80,16 @@ struct SweetBlissGame: View {
             .simpleToast(item: self.$gameResult, options: .init(alignment: .center, dismissOnTap: false, edgesIgnoringSafeArea: .all)) {
                 switch self.gameResult {
                 case .win:
-                    YouWinView {
+                    YouWinView(win: 200) {
                         SweetGameLevelBusines.unlockNextLevel(current: self.level)
-                        self.router.presentFullScreen(.showSweetBlissLevels)
+                        //self.router.presentFullScreen(.showSweetBlissLevels)
                     } mainMenu: {
                         self.router.presentFullScreen(.showMain)
                     }
                     .padding()
                 case .lose:
                     YouLoseView {
-                        self.router.presentFullScreen(.showShop)
+                        //self.router.presentFullScreen(.showShop)
                     } mainMenu: {
                         self.router.presentFullScreen(.showMain)
                     }
@@ -116,10 +116,10 @@ struct SweetBlissGame: View {
                     VStack {
                         HStack {
                             BackButtonView() {
-                                self.router.presentFullScreen(.showSweetBlissLevels)
+                                //self.router.presentFullScreen(.showSweetBlissLevels)
                             }
                             Spacer(minLength: 5)
-                            BalanceRowView(balance: self.candies)
+                            BalanceRowView(balance: self.coins)
                             Spacer(minLength: 5)
                             PauseButtonView() {
                                 self.onPauseMethod()
@@ -297,7 +297,7 @@ extension SweetBlissGame {
         switch level {
         case .low:
             if newItem == .marshmallow {
-                self.candies += 10
+                self.coins += 10
             }
             if self.items.filter({$0 == .marshmallow}).count >= 10 {
                 DispatchQueue.main.async {
@@ -307,7 +307,7 @@ extension SweetBlissGame {
             }
         case .normal:
             if [.marshmallow, .chupachups].contains(where: {$0 == newItem}){
-                self.candies += 10
+                self.coins += 10
             }
             if self.items.filter({$0 == .marshmallow}).count >= 10
             && self.items.filter({$0 == .chupachups}).count >= 10 {
@@ -318,7 +318,7 @@ extension SweetBlissGame {
             }
         case .hard:
             if [.marshmallow, .chupachups, .candyOne].contains(where: {$0 == newItem}) {
-                self.candies += 10
+                self.coins += 10
             }
             if self.items.filter({$0 == .marshmallow}).count >= 10
             && self.items.filter({$0 == .chupachups}).count >= 10

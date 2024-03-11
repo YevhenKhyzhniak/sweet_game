@@ -21,15 +21,15 @@ struct LaunchView: View {
         Image("app_background").resizable().scaleEffect(1.2)
         .ignoresSafeArea()
         .overlay(
-            Image("launch_logo").resizable().frame(width: 200, height: 200)
+            Image("launch_logo").resizable().frame(width: 350, height: 350)
         )
         .overlay(
             ProgressView(value: progressValue, total: 100.0)
                 .padding(.bottom, 50)
                 .padding(.horizontal)
-                .tint(.green)
-                .scaleEffect(x: 1, y: 4, anchor: .center)
-                .opacity(self.progressValue < 100 ? 1.0 : 0.0), alignment: .bottom
+                .tint(Color.init("color_orange", bundle: .main))
+                .scaleEffect(x: 2, y: 2, anchor: .center)
+                .opacity(self.progressValue < 100 ? 1.0 : 0.0).progressViewStyle(.circular), alignment: .bottom
         )
         
         .onAppear {

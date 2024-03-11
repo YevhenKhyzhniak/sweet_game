@@ -40,3 +40,20 @@ struct PauseButtonView: View {
 
     }
 }
+
+struct CombinationButtonView: View {
+    
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            self.action()
+        } label: {
+            Image("combinations")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40)
+        }
+
+    }
+}

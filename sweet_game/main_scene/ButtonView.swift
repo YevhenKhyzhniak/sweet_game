@@ -33,6 +33,6 @@ struct ButtonView: View {
     }
     
     private func overlayContent() -> some View {
-        Text(self.title).bold().foregroundColor(.white)
+        Text(self.title).bold().padding(.vertical, 8).foregroundColor(Color("color_red", bundle: .main))
     }
 }

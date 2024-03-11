@@ -12,19 +12,16 @@ struct BalanceRowView: View {
     let balance: Int
     
     var body: some View {
-        Image("balance_row")
-            .resizable()
-            .scaledToFit()
-            .overlay(
-                self.overlayContent()
-            )
+        self.overlayContent()
     }
     
     private func overlayContent() -> some View {
-        HStack {
-            Text("Balance:").font(.footnote).bold().padding(.trailing, 5).foregroundColor(.white)
-            Image("candy")
-            Text(String(format: "%d", balance)).font(.footnote).bold().foregroundColor(.white)
+        ZStack {
+            Text(String(format: "%d", balance)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
+                .background(
+                    Image("balance_row").resizable().frame(height: 30)
+                )
+            Image("coins").resizable().frame(width: 40, height: 40).offset(x: -40)
         }
     }
 }

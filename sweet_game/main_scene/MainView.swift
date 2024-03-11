@@ -10,66 +10,71 @@ import SwiftUI
 struct MainView: View {
     
     @Injected(\.router) private var router
-    @State private var showSettings: Bool = false
     
     var body: some View {
 
         VStack(spacing: 1) {
             
-            HStack {
+            HStack(spacing: 20) {
                 Spacer(minLength: 8)
-                BalanceRowView(balance: SweetGameLevelBusines.candies)
+                BalanceRowView(balance: SweetGameLevelBusines.coins)
                     .padding(.leading, 40)
-                Spacer(minLength: 8)
                 SettingsButtonView() {
-                    self.showSettings = true
+                    self.router.presentFullScreen(.showSettings)
                 }.padding(.trailing)
             }
             
-            ScrollView(showsIndicators: false) {
-                
-                Spacer(minLength: 1)
-                
-                Image("launch_logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: UIScreen.main.bounds.height / 4)
-                    .padding(.vertical, 20)
-                
-                Spacer(minLength: 1)
-                
-                MainRowView(title: "bliss") {
-                    self.router.presentFullScreen(.showSweetBlissLevels)
-                }
-                .frame(height: 150)
-                .padding(.horizontal, 4)
-                .disabled(self.showSettings)
-                
-                MainRowView(title: "joys") {
-                    self.router.presentFullScreen(.showSweetGameJoys)
-                }
-                .frame(height: 150)
-                .padding(.horizontal, 4)
-                .disabled(self.showSettings)
-            }
+            Spacer(minLength: 1)
             
-            ButtonView(title: "Shop") {
-                self.router.presentFullScreen(.showShop)
+            ZStack {
+                VStack {
+                    Image("logo_full")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: UIScreen.main.bounds.height / 2)
+                    Spacer()
+                }
+                
+                VStack {
+                    Spacer(minLength: 1)
+                    HStack(spacing: 0) {
+                        Button(action: {
+                            self.router.presentFullScreen(.largeSlot)
+                        }, label: {
+                            Image("large_slots")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height / 2)
+                                .offset(x: 20)
+                        })
+
+                        VStack(spacing: 10) {
+                            Button {
+                                self.router.presentFullScreen(.adventures)
+                            } label: {
+                                Image("adventures")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width / 2.4, height: UIScreen.main.bounds.height / 4.1)
+                                    .offset(x: -25)
+                            }
+
+                            Button(action: {
+                                self.router.presentFullScreen(.clouds)
+                            }, label: {
+                                Image("clouds")
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width / 2.1, height: UIScreen.main.bounds.height / 4.1)
+                                    .offset(x: -40)
+                            })
+                        }
+                        .frame(height: UIScreen.main.bounds.height / 2)
+                    }
+                    .frame(height: UIScreen.main.bounds.height / 2)
+                }
+                .padding(.bottom)
             }
-            .frame(width: UIScreen.main.bounds.width - 60, height: 50)
-            .padding(.bottom, 8)
-            .disabled(self.showSettings)
         }
-        .background(Image("app_background").scaleEffect(1.2))
+        .background(Image("app_background").resizable().scaleEffect(1.2))
         .padding(.horizontal)
-        .blur(radius: self.showSettings ? 5.0 : 0.0)
-        .onTapGesture {
-            self.showSettings = false
-        }
-        
-        .simpleToast(isPresented: self.$showSettings, options: .init(alignment: .center, dismissOnTap: true, edgesIgnoringSafeArea: .all)) {
-            SettingsView()
-            .padding()
-        }
     }
 }

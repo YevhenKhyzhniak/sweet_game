@@ -38,7 +38,7 @@ struct SweetBlissGameLevelView: View {
                              switch data.unlocked {
                              case .unlocked, .finished:
                                  if SweetGameLevelBusines.heartRate > 0 {
-                                     self.router.presentFullScreen(.showSweetBlissGame(data))
+                                     //self.router.presentFullScreen(.showSweetBlissGame(data))
                                  } else {
                                      self.showErrorToStart = true
                                  }
@@ -59,7 +59,7 @@ struct SweetBlissGameLevelView: View {
          
          .simpleToast(isPresented: self.$showErrorToStart, options: .init(alignment: .center, dismissOnTap: false, edgesIgnoringSafeArea: .all)) {
              ErrorMessage {
-                 self.router.presentFullScreen(.showShop)
+                 //self.router.presentFullScreen(.showShop)
              }
              .padding()
          }

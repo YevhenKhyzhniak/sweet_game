@@ -9,16 +9,30 @@ import SwiftUI
 
 struct YouWinView: View {
     
-    let nextLevel: () -> Void
+    let win: Int
+    let ok: () -> Void
     let mainMenu: () -> Void
     
     var body: some View {
         VStack(spacing: 20) {
-            Image("you_win")
-                .padding()
+            Text("You win!")
+                .bold()
+                .foregroundColor(.white)
+                .font(.title)
+                .padding(.top)
             
-            ButtonView(title: "NEXT LEVEL") {
-                self.nextLevel()
+            Image("balance_row")
+                .resizable()
+                .frame(width: 80, height: 30)
+                .overlay(
+                    HStack {
+                        Image("coins")
+                        Text("\(win)").foregroundColor(.white)
+                    }
+                )
+            
+            ButtonView(title: "OK") {
+                self.ok()
             }
             .frame(height: 50)
             .padding(.horizontal, 20)
@@ -30,7 +44,7 @@ struct YouWinView: View {
             .padding(.horizontal, 20)
         }
         .padding()
-        .background(Image("modal_window").resizable())
+        .background(Image("dialog_bg").resizable())
     }
 }
 
@@ -41,10 +55,14 @@ struct YouLoseView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Image("you_lose")
-                .padding()
+            Text("Oops.... You don't have enough coins!")
+                .bold()
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .padding(.top)
             
-            ButtonView(title: "SHOP") {
+            ButtonView(title: "CLOSE") {
                 self.tryAgain()
             }
             .frame(height: 50)
@@ -57,7 +75,7 @@ struct YouLoseView: View {
             .padding(.horizontal, 20)
         }
         .padding()
-        .background(Image("modal_window").resizable())
+        .background(Image("dialog_bg").resizable())
     }
 }
 
@@ -114,24 +132,49 @@ struct ErrorMessage: View {
 
 struct SettingsView: View {
     
+    @Injected(\.router) private var router
+    
     @State private var sound: Bool = false {
         willSet {
             SweetGameLevelBusines.sound = newValue
         }
     }
     
+    @State private var vibro: Bool = false {
+        willSet {
+            SweetGameLevelBusines.vibro = newValue
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 20) {
             
-            Image("sound_on")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 30, height: 30)
-                .opacity(self.sound ? 1.0 : 0.5)
-                .onTapGesture {
-                    self.sound.toggle()
+            HStack(spacing: 20) {
+                BackButtonView() {
+                    self.router.presentFullScreen(.showMain)
                 }
-                .padding()
+                Spacer(minLength: 5)
+                TopView(title: "Settings")
+                    .padding(.trailing, 40)
+                Spacer(minLength: 5)
+            }
+            .padding(.horizontal, 20)
+            
+            HStack {
+                Text("Sound").foregroundColor(.white).bold()
+                Spacer(minLength: 5)
+                ToggleProcessView(isSelect: sound, inProcess: false, type: .toggle) { state in
+                    self.sound = state
+                }
+            }.padding(.horizontal, 20)
+            
+            HStack {
+                Text("Vibro").foregroundColor(.white).bold()
+                Spacer(minLength: 5)
+                ToggleProcessView(isSelect: vibro, inProcess: false, type: .toggle) { state in
+                    self.vibro = state
+                }
+            }.padding(.horizontal, 20)
             
             ButtonView(title: "PRIVACY POLICY") {
                 if let url = URL(string: "https://www.sweet1bonanaza-bliss.live/topolicyapp.html") {
@@ -153,11 +196,71 @@ struct SettingsView: View {
             .frame(height: 50)
             .padding(.horizontal, 20)
             
+            Spacer(minLength: 1)
+            
         }
-        .padding()
-        .background(Image("modal_window").resizable())
+        .background(Image("app_background").resizable().scaleEffect(1.2))
         .onAppear {
             self.sound = SweetGameLevelBusines.sound
+            self.vibro = SweetGameLevelBusines.vibro
         }
+    }
+}
+
+
+struct CombinationView: View {
+    
+    let close: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            
+            Text("Combinations").bold().font(.title).foregroundColor(.white)
+                .padding()
+            
+            HStack(spacing: 20) {
+                VStack {
+                    HStack {
+                        Image("dinamite").resizable().frame(width: 40, height: 40)
+                        Text("= X2 \nyour bet").foregroundColor(.white)
+                    }
+                    
+                    HStack {
+                        Image("bag").resizable().frame(width: 40, height: 40)
+                        Text("= X3 \nyour bet").foregroundColor(.white)
+                    }
+                    
+                    HStack {
+                        Image("dragon").resizable().frame(width: 40, height: 40)
+                        Text("= X4 \nyour bet").foregroundColor(.white)
+                    }
+                }
+                
+                VStack {
+                    HStack {
+                        Image("gold").resizable().frame(width: 40, height: 40)
+                        Text("= X5 \nyour bet").foregroundColor(.white)
+                    }
+                    
+                    HStack {
+                        Image("jandj").resizable().frame(width: 40, height: 40)
+                        Text("= X6 \nyour bet").foregroundColor(.white)
+                    }
+                    
+                    HStack {
+                        Image("globe").resizable().frame(width: 40, height: 40)
+                        Text("= X7 \nyour bet").foregroundColor(.white)
+                    }
+                }
+            }
+            
+            ButtonView(title: "CLOSE") {
+                self.close()
+            }
+            .frame(height: 50)
+            .padding(.horizontal, 20)
+        }
+        .padding()
+        .background(Image("dialog_bg").resizable())
     }
 }
