@@ -12,6 +12,12 @@ class GamesBusines {
     @Storage(key: "SweetBlissGameLevels", defaultValue: [])
     static var levels: [SweetBlissGameLevel]
     
+    @Storage(key: "TigerAdventure", defaultValue: [])
+    static var tigersAdventure: [Tiger]
+    
+    @Storage(key: "TigerCloud", defaultValue: [])
+    static var tigersCloud: [Tiger]
+    
     @Storage(key: "Game.Coins", defaultValue: 1000)
     static var coins: Int
     
