@@ -40,12 +40,12 @@ struct SweetBlissGame: View {
     
     @State private var heartRate: Double = 0.0 {
         willSet {
-            SweetGameLevelBusines.heartRate = newValue
+            GamesBusines.heartRate = newValue
         }
     }
     @State private var coins: Int = 0 {
         willSet {
-            SweetGameLevelBusines.coins = newValue
+            GamesBusines.coins = newValue
         }
     }
     
@@ -71,8 +71,8 @@ struct SweetBlissGame: View {
                 
             }
             .onAppear {
-                self.heartRate = SweetGameLevelBusines.heartRate
-                self.coins = SweetGameLevelBusines.coins
+                self.heartRate = GamesBusines.heartRate
+                self.coins = GamesBusines.coins
             }
             .onDisappear {
                 SweetBlissGameControl.onStart.send(false)
@@ -81,7 +81,7 @@ struct SweetBlissGame: View {
                 switch self.gameResult {
                 case .win:
                     YouWinView(win: 200) {
-                        SweetGameLevelBusines.unlockNextLevel(current: self.level)
+                        GamesBusines.unlockNextLevel(current: self.level)
                         //self.router.presentFullScreen(.showSweetBlissLevels)
                     } mainMenu: {
                         self.router.presentFullScreen(.showMain)

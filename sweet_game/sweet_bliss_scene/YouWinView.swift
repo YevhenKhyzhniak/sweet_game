@@ -136,13 +136,13 @@ struct SettingsView: View {
     
     @State private var sound: Bool = false {
         willSet {
-            SweetGameLevelBusines.sound = newValue
+            GamesBusines.sound = newValue
         }
     }
     
     @State private var vibro: Bool = false {
         willSet {
-            SweetGameLevelBusines.vibro = newValue
+            GamesBusines.vibro = newValue
         }
     }
     
@@ -201,8 +201,8 @@ struct SettingsView: View {
         }
         .background(Image("app_background").resizable().scaleEffect(1.2))
         .onAppear {
-            self.sound = SweetGameLevelBusines.sound
-            self.vibro = SweetGameLevelBusines.vibro
+            self.sound = GamesBusines.sound
+            self.vibro = GamesBusines.vibro
         }
     }
 }

@@ -11,20 +11,26 @@ import AVFoundation
 class PlaySound {
     
     class func run() {
-        guard SweetGameLevelBusines.sound else { return }
+        guard GamesBusines.sound else { return }
         let systemSoundID: SystemSoundID = 1118
         AudioServicesPlaySystemSound(systemSoundID)
     }
     
     class func run2() {
-        guard SweetGameLevelBusines.sound else { return }
-        let systemSoundID: SystemSoundID = 1111
+        guard GamesBusines.sound else { return }
+        let systemSoundID: SystemSoundID = 1160
         AudioServicesPlaySystemSound(systemSoundID)
     }
     
     class func run3() {
-        guard SweetGameLevelBusines.sound else { return }
+        guard GamesBusines.sound else { return }
         let systemSoundID: SystemSoundID = 1109
+        AudioServicesPlaySystemSound(systemSoundID)
+    }
+    
+    class func run4() {
+        guard GamesBusines.sound else { return }
+        let systemSoundID: SystemSoundID = 1321
         AudioServicesPlaySystemSound(systemSoundID)
     }
     

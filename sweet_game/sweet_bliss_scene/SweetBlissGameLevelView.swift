@@ -37,7 +37,7 @@ struct SweetBlissGameLevelView: View {
                          LevelRow(data: data) {
                              switch data.unlocked {
                              case .unlocked, .finished:
-                                 if SweetGameLevelBusines.heartRate > 0 {
+                                 if GamesBusines.heartRate > 0 {
                                      //self.router.presentFullScreen(.showSweetBlissGame(data))
                                  } else {
                                      self.showErrorToStart = true
@@ -66,10 +66,10 @@ struct SweetBlissGameLevelView: View {
      }
     
     private func onStart() {
-        if SweetGameLevelBusines.levels.isEmpty {
-            SweetGameLevelBusines.levels = (1...30).map { SweetBlissGameLevel(level: $0)}
+        if GamesBusines.levels.isEmpty {
+            GamesBusines.levels = (1...30).map { SweetBlissGameLevel(level: $0)}
         }
-        self.levelsMuttable = SweetGameLevelBusines.levels
+        self.levelsMuttable = GamesBusines.levels
     }
 }
 

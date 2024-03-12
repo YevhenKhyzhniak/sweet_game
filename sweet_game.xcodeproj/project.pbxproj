@@ -47,7 +47,7 @@
 		0C90786E2B90A77F00F316EA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90786D2B90A77F00F316EA /* Storage.swift */; };
 		0C9078702B90ACCD00F316EA /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90786F2B90ACCD00F316EA /* BackButtonView.swift */; };
 		0C9078772B90AF5200F316EA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9078762B90AF5200F316EA /* Router.swift */; };
-		0C927F9F2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift */; };
+		0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* GamesBusines.swift */; };
 		0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927FA72B90DC6A00AD261D /* GameItems.swift */; };
 		0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */; };
 /* End PBXBuildFile section */
@@ -115,7 +115,7 @@
 		0C90786D2B90A77F00F316EA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		0C90786F2B90ACCD00F316EA /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
 		0C9078762B90AF5200F316EA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		0C927F9E2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetBlissGameLevelBusines.swift; sourceTree = "<group>"; };
+		0C927F9E2B90D1D100AD261D /* GamesBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesBusines.swift; sourceTree = "<group>"; };
 		0C927FA72B90DC6A00AD261D /* GameItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItems.swift; sourceTree = "<group>"; };
 		0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTracking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				0C9078672B90A36700F316EA /* SweetBlissGameLevelView.swift */,
-				0C927F9E2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift */,
 				0C90783B2B8FAFD700F316EA /* SweetBlissGame.swift */,
 				0C90786A2B90A43100F316EA /* SweetBlissGameLevel.swift */,
 				0C90786F2B90ACCD00F316EA /* BackButtonView.swift */,
@@ -285,6 +284,7 @@
 				0C90786D2B90A77F00F316EA /* Storage.swift */,
 				0C9078762B90AF5200F316EA /* Router.swift */,
 				0C69E4B92B9254ED00D671FA /* SimpleToast.swift */,
+				0C927F9E2B90D1D100AD261D /* GamesBusines.swift */,
 				0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */,
 				0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */,
 			);
@@ -441,7 +441,7 @@
 				0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */,
 				0C9078682B90A36700F316EA /* SweetBlissGameLevelView.swift in Sources */,
 				0C90782E2B8FA73C00F316EA /* ContentView.swift in Sources */,
-				0C927F9F2B90D1D100AD261D /* SweetBlissGameLevelBusines.swift in Sources */,
+				0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */,
 				0C13E4702B9DCAEE005031C9 /* TimeBomb.swift in Sources */,
 				0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */,
 				0C1AB3F72B9F7FA70081B5C8 /* SlotsGame.swift in Sources */,

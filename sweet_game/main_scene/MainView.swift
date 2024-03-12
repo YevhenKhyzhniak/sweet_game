@@ -17,7 +17,7 @@ struct MainView: View {
             
             HStack(spacing: 20) {
                 Spacer(minLength: 8)
-                BalanceRowView(balance: SweetGameLevelBusines.coins)
+                BalanceRowView(balance: GamesBusines.coins)
                     .padding(.leading, 40)
                 SettingsButtonView() {
                     self.router.presentFullScreen(.showSettings)

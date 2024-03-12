@@ -13,7 +13,7 @@ struct SweetGameJoysView: View {
     
     @State private var coins: Int = 0 {
         willSet {
-            SweetGameLevelBusines.coins = newValue
+            GamesBusines.coins = newValue
         }
     }
     
@@ -49,7 +49,7 @@ struct SweetGameJoysView: View {
         .background(Image("app_background").scaleEffect(1.2))
         .padding(.horizontal)
         .onAppear {
-            self.coins = SweetGameLevelBusines.coins
+            self.coins = GamesBusines.coins
             self.generateItems()
         }
     }
