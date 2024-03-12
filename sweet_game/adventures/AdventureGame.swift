@@ -40,8 +40,42 @@ struct Tiger: Codable, Hashable {
 }
 
 struct AdventureGame: View {
+    
+    @Injected(\.router) private var router
+    
+    @State private var coins: Int = 0 {
+        willSet {
+            GamesBusines.coins = newValue
+        }
+    }
+    
     var body: some View {
         AdventureGameContentView(size: UIScreen.main.bounds.size, level: .low)
+            .overlay(
+                HStack(spacing: 20) {
+                    BackButtonView() {
+                        self.router.presentFullScreen(.showMain)
+                    }
+                    Spacer(minLength: 1)
+                    BalanceRowView(balance: self.coins)
+                        .padding(.leading, 40)
+                    
+                    Button {
+                        //self.action()
+                    } label: {
+                        Image("pause_button")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    }
+
+                    
+                }
+                    .padding(.horizontal, 20).padding(.top, 40), alignment: .top
+            )
+            .onAppear {
+                self.coins = GamesBusines.coins
+            }
     }
 }
 
@@ -65,6 +99,20 @@ struct AdventureGameContentView: View {
 
 
 class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
+    
+    var cancellable: Set<AnyCancellable> = []
+    
+    override init(size: CGSize) {
+        super.init(size: size)
+    }
+    
+    deinit {
+        self.cancellable = []
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     var coinMan : SKSpriteNode?
     var coinTimer : Timer?
