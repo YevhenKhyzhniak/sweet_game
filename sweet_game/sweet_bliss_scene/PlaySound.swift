@@ -34,6 +34,12 @@ class PlaySound {
         AudioServicesPlaySystemSound(systemSoundID)
     }
     
+    class func run5() {
+        guard GamesBusines.sound else { return }
+        let systemSoundID: SystemSoundID = 1112
+        AudioServicesPlaySystemSound(systemSoundID)
+    }
+    
 }
 
 class Haptic {

@@ -1,45 +1,14 @@
 //
-//  AdventureSkinView.swift
+//  CloudsGameSkinView.swift
 //  sweet_game
 //
 //  Created by Yevhen Khyzhniak on 12.03.2024.
 //
 
+import Foundation
 import SwiftUI
 
-struct Tiger: Codable, Identifiable {
-    
-    static func == (lhs: Tiger, rhs: Tiger) -> Bool {
-        return lhs.price == rhs.price
-    }
-    
-    init(price: Int, skin: String) {
-        self.price = price
-        self.unlocked = price == 0 ? .unlocked : .locked
-        self.isSelected = price == 0 ? true : false
-        self.skin = skin
-    }
-    var id: UUID = UUID()
-    let price: Int
-    let skin: String
-    var isSelected: Bool
-    
-    var unlocked: State
-    
-    
-    var priceString: String {
-        return String(format: "%d", price)
-    }
-    
-    enum State: Codable, Hashable {
-        case locked
-        case unlocked
-        case finished
-    }
-    
-}
-
-struct AdventureSkinView: View {
+struct CloudsGameSkinView: View {
     
     @Injected(\.router) private var router
     
@@ -53,7 +22,7 @@ struct AdventureSkinView: View {
     
     var body: some View {
         self.contentView()
-            .background(Image("adventure_bg").resizable().scaleEffect(1.2))
+            .background(Image("clouds_bg").resizable().scaleEffect(1.2))
             .onAppear {
                 self.generateItems()
                 self.coins = GamesBusines.coins
@@ -78,7 +47,7 @@ struct AdventureSkinView: View {
                 }.padding(.trailing)
             }
             
-            Image("adventure_holder").resizable().frame(height: 200)
+            Image("clouds_holder").resizable().frame(height: 200)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
@@ -100,7 +69,7 @@ struct AdventureSkinView: View {
             
             ButtonView(title: "PLAY") {
                 if let selected = self.tigers.filter({ $0.isSelected }).first {
-                    self.router.presentFullScreen(.adventures(skin: selected.skin))
+                    self.router.presentFullScreen(.clouds(skin: selected.skin))
                 }
             }
             .frame(height: 50)
@@ -123,31 +92,31 @@ struct AdventureSkinView: View {
             if self.coins >= t.price {
                 let result = GamesBusines.unlockNextAdventureTiger(current: t, list: self.tigers)
                 self.tigers = result
-                GamesBusines.tigersAdventure = result
+                GamesBusines.tigersCloud = result
                 self.coins -= t.price
             }
         } else if t.isSelected {
             //
         } else {
             self.tigers = GamesBusines.changeSelectedAdventureTiger(current: t, list: self.tigers)
-             GamesBusines.tigersAdventure = self.tigers
+             GamesBusines.tigersCloud = self.tigers
         }
     }
     
     private func generateItems() {
-        guard GamesBusines.tigersAdventure.isEmpty else {
-            self.tigers = GamesBusines.tigersAdventure
+        guard GamesBusines.tigersCloud.isEmpty else {
+            self.tigers = GamesBusines.tigersCloud
             return
         }
         
         self.tigers = [
-            Tiger.init(price: 0, skin: "tiger_set_1"),
-            Tiger.init(price: 350, skin: "tiger_set_2"),
-            Tiger.init(price: 500, skin: "tiger_set_3"),
-            Tiger.init(price: 750, skin: "tiger_set_4")
+            Tiger.init(price: 0, skin: "tiger_cloud_1"),
+            Tiger.init(price: 350, skin: "tiger_cloud_2"),
+            Tiger.init(price: 500, skin: "tiger_cloud_3"),
+            Tiger.init(price: 750, skin: "tiger_cloud_4")
         ]
         
-        GamesBusines.tigersAdventure = self.tigers
+        GamesBusines.tigersCloud = self.tigers
     }
     
 }

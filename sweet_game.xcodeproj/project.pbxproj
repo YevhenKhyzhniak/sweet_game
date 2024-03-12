@@ -14,6 +14,7 @@
 		0C1AB3FB2B9F7FEA0081B5C8 /* CloudsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3FA2B9F7FEA0081B5C8 /* CloudsGame.swift */; };
 		0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */; };
 		0C1AB4082BA0B5CC0081B5C8 /* AdventureSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */; };
+		0C1AB40A2BA0CCDB0081B5C8 /* CloudsGameSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4092BA0CCDB0081B5C8 /* CloudsGameSkinView.swift */; };
 		0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */; };
 		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
 		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
@@ -168,6 +169,7 @@
 		0C1AB3F52B9F7F900081B5C8 /* clouds */ = {
 			isa = PBXGroup;
 			children = (
+				0C1AB4092BA0CCDB0081B5C8 /* CloudsGameSkinView.swift */,
 				0C1AB3FA2B9F7FEA0081B5C8 /* CloudsGame.swift */,
 			);
 			path = clouds;
@@ -461,6 +463,7 @@
 				0C69E4C42B9308AC00D671FA /* PlaySound.swift in Sources */,
 				0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */,
 				0C1AB3F92B9F7FCA0081B5C8 /* AdventureGame.swift in Sources */,
+				0C1AB40A2BA0CCDB0081B5C8 /* CloudsGameSkinView.swift in Sources */,
 				0C1AB3FB2B9F7FEA0081B5C8 /* CloudsGame.swift in Sources */,
 				0C90783C2B8FAFD700F316EA /* SweetBlissGame.swift in Sources */,
 				0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */,

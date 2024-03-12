@@ -39,20 +39,20 @@ class GamesBusines {
         }
     }
     
-    static func unlockNextAdventureTiger(current data: Tiger) -> [Tiger] {
-        var copy = Self.tigersAdventure
+    static func unlockNextAdventureTiger(current data: Tiger, list: [Tiger]) -> [Tiger] {
+        var copy = list
         if let index = copy.firstIndex(where: {$0.price == data.price}) {
             copy[index].unlocked = .unlocked
         }
         return copy
     }
     
-    static func changeSelectedAdventureTiger(current data: Tiger) -> [Tiger] {
-        var copy = Self.tigersAdventure
+    static func changeSelectedAdventureTiger(current data: Tiger, list: [Tiger]) -> [Tiger] {
+        var copy = list
         if let selectedIndex = copy.firstIndex(where: {$0.isSelected == true}) {
             copy[selectedIndex].isSelected = false
         }
-        if let index = Self.tigersAdventure.firstIndex(where: {$0.price == data.price}) {
+        if let index = copy.firstIndex(where: {$0.price == data.price}) {
             guard copy.count > index + 1 else { return copy }
             copy[index].isSelected = true
         }

@@ -13,7 +13,8 @@ enum ViewSpec: Hashable {
     case largeSlot
     case adventures(skin: String)
     case adventuresSkin
-    case clouds
+    case cloudsSkin
+    case clouds(skin: String)
     case showMain
     case showSettings
 }
@@ -37,8 +38,10 @@ public class MainRouter: Router {
             AdventureGame(skin: skin)
         case .adventuresSkin:
             AdventureSkinView()
-        case .clouds:
-            CloudsGame()
+        case .cloudsSkin:
+            CloudsGameSkinView()
+        case .clouds(let skin):
+            CloudsGame(skin: skin)
         case .showMain:
             MainView()
         case .showSettings:

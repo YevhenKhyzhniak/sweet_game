@@ -59,7 +59,7 @@ struct MainView: View {
                             }
 
                             Button(action: {
-                                self.router.presentFullScreen(.clouds)
+                                self.router.presentFullScreen(.cloudsSkin)
                             }, label: {
                                 Image("clouds")
                                     .resizable()
