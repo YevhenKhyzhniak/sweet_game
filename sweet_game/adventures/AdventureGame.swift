@@ -11,37 +11,30 @@ import GameplayKit
 import AVFoundation
 import Combine
 
-struct Tiger: Codable, Hashable {
-    
-    static func == (lhs: Tiger, rhs: Tiger) -> Bool {
-        return lhs.level == rhs.level
-    }
-    
-    init(level: Int) {
-        self.level = level
-        self.unlocked = level == 1 ? .unlocked : .locked
-    }
-    
-    let level: Int
-    
-    var unlocked: State
-    
-    
-    var levelString: String {
-        return String(format: "%d", level)
-    }
-    
-    enum State: Codable, Hashable {
-        case locked
-        case unlocked
-        case finished
-    }
-    
+struct AdventureGameControl {
+    static let onStart: PassthroughSubject<Bool, Never> = .init()
+    static let catchCoints: PassthroughSubject<Int, Never> = .init()
+    static let gameDidFinished: PassthroughSubject<Void, Never> = .init()
 }
 
 struct AdventureGame: View {
     
+    enum Show: Identifiable {
+        case lose
+        case pause
+        
+        var id: Int {
+            switch self {
+            case .lose:
+                return 1
+            case .pause:
+                return 2
+            }
+        }
+    }
+    
     @Injected(\.router) private var router
+    @State private var show: Show? = nil
     
     @State private var coins: Int = 0 {
         willSet {
@@ -49,11 +42,16 @@ struct AdventureGame: View {
         }
     }
     
+    let skin: String
+    
     var body: some View {
-        AdventureGameContentView(size: UIScreen.main.bounds.size, level: .low)
+        AdventureGameContentView(size: UIScreen.main.bounds.size, tigerSkin: skin)
             .overlay(
                 HStack(spacing: 20) {
                     BackButtonView() {
+                        DispatchQueue.main.async {
+                            AdventureGameControl.onStart.send(false)
+                        }
                         self.router.presentFullScreen(.showMain)
                     }
                     Spacer(minLength: 1)
@@ -61,20 +59,63 @@ struct AdventureGame: View {
                         .padding(.leading, 40)
                     
                     Button {
-                        //self.action()
+                        self.show = .pause
+                        AdventureGameControl.onStart.send(false)
                     } label: {
                         Image("pause_button")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 40, height: 40)
                     }
-
-                    
                 }
-                    .padding(.horizontal, 20).padding(.top, 40), alignment: .top
+                .padding(.horizontal, 20).padding(.top, 40), alignment: .top
             )
+            .blur(radius: self.show != nil ? 5.0 : 0.0)
             .onAppear {
                 self.coins = GamesBusines.coins
+            }
+            .onReceive(AdventureGameControl.catchCoints) { result in
+                DispatchQueue.main.async {
+                    self.coins += result
+                }
+            }
+            .onReceive(AdventureGameControl.gameDidFinished) { result in
+                DispatchQueue.main.async {
+                    self.show = .lose
+                }
+            }
+        
+            .simpleToast(item: self.$show, options: .init(alignment: .center, edgesIgnoringSafeArea: .all)) {
+                switch self.show {
+                case .pause:
+                    PauseView(unpause: {
+                        DispatchQueue.main.async {
+                            self.show = nil
+                            AdventureGameControl.onStart.send(true)
+                        }
+                    }, mainMenu: {
+                        DispatchQueue.main.async {
+                            AdventureGameControl.onStart.send(false)
+                        }
+                        self.router.presentFullScreen(.showMain)
+                    })
+                    .padding()
+                case .lose:
+                    TryAgainView {
+                        DispatchQueue.main.async {
+                            self.show = nil
+                            AdventureGameControl.onStart.send(true)
+                        }
+                    } mainMenu: {
+                        DispatchQueue.main.async {
+                            AdventureGameControl.onStart.send(false)
+                        }
+                        self.router.presentFullScreen(.showMain)
+                    }
+                    .padding()
+                default:
+                    EmptyView()
+                }
             }
     }
 }
@@ -82,11 +123,12 @@ struct AdventureGame: View {
 struct AdventureGameContentView: View {
     
     let size: CGSize
-    let level: SweetBlissGame.Level
+    let tigerSkin: String
     
     var scene: SKScene {
         let scene = AdventureGameSprite(size: size)
-        scene.scaleMode = .fill
+        scene.tigerSkin = tigerSkin
+        scene.scaleMode = .aspectFit
         return scene
     }
 
@@ -104,6 +146,17 @@ class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
     
     override init(size: CGSize) {
         super.init(size: size)
+        
+        AdventureGameControl.onStart.sink { [weak self] state in
+            guard let self = self else { return }
+            switch state {
+            case true:
+                self.gameStart()
+            case false:
+                self.gameOver()
+            }
+        }
+        .store(in: &cancellable)
     }
     
     deinit {
@@ -114,23 +167,34 @@ class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
         super.init(coder: aDecoder)
     }
     
-    var coinMan : SKSpriteNode?
+    var tigerSkin: String? = nil
+    
+    var tiger : SKSpriteNode?
+    var ground: SKSpriteNode!
     var coinTimer : Timer?
     var bombTimer:Timer?
     var ceil : SKSpriteNode?
-    var yourScoreLabel : SKLabelNode?
-    var finalScoreLabel : SKLabelNode?
-    var scoreLabel : SKLabelNode?
     
     let coinManCategory : UInt32 = 0x1 << 1
     let coinCategory : UInt32 = 0x1 << 2
     let bombCategory : UInt32 = 0x1 << 3
     let groundAndCeilCategory : UInt32 = 0x1 << 4
     
-    var score = 0
-    
     override func didMove(to view: SKView) {
-        
+        self.applyGravity()
+        self.initial()
+        self.gameStart()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //if scene?.isPaused == false {
+        DispatchQueue.main.async {
+            self.jump()
+        }
+        //}
+    }
+    
+    func initial() {
         physicsWorld.contactDelegate = self
         
         let background = SKSpriteNode(imageNamed: "adventure_bg")
@@ -140,56 +204,25 @@ class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
         background.zPosition = -8
         addChild(background)
         
-        coinMan = SKSpriteNode(imageNamed: "tiger_set_1")
-        coinMan?.physicsBody?.categoryBitMask = coinManCategory
-        coinMan?.physicsBody?.contactTestBitMask = coinCategory | bombCategory
-        coinMan?.physicsBody?.collisionBitMask = groundAndCeilCategory
-        coinMan?.position = CGPoint(x: 60, y: 140)
-        coinMan?.size = CGSize(width: 150, height: 160)
-        addChild(coinMan!)
+        // Create ground sprite
+        ground = SKSpriteNode(color: .clear, size: CGSize(width: size.width * 2, height: 50))
+        ground.position = CGPoint(x: 0, y: 50)
+        ground.physicsBody = SKPhysicsBody(rectangleOf: ground.size)
+        ground.physicsBody?.isDynamic = false
+        ground.physicsBody?.categoryBitMask = groundAndCeilCategory
+        ground.physicsBody?.collisionBitMask = coinManCategory
         
-        ceil = childNode(withName: "ceil") as? SKSpriteNode
-        ceil?.physicsBody?.categoryBitMask = groundAndCeilCategory
-        ceil?.physicsBody?.collisionBitMask = coinManCategory
-        
-        scoreLabel = childNode(withName: "scoreLabel") as? SKLabelNode
-        
-        startTimers()
+        addChild(ground)
+
     }
     
-    func startTimers() {
-        coinTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            self.createCoin()
-        })
-        coinTimer?.fire()
-        
-        bombTimer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true, block: { (timer) in
-            self.createBomb()
-        })
+    func applyGravity() {
+        let gravity = -9.0 // m/s^2
+        physicsWorld.gravity = CGVector(dx: 0, dy: gravity)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        if scene?.isPaused == false {
-            coinMan?.physicsBody?.applyForce(CGVector(dx: 0, dy: 100_000))
-        }
-        
-        let touch = touches.first
-        if let location = touch?.location(in: self) {
-            let theNodes = nodes(at: location)
-            
-            for node in theNodes {
-                if node.name == "play" {
-                    score = 0
-                    node.removeFromParent()
-                    finalScoreLabel?.removeFromParent()
-                    yourScoreLabel?.removeFromParent()
-                    scene?.isPaused = false
-                    scoreLabel?.text = "Score: \(score)"
-                    startTimers()
-                }
-            }
-        }
+    func jump() {
+        tiger?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 200))
     }
     
     func createCoin() {
@@ -200,11 +233,11 @@ class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
         coin.physicsBody?.contactTestBitMask = coinManCategory
         coin.physicsBody?.collisionBitMask = 0
         coin.size = CGSize(width: 50, height: 50)
+        coin.physicsBody?.mass = 0.05
         addChild(coin)
         
         let maxY = size.height / 2 - coin.size.height / 2
-        let minY = -size.height / 2 + coin.size.height / 2
-        let range = maxY - minY
+        let range = maxY - 100
         let coinY = maxY - CGFloat(arc4random_uniform(UInt32(range)))
         
         coin.position = CGPoint(x: UIScreen.main.bounds.width * 2, y: coinY)
@@ -215,18 +248,16 @@ class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
     }
     
     func createBomb() {
-        let bomb = [SKSpriteNode(imageNamed: "car"), SKSpriteNode(imageNamed: "crate"), SKSpriteNode(imageNamed: "stone")].randomElement()!
+        let item = ["car", "crate", "stone"].randomElement()!
+        let bomb = SKSpriteNode(imageNamed: item)
         bomb.physicsBody = SKPhysicsBody(rectangleOf: bomb.size)
         bomb.physicsBody?.affectedByGravity = false
         bomb.physicsBody?.categoryBitMask = bombCategory
         bomb.physicsBody?.contactTestBitMask = coinManCategory
         bomb.physicsBody?.collisionBitMask = 0
+        bomb.physicsBody?.mass = 0.2
+        bomb.name = item
         addChild(bomb)
-        
-        let maxY = size.height / 2 - bomb.size.height / 2
-        let minY = -size.height / 2 + bomb.size.height / 2
-        let range = maxY - minY
-        //let bombY = maxY - CGFloat(arc4random_uniform(UInt32(range)))
         
         bomb.position = CGPoint(x: UIScreen.main.bounds.width * 2, y: 100)
         
@@ -239,24 +270,69 @@ class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
         
         if contact.bodyA.categoryBitMask == coinCategory {
             contact.bodyA.node?.removeFromParent()
-            score += 1
-            scoreLabel?.text = "Score: \(score)"
+            DispatchQueue.main.async {
+                AdventureGameControl.catchCoints.send(1)
+                Haptic.tap()
+                PlaySound.run()
+            }
         }
         if contact.bodyB.categoryBitMask == coinCategory {
             contact.bodyB.node?.removeFromParent()
-            score += 1
-            scoreLabel?.text = "Score: \(score)"
+            DispatchQueue.main.async {
+                AdventureGameControl.catchCoints.send(1)
+                Haptic.tap()
+                PlaySound.run()
+            }
         }
         
         if contact.bodyA.categoryBitMask == bombCategory {
             contact.bodyA.node?.removeFromParent()
             gameOver()
+            self.destroy(contact.bodyA.node)
+            DispatchQueue.main.async {
+                PlaySound.run4()
+                AdventureGameControl.gameDidFinished.send()
+            }
         }
         
         if contact.bodyB.categoryBitMask == bombCategory {
             contact.bodyB.node?.removeFromParent()
             gameOver()
+            self.destroy(contact.bodyB.node)
+            DispatchQueue.main.async {
+                PlaySound.run4()
+                AdventureGameControl.gameDidFinished.send()
+            }
         }
+    }
+    
+    
+    func gameStart() {
+        scene?.isPaused = false
+        
+        self.destroy(tiger)
+        tiger = SKSpriteNode(imageNamed: tigerSkin ?? "tiger_set_1")
+        tiger?.physicsBody?.categoryBitMask = coinManCategory
+        tiger?.physicsBody?.contactTestBitMask = coinCategory | bombCategory
+        tiger?.physicsBody?.collisionBitMask = groundAndCeilCategory
+       // tiger?.physicsBody = SKPhysicsBody(rectangleOf: tiger?.size ?? .zero)
+        tiger?.physicsBody = SKPhysicsBody(rectangleOf: tiger?.size ?? .zero)
+        tiger?.physicsBody?.affectedByGravity = true
+        tiger?.physicsBody?.contactTestBitMask = tiger?.physicsBody?.collisionBitMask ?? 0
+        tiger?.position = CGPoint(x: 60, y: 140)
+        tiger?.size = CGSize(width: 150, height: 160)
+        tiger?.physicsBody?.mass = 0.5
+        tiger?.physicsBody?.allowsRotation = false
+        addChild(tiger!)
+        
+        coinTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            self.createCoin()
+        })
+        coinTimer?.fire()
+        
+        bombTimer = Timer.scheduledTimer(withTimeInterval: 6, repeats: true, block: { (timer) in
+            self.createBomb()
+        })
     }
     
     func gameOver() {
@@ -264,28 +340,11 @@ class AdventureGameSprite: SKScene, SKPhysicsContactDelegate {
         
         coinTimer?.invalidate()
         bombTimer?.invalidate()
-        
-        yourScoreLabel = SKLabelNode(text: "Your Score:")
-        yourScoreLabel?.position = CGPoint(x: 0, y: 200)
-        yourScoreLabel?.fontSize = 100
-        yourScoreLabel?.zPosition = 1
-        if yourScoreLabel != nil {
-            addChild(yourScoreLabel!)
-        }
-        
-        finalScoreLabel = SKLabelNode(text: "\(score)")
-        finalScoreLabel?.position = CGPoint(x: 0, y: 0)
-        finalScoreLabel?.fontSize = 200
-        finalScoreLabel?.zPosition = 1
-        if finalScoreLabel != nil {
-            addChild(finalScoreLabel!)
-        }
-        
-        let playButton = SKSpriteNode(imageNamed: "play")
-        playButton.position = CGPoint(x: 0, y: -200)
-        playButton.name = "play"
-        playButton.zPosition = 1
-        addChild(playButton)
+    }
+    
+    func destroy(_ value: SKNode?) {
+        guard let value else { return }
+        value.removeFromParent()
     }
     
 }

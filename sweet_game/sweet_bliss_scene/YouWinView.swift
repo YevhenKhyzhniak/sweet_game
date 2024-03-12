@@ -79,6 +79,37 @@ struct YouLoseView: View {
     }
 }
 
+struct TryAgainView: View {
+    
+    let tryAgain: () -> Void
+    let mainMenu: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Game over!!!")
+                .bold()
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .padding(.top)
+            
+            ButtonView(title: "TRY AGAIN") {
+                self.tryAgain()
+            }
+            .frame(height: 50)
+            .padding(.horizontal, 20)
+            
+            ButtonView(title: "MAIN MENU") {
+                self.mainMenu()
+            }
+            .frame(height: 50)
+            .padding(.horizontal, 20)
+        }
+        .padding()
+        .background(Image("dialog_bg").resizable())
+    }
+}
+
 struct PauseView: View {
     
     let unpause: () -> Void
@@ -87,7 +118,7 @@ struct PauseView: View {
     var body: some View {
         VStack(spacing: 20) {
             
-            Text("PAUSE").font(.title).bold().foregroundColor(.white)
+            Text("Paused").font(.title).bold().foregroundColor(.white)
             
             ButtonView(title: "UNPAUSE") {
                 self.unpause()
@@ -102,7 +133,7 @@ struct PauseView: View {
             .padding(.horizontal, 20)
         }
         .padding()
-        .background(Image("modal_window").resizable())
+        .background(Image("dialog_bg").resizable())
     }
 }
 

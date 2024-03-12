@@ -35,3 +35,11 @@ class PlaySound {
     }
     
 }
+
+class Haptic {
+    class func tap() {
+        guard GamesBusines.vibro else { return }
+        let hapticImpact: TapticEngine.Impact = .init()
+        hapticImpact.feedback(.light)
+    }
+}

@@ -50,7 +50,7 @@ struct MainView: View {
 
                         VStack(spacing: 10) {
                             Button {
-                                self.router.presentFullScreen(.adventures)
+                                self.router.presentFullScreen(.adventuresSkin)
                             } label: {
                                 Image("adventures")
                                     .resizable()

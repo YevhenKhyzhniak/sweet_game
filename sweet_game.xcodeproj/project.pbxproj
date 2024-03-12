@@ -12,6 +12,8 @@
 		0C1AB3F72B9F7FA70081B5C8 /* SlotsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3F62B9F7FA70081B5C8 /* SlotsGame.swift */; };
 		0C1AB3F92B9F7FCA0081B5C8 /* AdventureGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3F82B9F7FCA0081B5C8 /* AdventureGame.swift */; };
 		0C1AB3FB2B9F7FEA0081B5C8 /* CloudsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3FA2B9F7FEA0081B5C8 /* CloudsGame.swift */; };
+		0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */; };
+		0C1AB4082BA0B5CC0081B5C8 /* AdventureSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */; };
 		0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */; };
 		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
 		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
@@ -82,6 +84,8 @@
 		0C1AB3F62B9F7FA70081B5C8 /* SlotsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsGame.swift; sourceTree = "<group>"; };
 		0C1AB3F82B9F7FCA0081B5C8 /* AdventureGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureGame.swift; sourceTree = "<group>"; };
 		0C1AB3FA2B9F7FEA0081B5C8 /* CloudsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGame.swift; sourceTree = "<group>"; };
+		0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureSkinView.swift; sourceTree = "<group>"; };
 		0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicAppState.swift; sourceTree = "<group>"; };
 		0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicWebView.swift; sourceTree = "<group>"; };
 		0C65F0DC2B9A0E9A0087390C /* Redirect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		0C1AB3F42B9F7F830081B5C8 /* adventures */ = {
 			isa = PBXGroup;
 			children = (
+				0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */,
 				0C1AB3F82B9F7FCA0081B5C8 /* AdventureGame.swift */,
 			);
 			path = adventures;
@@ -287,6 +292,7 @@
 				0C927F9E2B90D1D100AD261D /* GamesBusines.swift */,
 				0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */,
 				0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */,
+				0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -464,7 +470,9 @@
 				0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */,
 				0C1AB3F22B9F64E80081B5C8 /* Toggle.swift in Sources */,
 				0C9078492B8FB1DC00F316EA /* ViewModifiers.swift in Sources */,
+				0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */,
 				0C90786E2B90A77F00F316EA /* Storage.swift in Sources */,
+				0C1AB4082BA0B5CC0081B5C8 /* AdventureSkinView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

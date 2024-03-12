@@ -11,7 +11,8 @@ import NavigationBackport
 
 enum ViewSpec: Hashable {
     case largeSlot
-    case adventures
+    case adventures(skin: String)
+    case adventuresSkin
     case clouds
     case showMain
     case showSettings
@@ -32,8 +33,10 @@ public class MainRouter: Router {
         switch spec {
         case .largeSlot:
             SlotsGame()
-        case .adventures:
-            AdventureGame()
+        case .adventures(let skin):
+            AdventureGame(skin: skin)
+        case .adventuresSkin:
+            AdventureSkinView()
         case .clouds:
             CloudsGame()
         case .showMain:
