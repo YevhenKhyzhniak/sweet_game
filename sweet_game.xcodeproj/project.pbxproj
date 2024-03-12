@@ -87,6 +87,7 @@
 		0C1AB3FA2B9F7FEA0081B5C8 /* CloudsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGame.swift; sourceTree = "<group>"; };
 		0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureSkinView.swift; sourceTree = "<group>"; };
+		0C1AB4092BA0CCDB0081B5C8 /* CloudsGameSkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGameSkinView.swift; sourceTree = "<group>"; };
 		0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicAppState.swift; sourceTree = "<group>"; };
 		0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicWebView.swift; sourceTree = "<group>"; };
 		0C65F0DC2B9A0E9A0087390C /* Redirect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
