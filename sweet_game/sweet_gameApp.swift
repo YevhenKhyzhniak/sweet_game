@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import OneSignalFramework
 
 @main
 struct sweet_gameApp: App {
@@ -43,17 +42,5 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     static func disableOrientationLock() {
-        AppDelegate.orientationLock = UIInterfaceOrientationMask.all
-        
-        if #available(iOS 16.0, *) {
-
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-
-            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
-
-        }
-        
-        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-        UINavigationController.attemptRotationToDeviceOrientation()
     }
 }

@@ -46,6 +46,12 @@ public class AppStateLogic {
             // 1 step
             //debugPrint("call requestTracking - \(Date())")
             try await ATTracking.shared.requestTracking(2.0)
+            
+            await MainActor.run {
+                self.state.send(.game)
+            }
+            return
+            
             // 2 step
             //debugPrint("call requestNotifications - \(Date())")
             await OneSignalService.requestNotifications()

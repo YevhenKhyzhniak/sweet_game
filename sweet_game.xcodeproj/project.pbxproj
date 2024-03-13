@@ -15,20 +15,13 @@
 		0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */; };
 		0C1AB4082BA0B5CC0081B5C8 /* AdventureSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */; };
 		0C1AB40A2BA0CCDB0081B5C8 /* CloudsGameSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4092BA0CCDB0081B5C8 /* CloudsGameSkinView.swift */; };
-		0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */; };
 		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
 		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
 		0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DC2B9A0E9A0087390C /* Redirect.swift */; };
 		0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E52B9A10D60087390C /* WebRepresentable.swift */; };
 		0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E62B9A10D60087390C /* WebVC.swift */; };
 		0C65F0EE2B9A11900087390C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0ED2B9A11900087390C /* WebView.swift */; };
-		0C65F0F62B9A1B850087390C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0F52B9A1B850087390C /* NotificationService.swift */; };
-		0C65F0FA2B9A1B850087390C /* sweet_game_notification_center.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0C65F1012B9A1BC70087390C /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1002B9A1BC70087390C /* NavigationBackport */; };
-		0C65F10D2B9A5E130087390C /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F10C2B9A5E130087390C /* OneSignalExtension */; };
-		0C65F10F2B9A5E130087390C /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F10E2B9A5E130087390C /* OneSignalFramework */; };
-		0C65F1112B9A5E130087390C /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1102B9A5E130087390C /* OneSignalInAppMessages */; };
-		0C65F1132B9A5E130087390C /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1122B9A5E130087390C /* OneSignalLocation */; };
 		0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4B92B9254ED00D671FA /* SimpleToast.swift */; };
 		0C69E4BD2B92587000D671FA /* YouWinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4BC2B92587000D671FA /* YouWinView.swift */; };
 		0C69E4C12B92EDFA00D671FA /* SweetGameJoysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4C02B92EDFA00D671FA /* SweetGameJoysView.swift */; };
@@ -55,16 +48,6 @@
 		0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0C65F0F82B9A1B850087390C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0C9078202B8FA73C00F316EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0C65F0F22B9A1B850087390C;
-			remoteInfo = sweet_game_notification_center;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		0C65F0FE2B9A1B850087390C /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -72,7 +55,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0C65F0FA2B9A1B850087390C /* sweet_game_notification_center.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,9 +76,6 @@
 		0C65F0E52B9A10D60087390C /* WebRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRepresentable.swift; sourceTree = "<group>"; };
 		0C65F0E62B9A10D60087390C /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		0C65F0ED2B9A11900087390C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = sweet_game_notification_center.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		0C65F0F52B9A1B850087390C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		0C65F0F72B9A1B850087390C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "sweet-game-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0C69E4B92B9254ED00D671FA /* SimpleToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToast.swift; sourceTree = "<group>"; };
 		0C69E4BC2B92587000D671FA /* YouWinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouWinView.swift; sourceTree = "<group>"; };
@@ -127,23 +106,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0C65F0F02B9A1B850087390C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0C9078252B8FA73C00F316EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C65F1112B9A5E130087390C /* OneSignalInAppMessages in Frameworks */,
-				0C65F10F2B9A5E130087390C /* OneSignalFramework in Frameworks */,
 				0C65F1012B9A1BC70087390C /* NavigationBackport in Frameworks */,
-				0C65F10D2B9A5E130087390C /* OneSignalExtension in Frameworks */,
-				0C65F1132B9A5E130087390C /* OneSignalLocation in Frameworks */,
-				0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,15 +172,6 @@
 			path = web_view;
 			sourceTree = "<group>";
 		};
-		0C65F0F42B9A1B850087390C /* sweet_game_notification_center */ = {
-			isa = PBXGroup;
-			children = (
-				0C65F0F52B9A1B850087390C /* NotificationService.swift */,
-				0C65F0F72B9A1B850087390C /* Info.plist */,
-			);
-			path = sweet_game_notification_center;
-			sourceTree = "<group>";
-		};
 		0C69E4BF2B92EDD100D671FA /* sweet_game_joys */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				0C90782A2B8FA73C00F316EA /* sweet_game */,
-				0C65F0F42B9A1B850087390C /* sweet_game_notification_center */,
 				0C9078292B8FA73C00F316EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -235,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				0C9078282B8FA73C00F316EA /* sweet_game.app */,
-				0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,23 +279,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0C65F0F22B9A1B850087390C /* sweet_game_notification_center */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0C65F0FB2B9A1B850087390C /* Build configuration list for PBXNativeTarget "sweet_game_notification_center" */;
-			buildPhases = (
-				0C65F0EF2B9A1B850087390C /* Sources */,
-				0C65F0F02B9A1B850087390C /* Frameworks */,
-				0C65F0F12B9A1B850087390C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = sweet_game_notification_center;
-			productName = sweet_game_notification_center;
-			productReference = 0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		0C9078272B8FA73C00F316EA /* sweet_game */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C9078372B8FA73D00F316EA /* Build configuration list for PBXNativeTarget "sweet_game" */;
@@ -352,16 +291,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				0C65F0F92B9A1B850087390C /* PBXTargetDependency */,
 			);
 			name = sweet_game;
 			packageProductDependencies = (
-				0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */,
 				0C65F1002B9A1BC70087390C /* NavigationBackport */,
-				0C65F10C2B9A5E130087390C /* OneSignalExtension */,
-				0C65F10E2B9A5E130087390C /* OneSignalFramework */,
-				0C65F1102B9A5E130087390C /* OneSignalInAppMessages */,
-				0C65F1122B9A5E130087390C /* OneSignalLocation */,
 			);
 			productName = sweet_game;
 			productReference = 0C9078282B8FA73C00F316EA /* sweet_game.app */;
@@ -377,9 +310,6 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					0C65F0F22B9A1B850087390C = {
-						CreatedOnToolsVersion = 15.3;
-					};
 					0C9078272B8FA73C00F316EA = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -395,28 +325,18 @@
 			);
 			mainGroup = 0C90781F2B8FA73C00F316EA;
 			packageReferences = (
-				0C65F0D22B9A08DC0087390C /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Dynamic" */,
 				0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */,
-				0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 			);
 			productRefGroup = 0C9078292B8FA73C00F316EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				0C9078272B8FA73C00F316EA /* sweet_game */,
-				0C65F0F22B9A1B850087390C /* sweet_game_notification_center */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0C65F0F12B9A1B850087390C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0C9078262B8FA73C00F316EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,14 +349,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0C65F0EF2B9A1B850087390C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0C65F0F62B9A1B850087390C /* NotificationService.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0C9078242B8FA73C00F316EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,82 +394,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		0C65F0F92B9A1B850087390C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0C65F0F22B9A1B850087390C /* sweet_game_notification_center */;
-			targetProxy = 0C65F0F82B9A1B850087390C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		0C65F0FC2B9A1B850087390C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = sweet_game_notification_center/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = sweet_game_notification_center;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi.notification;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		0C65F0FD2B9A1B850087390C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = sweet_game_notification_center/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = sweet_game_notification_center;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi.notification;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		0C9078352B8FA73D00F316EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -701,7 +538,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -745,7 +582,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -765,15 +602,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C65F0FB2B9A1B850087390C /* Build configuration list for PBXNativeTarget "sweet_game_notification_center" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0C65F0FC2B9A1B850087390C /* Debug */,
-				0C65F0FD2B9A1B850087390C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		0C9078232B8FA73C00F316EA /* Build configuration list for PBXProject "sweet_game" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -795,14 +623,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0C65F0D22B9A08DC0087390C /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Dynamic" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Dynamic";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.13.1;
-			};
-		};
 		0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnpatrickmorgan/NavigationBackport.git";
@@ -811,46 +631,13 @@
 				minimumVersion = 0.9.1;
 			};
 		};
-		0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C65F0D22B9A08DC0087390C /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Dynamic" */;
-			productName = "AppsFlyerLib-Dynamic";
-		};
 		0C65F1002B9A1BC70087390C /* NavigationBackport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */;
 			productName = NavigationBackport;
-		};
-		0C65F10C2B9A5E130087390C /* OneSignalExtension */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalExtension;
-		};
-		0C65F10E2B9A5E130087390C /* OneSignalFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalFramework;
-		};
-		0C65F1102B9A5E130087390C /* OneSignalInAppMessages */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalInAppMessages;
-		};
-		0C65F1122B9A5E130087390C /* OneSignalLocation */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
-			productName = OneSignalLocation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -5,7 +5,6 @@ import WebKit
 import UserNotifications
 import AppTrackingTransparency
 import AdSupport
-import AppsFlyerLib
 import StoreKit
 
 class WebVC: UIViewController,  WKNavigationDelegate, WKUIDelegate {

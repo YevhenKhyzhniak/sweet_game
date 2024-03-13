@@ -1,15 +1,6 @@
 {
-  "originHash" : "94f51a32dbcf0f7234b3e2a1727c01c786b6b815a0cedad8e6c0763fcc0647db",
+  "originHash" : "fda64586dafc7564346ef8fbb7388e409bd2d31b1bb7891a71429c5f3c602cc8",
   "pins" : [
-    {
-      "identity" : "appsflyerframework-dynamic",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Dynamic",
-      "state" : {
-        "revision" : "001c2f56db9710a64aba8b15c8693110dde3c8eb",
-        "version" : "6.13.1"
-      }
-    },
     {
       "identity" : "navigationbackport",
       "kind" : "remoteSourceControl",
@@ -17,15 +8,6 @@
       "state" : {
         "revision" : "b002991691b54fd7b952e1e780de252620f8ac77",
         "version" : "0.9.1"
-      }
-    },
-    {
-      "identity" : "onesignal-xcframework",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/OneSignal/OneSignal-XCFramework.git",
-      "state" : {
-        "revision" : "68685956124c710cdc9112bc696ad30e2f58538b",
-        "version" : "5.1.3"
       }
     }
   ],
