@@ -208,7 +208,7 @@ struct SettingsView: View {
             }.padding(.horizontal, 20)
             
             ButtonView(title: "PRIVACY POLICY") {
-                if let url = URL(string: "https://www.sweet1bonanaza-bliss.live/topolicyapp.html") {
+                if let url = URL(string: "https://tiget-city3indi.city/gamepolicy3.html") {
                     if UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.open(url)
                     }
@@ -218,7 +218,7 @@ struct SettingsView: View {
             .padding(.horizontal, 20)
             
             ButtonView(title: "TERMS OF USE") {
-                if let url = URL(string: "https://www.sweet1bonanaza-bliss.live/thetermss.html") {
+                if let url = URL(string: "https://tiget-city3indi.city/gameterms3.html") {
                     if UIApplication.shared.canOpenURL(url) {
                         UIApplication.shared.open(url)
                     }

@@ -45,7 +45,7 @@ public class AppStateLogic {
         Task {
             // 1 step
             //debugPrint("call requestTracking - \(Date())")
-            try await ATTracking.shared.requestTracking(2.0)
+            //try await ATTracking.shared.requestTracking(2.0)
             
             await MainActor.run {
                 self.state.send(.game)
