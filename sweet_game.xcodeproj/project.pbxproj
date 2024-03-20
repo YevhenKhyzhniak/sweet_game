@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C13E4702B9DCAEE005031C9 /* TimeBomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C13E46F2B9DCAEE005031C9 /* TimeBomb.swift */; };
 		0C1AB3F22B9F64E80081B5C8 /* Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */; };
 		0C1AB3F72B9F7FA70081B5C8 /* SlotsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3F62B9F7FA70081B5C8 /* SlotsGame.swift */; };
 		0C1AB3F92B9F7FCA0081B5C8 /* AdventureGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3F82B9F7FCA0081B5C8 /* AdventureGame.swift */; };
@@ -15,12 +14,6 @@
 		0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */; };
 		0C1AB4082BA0B5CC0081B5C8 /* AdventureSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */; };
 		0C1AB40A2BA0CCDB0081B5C8 /* CloudsGameSkinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4092BA0CCDB0081B5C8 /* CloudsGameSkinView.swift */; };
-		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
-		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
-		0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DC2B9A0E9A0087390C /* Redirect.swift */; };
-		0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E52B9A10D60087390C /* WebRepresentable.swift */; };
-		0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E62B9A10D60087390C /* WebVC.swift */; };
-		0C65F0EE2B9A11900087390C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0ED2B9A11900087390C /* WebView.swift */; };
 		0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4B92B9254ED00D671FA /* SimpleToast.swift */; };
 		0C69E4BD2B92587000D671FA /* YouWinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4BC2B92587000D671FA /* YouWinView.swift */; };
 		0C69E4C12B92EDFA00D671FA /* SweetGameJoysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4C02B92EDFA00D671FA /* SweetGameJoysView.swift */; };
@@ -44,7 +37,6 @@
 		0C9078772B90AF5200F316EA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9078762B90AF5200F316EA /* Router.swift */; };
 		0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* GamesBusines.swift */; };
 		0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927FA72B90DC6A00AD261D /* GameItems.swift */; };
-		0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,7 +53,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C13E46F2B9DCAEE005031C9 /* TimeBomb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBomb.swift; sourceTree = "<group>"; };
 		0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toggle.swift; sourceTree = "<group>"; };
 		0C1AB3F62B9F7FA70081B5C8 /* SlotsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsGame.swift; sourceTree = "<group>"; };
 		0C1AB3F82B9F7FCA0081B5C8 /* AdventureGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureGame.swift; sourceTree = "<group>"; };
@@ -69,12 +60,6 @@
 		0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		0C1AB4072BA0B5CC0081B5C8 /* AdventureSkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureSkinView.swift; sourceTree = "<group>"; };
 		0C1AB4092BA0CCDB0081B5C8 /* CloudsGameSkinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsGameSkinView.swift; sourceTree = "<group>"; };
-		0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicAppState.swift; sourceTree = "<group>"; };
-		0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicWebView.swift; sourceTree = "<group>"; };
-		0C65F0DC2B9A0E9A0087390C /* Redirect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
-		0C65F0E52B9A10D60087390C /* WebRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRepresentable.swift; sourceTree = "<group>"; };
-		0C65F0E62B9A10D60087390C /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
-		0C65F0ED2B9A11900087390C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "sweet-game-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0C69E4B92B9254ED00D671FA /* SimpleToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToast.swift; sourceTree = "<group>"; };
 		0C69E4BC2B92587000D671FA /* YouWinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouWinView.swift; sourceTree = "<group>"; };
@@ -101,7 +86,6 @@
 		0C9078762B90AF5200F316EA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0C927F9E2B90D1D100AD261D /* GamesBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesBusines.swift; sourceTree = "<group>"; };
 		0C927FA72B90DC6A00AD261D /* GameItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItems.swift; sourceTree = "<group>"; };
-		0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTracking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,35 +125,6 @@
 			path = clouds;
 			sourceTree = "<group>";
 		};
-		0C65F0DD2B9A0E9A0087390C /* WebBusiness */ = {
-			isa = PBXGroup;
-			children = (
-				0C65F0E82B9A10D60087390C /* Web */,
-				0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */,
-				0C13E46F2B9DCAEE005031C9 /* TimeBomb.swift */,
-				0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */,
-				0C65F0DC2B9A0E9A0087390C /* Redirect.swift */,
-			);
-			path = WebBusiness;
-			sourceTree = "<group>";
-		};
-		0C65F0E82B9A10D60087390C /* Web */ = {
-			isa = PBXGroup;
-			children = (
-				0C65F0E52B9A10D60087390C /* WebRepresentable.swift */,
-				0C65F0E62B9A10D60087390C /* WebVC.swift */,
-			);
-			path = Web;
-			sourceTree = "<group>";
-		};
-		0C65F0EC2B9A11800087390C /* web_view */ = {
-			isa = PBXGroup;
-			children = (
-				0C65F0ED2B9A11900087390C /* WebView.swift */,
-			);
-			path = web_view;
-			sourceTree = "<group>";
-		};
 		0C69E4BF2B92EDD100D671FA /* sweet_game_joys */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,12 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */,
-				0C65F0DD2B9A0E9A0087390C /* WebBusiness */,
 				0C9078452B8FB1CE00F316EA /* core */,
 				0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */,
 				0C90782D2B8FA73C00F316EA /* ContentView.swift */,
 				0C9078582B9097A300F316EA /* main_scene */,
-				0C65F0EC2B9A11800087390C /* web_view */,
 				0C90784D2B8FC52600F316EA /* launch_scene */,
 				0C1AB3F32B9F7F730081B5C8 /* slots */,
 				0C1AB3F42B9F7F830081B5C8 /* adventures */,
@@ -247,7 +200,6 @@
 				0C9078762B90AF5200F316EA /* Router.swift */,
 				0C69E4B92B9254ED00D671FA /* SimpleToast.swift */,
 				0C927F9E2B90D1D100AD261D /* GamesBusines.swift */,
-				0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */,
 				0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */,
 				0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */,
 			);
@@ -350,36 +302,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C90785F2B909DE800F316EA /* BalanceRowView.swift in Sources */,
-				0C65F0EE2B9A11900087390C /* WebView.swift in Sources */,
 				0C9078702B90ACCD00F316EA /* BackButtonView.swift in Sources */,
 				0C90785C2B90985900F316EA /* MainRowView.swift in Sources */,
-				0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */,
 				0C9078652B90A18900F316EA /* ButtonView.swift in Sources */,
 				0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */,
 				0C9078682B90A36700F316EA /* SweetBlissGameLevelView.swift in Sources */,
 				0C90782E2B8FA73C00F316EA /* ContentView.swift in Sources */,
 				0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */,
-				0C13E4702B9DCAEE005031C9 /* TimeBomb.swift in Sources */,
 				0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */,
 				0C1AB3F72B9F7FA70081B5C8 /* SlotsGame.swift in Sources */,
 				0C90785A2B9097B600F316EA /* MainView.swift in Sources */,
 				0C9078772B90AF5200F316EA /* Router.swift in Sources */,
 				0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */,
 				0C69E4BD2B92587000D671FA /* YouWinView.swift in Sources */,
-				0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */,
-				0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */,
 				0C90786B2B90A43100F316EA /* SweetBlissGameLevel.swift in Sources */,
 				0C69E4C42B9308AC00D671FA /* PlaySound.swift in Sources */,
-				0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */,
 				0C1AB3F92B9F7FCA0081B5C8 /* AdventureGame.swift in Sources */,
 				0C1AB40A2BA0CCDB0081B5C8 /* CloudsGameSkinView.swift in Sources */,
 				0C1AB3FB2B9F7FEA0081B5C8 /* CloudsGame.swift in Sources */,
 				0C90783C2B8FAFD700F316EA /* SweetBlissGame.swift in Sources */,
-				0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */,
 				0C90782C2B8FA73C00F316EA /* sweet_gameApp.swift in Sources */,
 				0C9078622B909F1B00F316EA /* SettingsButtonView.swift in Sources */,
 				0C69E4C12B92EDFA00D671FA /* SweetGameJoysView.swift in Sources */,
-				0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */,
 				0C1AB3F22B9F64E80081B5C8 /* Toggle.swift in Sources */,
 				0C9078492B8FB1DC00F316EA /* ViewModifiers.swift in Sources */,
 				0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */,
