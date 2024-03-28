@@ -9,8 +9,8 @@ import Foundation
 
 class GamesBusines {
     
-    @Storage(key: "Game.Coins", defaultValue: 1000)
-    static var coins: Int
+    @Storage(key: "Game.Coins", defaultValue: 99.0)
+    static var coins: Double
     
     @Storage(key: "Game.Sound", defaultValue: true)
     static var sound: Bool

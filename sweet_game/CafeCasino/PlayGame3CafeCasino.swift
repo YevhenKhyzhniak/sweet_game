@@ -11,7 +11,7 @@ import Combine
 struct PlayGame3CafeCasino: View {
     
     enum Show: Identifiable {
-        case win(Int)
+        case win(Double)
         case lose
         
         var id: Int {
@@ -53,7 +53,7 @@ struct PlayGame3CafeCasino: View {
     
     @State private var show: Show? = nil
     
-    @State private var coins: Int = 0 {
+    @State private var coins: Double = 0 {
         willSet {
             GamesBusines.coins = newValue
         }
@@ -66,7 +66,7 @@ struct PlayGame3CafeCasino: View {
     @State var allValuesOnSlots: [SlotItem] = []
     
     @State private var spinsCount: Int = 1
-    @State private var winCount: Int = 0
+    @State private var winCount: Double = 0
     
     // Timer
     
@@ -115,7 +115,7 @@ struct PlayGame3CafeCasino: View {
                 VStack(spacing: 15) {
                     Text("YOU WIN!!!").bold().foregroundColor(.green)
                     
-                    Text("TOTAL WIN: \(self.winCount)").bold().foregroundColor(.green)
+                    Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().foregroundColor(.green)
                     
                     Button {
                         self.show = nil
@@ -170,12 +170,12 @@ struct PlayGame3CafeCasino: View {
             
             Spacer(minLength: 1)
             
-            Text(String(format: "BALANCE: %d", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
+            Text(String(format: "BALANCE: %.2f", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
                 .background(
                     Image("game_3_label_back").resizable().frame(height: 30)
                 )
             
-            Text(String(format: "TOTAL WIN: %d", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
+            Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
                 .background(
                     Image("game_3_label_back").resizable().frame(height: 30)
                 )
@@ -284,8 +284,8 @@ struct PlayGame3CafeCasino: View {
                         .sink { _ in
                             if self.autoSpinTimes > 0 {
                                 withAnimation {
-                                    self.spinSlots(.auto)
                                     self.autoSpinTimes -= 1
+                                    self.spinSlots(.auto)
                                 }
                             } else {
                                 self.timerActive = false

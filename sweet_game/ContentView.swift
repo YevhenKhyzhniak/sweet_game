@@ -31,15 +31,14 @@ struct ContentView: View {
     private func contentView() -> some View {
         switch self.state {
         case .idle:
-            LaunchView() {
-                AppDelegate.disableOrientationLock()
-            }
-                .onAppear {
+            LaunchView() {}
+            .onAppear {
                     self.appState.onCheckAppState()
-                }
+            }
         case .game:
             RouterView(router: self.router) {
                 LaunchView() {
+                    AppDelegate.disableOrientationLock()
                     self.router.presentFullScreen(.showMain)
                 }
             }

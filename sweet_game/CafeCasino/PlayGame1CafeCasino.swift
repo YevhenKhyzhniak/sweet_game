@@ -11,7 +11,7 @@ import Combine
 struct PlayGame1CafeCasino: View {
     
     enum Show: Identifiable {
-        case win(Int)
+        case win(Double)
         case lose
         
         var id: Int {
@@ -45,7 +45,7 @@ struct PlayGame1CafeCasino: View {
         
         static var randomValues: [SlotItem] {
             var result: [SlotItem] = []
-            for _ in 0...40 {
+            for _ in 0...100 {
                 result.append(SlotItem.allCases.randomElement()!)
             }
             return result
@@ -56,7 +56,7 @@ struct PlayGame1CafeCasino: View {
     
     @State private var show: Show? = nil
     
-    @State private var coins: Int = 0 {
+    @State private var coins: Double = 0 {
         willSet {
             GamesBusines.coins = newValue
         }
@@ -70,7 +70,7 @@ struct PlayGame1CafeCasino: View {
     @State var allValuesOnSlots: [SlotItem] = []
     
     @State private var spinsCount: Int = 1
-    @State private var winCount: Int = 0
+    @State private var winCount: Double = 0
     
     // Timer
     
@@ -92,7 +92,6 @@ struct PlayGame1CafeCasino: View {
         }
         .onDisappear {
             self.timerSubscription?.cancel()
-            self.coins += self.winCount
         }
         .simpleToast(item: self.$show, options: .init(alignment: .center, edgesIgnoringSafeArea: .all)) {
             switch self.show {
@@ -118,7 +117,7 @@ struct PlayGame1CafeCasino: View {
                 VStack(spacing: 15) {
                     Text("YOU WIN!!!").bold().foregroundColor(.white)
                     
-                    Text("TOTAL WIN: \(self.winCount)").bold().foregroundColor(.white)
+                    Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().foregroundColor(.white)
                     
                     Button {
                         self.show = nil
@@ -172,12 +171,12 @@ struct PlayGame1CafeCasino: View {
             
             Spacer(minLength: 1)
             
-            Text(String(format: "BALANCE: %d", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
+            Text(String(format: "BALANCE: %.2f", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
                 .background(
                     Image("game_1_label_back").resizable().frame(height: 30)
                 )
             
-            Text(String(format: "TOTAL WIN: %d", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
+            Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
                 .background(
                     Image("game_1_label_back").resizable().frame(height: 30)
                 )
@@ -301,8 +300,8 @@ struct PlayGame1CafeCasino: View {
                         .sink { _ in
                             if self.autoSpinTimes > 0 {
                                 withAnimation {
-                                    self.spinSlots(.auto)
                                     self.autoSpinTimes -= 1
+                                    self.spinSlots(.auto)
                                 }
                             } else {
                                 self.timerActive = false

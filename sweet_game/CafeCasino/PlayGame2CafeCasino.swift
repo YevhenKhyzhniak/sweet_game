@@ -11,7 +11,7 @@ import Combine
 struct PlayGame2CafeCasino: View {
     
     enum Show: Identifiable {
-        case win(Int)
+        case win(Double)
         case lose
         
         var id: Int {
@@ -59,7 +59,7 @@ struct PlayGame2CafeCasino: View {
     
     @State private var show: Show? = nil
     
-    @State private var coins: Int = 0 {
+    @State private var coins: Double = 0 {
         willSet {
             GamesBusines.coins = newValue
         }
@@ -74,7 +74,7 @@ struct PlayGame2CafeCasino: View {
     @State var allValuesOnSlots: [SlotItem] = []
     
     @State private var spinsCount: Int = 1
-    @State private var winCount: Int = 0
+    @State private var winCount: Double = 0
     
     // Timer
     
@@ -123,7 +123,7 @@ struct PlayGame2CafeCasino: View {
                 VStack(spacing: 15) {
                     Text("YOU WIN!!!").bold().foregroundColor(.white)
                     
-                    Text("TOTAL WIN: \(self.winCount)").bold().foregroundColor(.white)
+                    Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().foregroundColor(.white)
                     
                     Button {
                         self.show = nil
@@ -149,18 +149,18 @@ struct PlayGame2CafeCasino: View {
     
     
     private func contentView() -> some View {
-        HStack(spacing: 20) {
+        HStack(spacing: 10) {
             VStack {
                 self.balanceRow()
                 Spacer(minLength: 1)
                 self.slotsView()
                 Spacer(minLength: 1)
             }
-            Spacer(minLength: 1)
             VStack {
                 Spacer(minLength: 1)
                 self.spintsView()
             }
+            .padding(.trailing, 8)
         }
         .padding(.leading)
         .padding(.trailing, 5)
@@ -180,12 +180,12 @@ struct PlayGame2CafeCasino: View {
             
             Spacer(minLength: 1)
             
-            Text(String(format: "BALANCE: %d", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
+            Text(String(format: "BALANCE: %.2f", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
                 .background(
                     Image("game_2_label_back").resizable().frame(height: 30)
                 )
             
-            Text(String(format: "TOTAL WIN: %d", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
+            Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
                 .background(
                     Image("game_2_label_back").resizable().frame(height: 30)
                 )
@@ -276,7 +276,7 @@ struct PlayGame2CafeCasino: View {
         .padding(.vertical, 30)
         .background(Image("game_2_slots_back").resizable())
         .disabled(true)
-        .scaleEffect(1.1)
+        .scaleEffect(0.9)
     }
     
     private func spintsView() -> some View {
@@ -324,8 +324,8 @@ struct PlayGame2CafeCasino: View {
                         .sink { _ in
                             if self.autoSpinTimes > 0 {
                                 withAnimation {
-                                    self.spinSlots(.auto)
                                     self.autoSpinTimes -= 1
+                                    self.spinSlots(.auto)
                                 }
                             } else {
                                 self.timerActive = false

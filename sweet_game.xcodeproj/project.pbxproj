@@ -40,7 +40,6 @@
 		0CDA3E2E2BB5760D00C4B229 /* DailyRewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */; };
 		0CFAC3392BB47685002D6FE2 /* SettingsCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */; };
 		0CFAC33B2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */; };
-		0CFAC33D2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33C2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift */; };
 		0CFAC33F2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */; };
 		0CFAC3412BB476FF002D6FE2 /* PlayGame2CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */; };
 		0CFAC3432BB47709002D6FE2 /* PlayGame3CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */; };
@@ -102,7 +101,6 @@
 		0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardView.swift; sourceTree = "<group>"; };
 		0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCafeCasino.swift; sourceTree = "<group>"; };
 		0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRouletteCafeCasino.swift; sourceTree = "<group>"; };
-		0CFAC33C2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardCafeCasino.swift; sourceTree = "<group>"; };
 		0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame1CafeCasino.swift; sourceTree = "<group>"; };
 		0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame2CafeCasino.swift; sourceTree = "<group>"; };
 		0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame3CafeCasino.swift; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 				0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */,
 				0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */,
 				0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */,
-				0CFAC33C2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift */,
 				0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */,
 				0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */,
 				0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */,
@@ -395,7 +392,6 @@
 				0C9078772B90AF5200F316EA /* Router.swift in Sources */,
 				0CFAC3392BB47685002D6FE2 /* SettingsCafeCasino.swift in Sources */,
 				0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */,
-				0CFAC33D2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift in Sources */,
 				0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */,
 				0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */,
 				0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */,

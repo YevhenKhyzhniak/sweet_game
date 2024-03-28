@@ -36,6 +36,7 @@ struct LaunchView: View {
                         .multilineTextAlignment(.center)
                         .foregroundColor(Color.blue.opacity(0.7))
                         .padding(.bottom, 20)
+                        .opacity(self.progressValue < 100 ? 1.0 : 0.0)
                 }
                 , alignment: .bottom
             )
