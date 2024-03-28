@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Combine
-import NavigationBackport
 
 enum ViewSpec: Hashable {
     case showMain
@@ -155,10 +154,10 @@ public struct RouterView<Container>: View where Container: View {
     private let initial: () -> Container
     
     public var body: some View {
-        NBNavigationStack(path: router.navigationPath) {
+        NavigationStack(path: router.navigationPath) {
             self.initial()
                 .navigationBarHidden(true)
-                .nbNavigationDestination(for: ViewSpec.self) { spec in
+                .navigationDestination(for: ViewSpec.self) { spec in
                     router.view(spec: spec, route: .navigation)
                 }
                 .sheet(item: router.presentingSheet) { spec in

@@ -11,39 +11,21 @@ import Combine
 struct ContentView: View {
     
     @Injected(\.router) private var router
-    @State private var state: AppState = .idle
-    let appState: AppStateLogic
-    let initURLConst = "https://swjoybliss.com/Chs1RZdN"
     
     init() {
-        self.appState = AppStateLogic(redirect: RedirectLogicImpl(), initURLConst: self.initURLConst)
     }
     
     var body: some View {
         self.contentView()
-            .onReceive(self.appState.state) { state in
-                //debugPrint("App State Receive - \(state.self)")
-                self.state = state
-            }
     }
     
     @ViewBuilder
     private func contentView() -> some View {
-        switch self.state {
-        case .idle:
-            LaunchView() {}
-            .onAppear {
-                    self.appState.onCheckAppState()
+        RouterView(router: self.router) {
+            LaunchView() {
+                AppDelegate.disableOrientationLock()
+                self.router.presentFullScreen(.showMain)
             }
-        case .game:
-            RouterView(router: self.router) {
-                LaunchView() {
-                    AppDelegate.disableOrientationLock()
-                    self.router.presentFullScreen(.showMain)
-                }
-            }
-        case .web(let url):
-            WebView(webViewLogic: .init(url: url))
         }
     }
     

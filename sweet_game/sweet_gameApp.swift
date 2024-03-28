@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import OneSignalFramework
 
 @main
 struct sweet_gameApp: App {
@@ -16,9 +15,6 @@ struct sweet_gameApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onOpenURL(perform: { url in
-                    ATTracking.shared.openURL(url)
-                })
         }
     }
 }
@@ -34,7 +30,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         
         self.context = AppContext(router: MainRouter.init(isPresented: .constant(.showMain)))
-        ATTracking.shared.initOneSignal(launchOptions)
         return true
     }
     
