@@ -9,7 +9,23 @@ import SwiftUI
 
 struct MainView: View {
     
+    enum Show: Identifiable {
+        case settings
+        case reward
+        
+        var id: Int {
+            switch self {
+            case .settings:
+                return 1
+            case .reward:
+                return 2
+            }
+        }
+    }
+    
     @Injected(\.router) private var router
+    
+    @State private var show: Show? = nil
     
     var body: some View {
 
@@ -18,7 +34,7 @@ struct MainView: View {
             VStack(spacing: 20) {
                 HStack {
                     Button(action: {
-                        //self.router.presentFullScreen(.dailyRewardCafeCasino)
+                        self.show = .reward
                     }, label: {
                         Image("daily_reward_button")
                             .resizable()
@@ -37,7 +53,7 @@ struct MainView: View {
                     
                     Spacer(minLength: 1)
                     Button(action: {
-                        //self.router.presentFullScreen(.settingsCafeCasino)
+                        self.show = .settings
                     }, label: {
                         Image("settings_button")
                             .resizable()
@@ -73,6 +89,40 @@ struct MainView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 10)
+            .blur(radius: self.show != nil ? 5.0 : 0.0)
+            .disabled(self.show != nil)
+        }
+        .simpleToast(item: self.$show, options: .init(alignment: .center, edgesIgnoringSafeArea: .all)) {
+            switch self.show {
+            case .settings:
+                SettingsCafeCasino()
+                    .overlay(
+                        Button(action: {
+                            self.show = nil
+                        }, label: {
+                            Image("close_button")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 45, height: 45)
+                        }), alignment: .topTrailing
+                    )
+                    .padding()
+            case .reward:
+                DailyRewardView()
+                    .overlay(
+                        Button(action: {
+                            self.show = nil
+                        }, label: {
+                            Image("close_button")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 45, height: 45)
+                        }), alignment: .topTrailing
+                    )
+                    .padding()
+            default:
+                Color.clear
+            }
         }
     }
 }

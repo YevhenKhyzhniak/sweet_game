@@ -10,13 +10,7 @@ import Combine
 import NavigationBackport
 
 enum ViewSpec: Hashable {
-    case largeSlot
-    case adventures(skin: String)
-    case adventuresSkin
-    case cloudsSkin
-    case clouds(skin: String)
     case showMain
-    case showSettings
     
     case playRouletteCafeCasino
     case playGame1CafeCasino
@@ -37,20 +31,8 @@ public class MainRouter: Router {
     @ViewBuilder
     func buildView(spec: ViewSpec, route: Route) -> some View {
         switch spec {
-        case .largeSlot:
-            SlotsGame()
-        case .adventures(let skin):
-            AdventureGame(skin: skin)
-        case .adventuresSkin:
-            AdventureSkinView()
-        case .cloudsSkin:
-            CloudsGameSkinView()
-        case .clouds(let skin):
-            CloudsGame(skin: skin)
         case .showMain:
             MainView()
-        case .showSettings:
-            SettingsView()
         case .playRouletteCafeCasino:
             PlayRouletteCafeCasino()
         case .playGame1CafeCasino:

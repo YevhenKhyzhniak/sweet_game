@@ -9,15 +9,6 @@ import Foundation
 
 class GamesBusines {
     
-    @Storage(key: "SweetBlissGameLevels", defaultValue: [])
-    static var levels: [SweetBlissGameLevel]
-    
-    @Storage(key: "TigerAdventure", defaultValue: [])
-    static var tigersAdventure: [Tiger]
-    
-    @Storage(key: "TigerCloud", defaultValue: [])
-    static var tigersCloud: [Tiger]
-    
     @Storage(key: "Game.Coins", defaultValue: 1000)
     static var coins: Int
     
@@ -26,37 +17,5 @@ class GamesBusines {
     
     @Storage(key: "Game.Vibro", defaultValue: true)
     static var vibro: Bool
-    
-    
-    @Storage(key: "SweetBlissGameLevelsHeartRate", defaultValue: 75.0)
-    static var heartRate: Double
-    
-    static func unlockNextLevel(current data: SweetBlissGameLevel) {
-        if let index = Self.levels.firstIndex(where: {$0.level == data.level}) {
-            guard Self.levels.count > index + 1 else { return }
-            Self.levels[index].unlocked = .finished
-            Self.levels[index + 1].unlocked = .unlocked
-        }
-    }
-    
-    static func unlockNextAdventureTiger(current data: Tiger, list: [Tiger]) -> [Tiger] {
-        var copy = list
-        if let index = copy.firstIndex(where: {$0.price == data.price}) {
-            copy[index].unlocked = .unlocked
-        }
-        return copy
-    }
-    
-    static func changeSelectedAdventureTiger(current data: Tiger, list: [Tiger]) -> [Tiger] {
-        var copy = list
-        if let selectedIndex = copy.firstIndex(where: {$0.isSelected == true}) {
-            copy[selectedIndex].isSelected = false
-        }
-        if let index = copy.firstIndex(where: {$0.price == data.price}) {
-            guard copy.count > index + 1 else { return copy }
-            copy[index].isSelected = true
-        }
-        return copy
-    }
     
 }
