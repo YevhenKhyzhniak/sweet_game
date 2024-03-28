@@ -31,7 +31,9 @@ struct ContentView: View {
     private func contentView() -> some View {
         switch self.state {
         case .idle:
-            LaunchView() {}
+            LaunchView() {
+                AppDelegate.disableOrientationLock()
+            }
                 .onAppear {
                     self.appState.onCheckAppState()
                 }

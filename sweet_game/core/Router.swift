@@ -17,6 +17,11 @@ enum ViewSpec: Hashable {
     case clouds(skin: String)
     case showMain
     case showSettings
+    
+    case playRouletteCafeCasino
+    case playGame1CafeCasino
+    case playGame2CafeCasino
+    case playGame3CafeCasino
 }
 
 extension ViewSpec: Identifiable {
@@ -46,6 +51,14 @@ public class MainRouter: Router {
             MainView()
         case .showSettings:
             SettingsView()
+        case .playRouletteCafeCasino:
+            PlayRouletteCafeCasino()
+        case .playGame1CafeCasino:
+            PlayGame1CafeCasino()
+        case .playGame2CafeCasino:
+            PlayGame2CafeCasino()
+        case .playGame3CafeCasino:
+            PlayGame3CafeCasino()
         }
     }
 }

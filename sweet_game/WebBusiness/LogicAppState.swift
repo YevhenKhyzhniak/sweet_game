@@ -32,6 +32,10 @@ public class AppStateLogic {
     private let redirect: RedirectLogic
     
     public func onCheckAppState() {
+        
+        self.state.send(.game)
+        return
+        
         guard self.appState == .idle else {
             self.state.send(self.appState)
             return

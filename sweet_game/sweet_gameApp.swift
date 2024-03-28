@@ -43,17 +43,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     static func disableOrientationLock() {
-        AppDelegate.orientationLock = UIInterfaceOrientationMask.all
+        AppDelegate.orientationLock = UIInterfaceOrientationMask.landscape
         
         if #available(iOS 16.0, *) {
 
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
 
-            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
+            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .landscape))
 
         }
         
-        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
         UINavigationController.attemptRotationToDeviceOrientation()
     }
 }

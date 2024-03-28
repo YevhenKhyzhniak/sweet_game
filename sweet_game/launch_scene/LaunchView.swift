@@ -21,13 +21,13 @@ struct LaunchView: View {
         Image("app_background").resizable().scaleEffect(1.2)
         .ignoresSafeArea()
         .overlay(
-            Image("launch_logo").resizable().frame(width: 350, height: 350)
+            Image("logo").resizable().frame(width: 350, height: 350)
         )
         .overlay(
             ProgressView(value: progressValue, total: 100.0)
                 .padding(.bottom, 50)
                 .padding(.horizontal)
-                .tint(Color.init("color_orange", bundle: .main))
+                .tint(Color.blue)
                 .scaleEffect(x: 2, y: 2, anchor: .center)
                 .opacity(self.progressValue < 100 ? 1.0 : 0.0).progressViewStyle(.circular), alignment: .bottom
         )

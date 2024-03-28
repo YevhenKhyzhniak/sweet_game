@@ -53,6 +53,12 @@
 		0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* GamesBusines.swift */; };
 		0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927FA72B90DC6A00AD261D /* GameItems.swift */; };
 		0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */; };
+		0CFAC3392BB47685002D6FE2 /* SettingsCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */; };
+		0CFAC33B2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */; };
+		0CFAC33D2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33C2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift */; };
+		0CFAC33F2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */; };
+		0CFAC3412BB476FF002D6FE2 /* PlayGame2CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */; };
+		0CFAC3432BB47709002D6FE2 /* PlayGame3CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +130,12 @@
 		0C927F9E2B90D1D100AD261D /* GamesBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesBusines.swift; sourceTree = "<group>"; };
 		0C927FA72B90DC6A00AD261D /* GameItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItems.swift; sourceTree = "<group>"; };
 		0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTracking.swift; sourceTree = "<group>"; };
+		0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCafeCasino.swift; sourceTree = "<group>"; };
+		0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRouletteCafeCasino.swift; sourceTree = "<group>"; };
+		0CFAC33C2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardCafeCasino.swift; sourceTree = "<group>"; };
+		0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame1CafeCasino.swift; sourceTree = "<group>"; };
+		0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame2CafeCasino.swift; sourceTree = "<group>"; };
+		0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame3CafeCasino.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +260,7 @@
 				0C9078452B8FB1CE00F316EA /* core */,
 				0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */,
 				0C90782D2B8FA73C00F316EA /* ContentView.swift */,
+				0CFAC3372BB47678002D6FE2 /* CafeCasino */,
 				0C9078582B9097A300F316EA /* main_scene */,
 				0C65F0EC2B9A11800087390C /* web_view */,
 				0C90784D2B8FC52600F316EA /* launch_scene */,
@@ -318,6 +331,19 @@
 				0C9078642B90A18900F316EA /* ButtonView.swift */,
 			);
 			path = main_scene;
+			sourceTree = "<group>";
+		};
+		0CFAC3372BB47678002D6FE2 /* CafeCasino */ = {
+			isa = PBXGroup;
+			children = (
+				0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */,
+				0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */,
+				0CFAC33C2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift */,
+				0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */,
+				0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */,
+				0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */,
+			);
+			path = CafeCasino;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,16 +474,21 @@
 				0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */,
 				0C9078652B90A18900F316EA /* ButtonView.swift in Sources */,
 				0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */,
+				0CFAC3412BB476FF002D6FE2 /* PlayGame2CafeCasino.swift in Sources */,
 				0C9078682B90A36700F316EA /* SweetBlissGameLevelView.swift in Sources */,
 				0C90782E2B8FA73C00F316EA /* ContentView.swift in Sources */,
+				0CFAC33F2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift in Sources */,
 				0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */,
 				0C13E4702B9DCAEE005031C9 /* TimeBomb.swift in Sources */,
 				0C927FA82B90DC6A00AD261D /* GameItems.swift in Sources */,
 				0C1AB3F72B9F7FA70081B5C8 /* SlotsGame.swift in Sources */,
+				0CFAC33B2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift in Sources */,
 				0C90785A2B9097B600F316EA /* MainView.swift in Sources */,
 				0C9078772B90AF5200F316EA /* Router.swift in Sources */,
+				0CFAC3392BB47685002D6FE2 /* SettingsCafeCasino.swift in Sources */,
 				0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */,
 				0C69E4BD2B92587000D671FA /* YouWinView.swift in Sources */,
+				0CFAC33D2BB476EB002D6FE2 /* DailyRewardCafeCasino.swift in Sources */,
 				0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */,
 				0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */,
 				0C90786B2B90A43100F316EA /* SweetBlissGameLevel.swift in Sources */,
@@ -465,6 +496,7 @@
 				0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */,
 				0C1AB3F92B9F7FCA0081B5C8 /* AdventureGame.swift in Sources */,
 				0C1AB40A2BA0CCDB0081B5C8 /* CloudsGameSkinView.swift in Sources */,
+				0CFAC3432BB47709002D6FE2 /* PlayGame3CafeCasino.swift in Sources */,
 				0C1AB3FB2B9F7FEA0081B5C8 /* CloudsGame.swift in Sources */,
 				0C90783C2B8FAFD700F316EA /* SweetBlissGame.swift in Sources */,
 				0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */,
