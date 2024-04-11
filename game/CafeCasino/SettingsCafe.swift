@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsCafeCasino: View {
+struct SettingsCafe: View {
     
     @State private var isSelectSound: Bool = false {
         willSet {

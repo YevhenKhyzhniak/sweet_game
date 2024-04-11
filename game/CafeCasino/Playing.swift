@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-class PlaySound {
+class Playing {
     
     class func run() {
         guard GamesBusines.sound else { return }

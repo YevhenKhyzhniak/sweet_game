@@ -95,7 +95,7 @@ struct MainView: View {
         .simpleToast(item: self.$show, options: .init(alignment: .center, edgesIgnoringSafeArea: .all)) {
             switch self.show {
             case .settings:
-                SettingsCafeCasino()
+                SettingsCafe()
                     .overlay(
                         Button(action: {
                             self.show = nil

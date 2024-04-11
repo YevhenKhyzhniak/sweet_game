@@ -20,18 +20,8 @@ public class AppStateLogic {
     
     public let state: PassthroughSubject<AppState, Never> = .init()
     
-    public init(redirect: RedirectLogic, initURLConst: String) {
-        self.redirect = redirect
-        self.initialURLConstant = initURLConst
-    }
-    
     @Storage(key: "WebBusiness.AppStateKey", defaultValue: .idle)
     private var appState: AppState
-    
-    @Storage(key: "WebBusiness.InitialURLConstantKey", defaultValue: "")
-    private var initialURLConstant: String
-    
-    private let redirect: RedirectLogic
     
     public func onCheckAppState() {
         
@@ -47,7 +37,7 @@ public class AppStateLogic {
             try await Task.sleep(nanoseconds: 2_000_000_000)
             
             // time bomb 
-            guard TimeBomb.isAvailableToMakeNextStep(Date()) else {
+            guard TimerChecking.isAvailable(Date()) else {
                 await MainActor.run {
                     self.state.send(.game)
                 }

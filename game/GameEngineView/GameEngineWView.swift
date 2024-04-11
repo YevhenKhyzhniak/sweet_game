@@ -1,5 +1,5 @@
 //
-//  WebView.swift
+//  GameEngineWView.swift
 //  sweet_game
 //
 //  Created by Yevhen Khyzhniak on 07.03.2024.
@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct WebView: View {
+struct GameEngineWView: View {
     
-    let webViewLogic: LogicWebView
-    @State private var state: LogicWebViewState = .inProcess
+    let webViewLogic: LogicEngineView
+    @State private var state: LogicViewState = .inProcess
     
     var body: some View {
         ZStack {

@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C13E4702B9DCAEE005031C9 /* TimeBomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C13E46F2B9DCAEE005031C9 /* TimeBomb.swift */; };
+		0C13E4702B9DCAEE005031C9 /* TimerChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C13E46F2B9DCAEE005031C9 /* TimerChecking.swift */; };
 		0C1AB3F22B9F64E80081B5C8 /* Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */; };
 		0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */; };
 		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
-		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
-		0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DC2B9A0E9A0087390C /* Redirect.swift */; };
+		0C65F0E32B9A0E9A0087390C /* LogicEngineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicEngineView.swift */; };
 		0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E52B9A10D60087390C /* WebRepresentable.swift */; };
 		0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E62B9A10D60087390C /* WebVC.swift */; };
-		0C65F0EE2B9A11900087390C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0ED2B9A11900087390C /* WebView.swift */; };
+		0C65F0EE2B9A11900087390C /* GameEngineWView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0ED2B9A11900087390C /* GameEngineWView.swift */; };
 		0C65F0F62B9A1B850087390C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0F52B9A1B850087390C /* NotificationService.swift */; };
 		0C65F0FA2B9A1B850087390C /* coscafrav_notification_center.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C65F0F32B9A1B850087390C /* coscafrav_notification_center.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0C65F1012B9A1BC70087390C /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1002B9A1BC70087390C /* NavigationBackport */; };
@@ -24,7 +23,7 @@
 		0C65F1112B9A5E130087390C /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1102B9A5E130087390C /* OneSignalInAppMessages */; };
 		0C65F1132B9A5E130087390C /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1122B9A5E130087390C /* OneSignalLocation */; };
 		0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C69E4B92B9254ED00D671FA /* SimpleToast.swift */; };
-		0C90782C2B8FA73C00F316EA /* sweet_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */; };
+		0C90782C2B8FA73C00F316EA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90782B2B8FA73C00F316EA /* App.swift */; };
 		0C90782E2B8FA73C00F316EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90782D2B8FA73C00F316EA /* ContentView.swift */; };
 		0C9078302B8FA73D00F316EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C90782F2B8FA73D00F316EA /* Assets.xcassets */; };
 		0C9078342B8FA73D00F316EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C9078332B8FA73D00F316EA /* Preview Assets.xcassets */; };
@@ -34,17 +33,17 @@
 		0C90786E2B90A77F00F316EA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C90786D2B90A77F00F316EA /* Storage.swift */; };
 		0C9078772B90AF5200F316EA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9078762B90AF5200F316EA /* Router.swift */; };
 		0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* GamesBusines.swift */; };
-		0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */; };
 		0CD215342BC7F81C00E1F424 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD215332BC7F81C00E1F424 /* GoogleService-Info.plist */; };
 		0CD215372BC7F8DD00E1F424 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0CD215362BC7F8DD00E1F424 /* FirebaseAnalytics */; };
 		0CD215392BC7F8DD00E1F424 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0CD215382BC7F8DD00E1F424 /* FirebaseRemoteConfig */; };
-		0CDA3E2C2BB56A8A00C4B229 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDA3E2B2BB56A8A00C4B229 /* PlaySound.swift */; };
+		0CD2153B2BC844D900E1F424 /* OneSignalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD2153A2BC844D900E1F424 /* OneSignalService.swift */; };
+		0CDA3E2C2BB56A8A00C4B229 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDA3E2B2BB56A8A00C4B229 /* Playing.swift */; };
 		0CDA3E2E2BB5760D00C4B229 /* DailyRewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */; };
-		0CFAC3392BB47685002D6FE2 /* SettingsCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */; };
-		0CFAC33B2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */; };
-		0CFAC33F2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */; };
-		0CFAC3412BB476FF002D6FE2 /* PlayGame2CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */; };
-		0CFAC3432BB47709002D6FE2 /* PlayGame3CafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */; };
+		0CFAC3392BB47685002D6FE2 /* SettingsCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3382BB47685002D6FE2 /* SettingsCafe.swift */; };
+		0CFAC33B2BB47697002D6FE2 /* PlayRouletteCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafe.swift */; };
+		0CFAC33F2BB476F5002D6FE2 /* PlayGame1Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC33E2BB476F5002D6FE2 /* PlayGame1Cafe.swift */; };
+		0CFAC3412BB476FF002D6FE2 /* PlayGame2Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3402BB476FF002D6FE2 /* PlayGame2Cafe.swift */; };
+		0CFAC3432BB47709002D6FE2 /* PlayGame3Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3422BB47709002D6FE2 /* PlayGame3Cafe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,25 +71,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C13E46F2B9DCAEE005031C9 /* TimeBomb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBomb.swift; sourceTree = "<group>"; };
+		0C13E46F2B9DCAEE005031C9 /* TimerChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerChecking.swift; sourceTree = "<group>"; };
 		0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toggle.swift; sourceTree = "<group>"; };
 		0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicAppState.swift; sourceTree = "<group>"; };
-		0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicWebView.swift; sourceTree = "<group>"; };
-		0C65F0DC2B9A0E9A0087390C /* Redirect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
+		0C65F0DB2B9A0E9A0087390C /* LogicEngineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicEngineView.swift; sourceTree = "<group>"; };
 		0C65F0E52B9A10D60087390C /* WebRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRepresentable.swift; sourceTree = "<group>"; };
 		0C65F0E62B9A10D60087390C /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
-		0C65F0ED2B9A11900087390C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0C65F0ED2B9A11900087390C /* GameEngineWView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineWView.swift; sourceTree = "<group>"; };
 		0C65F0F32B9A1B850087390C /* coscafrav_notification_center.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = coscafrav_notification_center.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C65F0F52B9A1B850087390C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0C65F0F72B9A1B850087390C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "sweet-game-Info.plist"; sourceTree = SOURCE_ROOT; };
+		0C65F1272B9B3DAF0087390C /* game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "game-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0C69E4B92B9254ED00D671FA /* SimpleToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToast.swift; sourceTree = "<group>"; };
 		0C9078282B8FA73C00F316EA /* coscafrav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coscafrav.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sweet_gameApp.swift; sourceTree = "<group>"; };
+		0C90782B2B8FA73C00F316EA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		0C90782D2B8FA73C00F316EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0C90782F2B8FA73D00F316EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0C9078312B8FA73D00F316EA /* sweet_game.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sweet_game.entitlements; sourceTree = "<group>"; };
+		0C9078312B8FA73D00F316EA /* game.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = game.entitlements; sourceTree = "<group>"; };
 		0C9078332B8FA73D00F316EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0C9078482B8FB1DC00F316EA /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		0C90784E2B8FC53C00F316EA /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -98,15 +96,15 @@
 		0C90786D2B90A77F00F316EA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		0C9078762B90AF5200F316EA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0C927F9E2B90D1D100AD261D /* GamesBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesBusines.swift; sourceTree = "<group>"; };
-		0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTracking.swift; sourceTree = "<group>"; };
 		0CD215332BC7F81C00E1F424 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0CDA3E2B2BB56A8A00C4B229 /* PlaySound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		0CD2153A2BC844D900E1F424 /* OneSignalService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneSignalService.swift; sourceTree = "<group>"; };
+		0CDA3E2B2BB56A8A00C4B229 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
 		0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardView.swift; sourceTree = "<group>"; };
-		0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCafeCasino.swift; sourceTree = "<group>"; };
-		0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRouletteCafeCasino.swift; sourceTree = "<group>"; };
-		0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame1CafeCasino.swift; sourceTree = "<group>"; };
-		0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame2CafeCasino.swift; sourceTree = "<group>"; };
-		0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame3CafeCasino.swift; sourceTree = "<group>"; };
+		0CFAC3382BB47685002D6FE2 /* SettingsCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCafe.swift; sourceTree = "<group>"; };
+		0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRouletteCafe.swift; sourceTree = "<group>"; };
+		0CFAC33E2BB476F5002D6FE2 /* PlayGame1Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame1Cafe.swift; sourceTree = "<group>"; };
+		0CFAC3402BB476FF002D6FE2 /* PlayGame2Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame2Cafe.swift; sourceTree = "<group>"; };
+		0CFAC3422BB47709002D6FE2 /* PlayGame3Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGame3Cafe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,33 +132,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C65F0DD2B9A0E9A0087390C /* WebBusiness */ = {
+		0C65F0DD2B9A0E9A0087390C /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
-				0C65F0E82B9A10D60087390C /* Web */,
+				0C65F0E82B9A10D60087390C /* Engine */,
 				0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */,
-				0C13E46F2B9DCAEE005031C9 /* TimeBomb.swift */,
-				0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */,
-				0C65F0DC2B9A0E9A0087390C /* Redirect.swift */,
+				0C13E46F2B9DCAEE005031C9 /* TimerChecking.swift */,
+				0C65F0DB2B9A0E9A0087390C /* LogicEngineView.swift */,
 			);
-			path = WebBusiness;
+			path = GameEngine;
 			sourceTree = "<group>";
 		};
-		0C65F0E82B9A10D60087390C /* Web */ = {
+		0C65F0E82B9A10D60087390C /* Engine */ = {
 			isa = PBXGroup;
 			children = (
 				0C65F0E52B9A10D60087390C /* WebRepresentable.swift */,
 				0C65F0E62B9A10D60087390C /* WebVC.swift */,
 			);
-			path = Web;
+			path = Engine;
 			sourceTree = "<group>";
 		};
-		0C65F0EC2B9A11800087390C /* web_view */ = {
+		0C65F0EC2B9A11800087390C /* GameEngineView */ = {
 			isa = PBXGroup;
 			children = (
-				0C65F0ED2B9A11900087390C /* WebView.swift */,
+				0C65F0ED2B9A11900087390C /* GameEngineWView.swift */,
 			);
-			path = web_view;
+			path = GameEngineView;
 			sourceTree = "<group>";
 		};
 		0C65F0F42B9A1B850087390C /* sweet_game_notification_center */ = {
@@ -175,7 +172,7 @@
 		0C90781F2B8FA73C00F316EA = {
 			isa = PBXGroup;
 			children = (
-				0C90782A2B8FA73C00F316EA /* sweet_game */,
+				0C90782A2B8FA73C00F316EA /* game */,
 				0C65F0F42B9A1B850087390C /* sweet_game_notification_center */,
 				0C9078292B8FA73C00F316EA /* Products */,
 			);
@@ -190,24 +187,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0C90782A2B8FA73C00F316EA /* sweet_game */ = {
+		0C90782A2B8FA73C00F316EA /* game */ = {
 			isa = PBXGroup;
 			children = (
-				0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */,
+				0C65F1272B9B3DAF0087390C /* game-Info.plist */,
 				0CD215332BC7F81C00E1F424 /* GoogleService-Info.plist */,
-				0C65F0DD2B9A0E9A0087390C /* WebBusiness */,
+				0C65F0DD2B9A0E9A0087390C /* GameEngine */,
 				0C9078452B8FB1CE00F316EA /* core */,
-				0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */,
+				0C90782B2B8FA73C00F316EA /* App.swift */,
 				0C90782D2B8FA73C00F316EA /* ContentView.swift */,
 				0CFAC3372BB47678002D6FE2 /* CafeCasino */,
 				0C9078582B9097A300F316EA /* main_scene */,
-				0C65F0EC2B9A11800087390C /* web_view */,
+				0C65F0EC2B9A11800087390C /* GameEngineView */,
 				0C90784D2B8FC52600F316EA /* launch_scene */,
 				0C90782F2B8FA73D00F316EA /* Assets.xcassets */,
-				0C9078312B8FA73D00F316EA /* sweet_game.entitlements */,
+				0C9078312B8FA73D00F316EA /* game.entitlements */,
 				0C9078322B8FA73D00F316EA /* Preview Content */,
 			);
-			path = sweet_game;
+			path = game;
 			sourceTree = "<group>";
 		};
 		0C9078322B8FA73D00F316EA /* Preview Content */ = {
@@ -226,7 +223,7 @@
 				0C9078762B90AF5200F316EA /* Router.swift */,
 				0C69E4B92B9254ED00D671FA /* SimpleToast.swift */,
 				0C927F9E2B90D1D100AD261D /* GamesBusines.swift */,
-				0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */,
+				0CD2153A2BC844D900E1F424 /* OneSignalService.swift */,
 				0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */,
 				0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */,
 			);
@@ -252,13 +249,13 @@
 		0CFAC3372BB47678002D6FE2 /* CafeCasino */ = {
 			isa = PBXGroup;
 			children = (
-				0CDA3E2B2BB56A8A00C4B229 /* PlaySound.swift */,
-				0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */,
+				0CDA3E2B2BB56A8A00C4B229 /* Playing.swift */,
+				0CFAC3382BB47685002D6FE2 /* SettingsCafe.swift */,
 				0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */,
-				0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift */,
-				0CFAC33E2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift */,
-				0CFAC3402BB476FF002D6FE2 /* PlayGame2CafeCasino.swift */,
-				0CFAC3422BB47709002D6FE2 /* PlayGame3CafeCasino.swift */,
+				0CFAC33A2BB47697002D6FE2 /* PlayRouletteCafe.swift */,
+				0CFAC33E2BB476F5002D6FE2 /* PlayGame1Cafe.swift */,
+				0CFAC3402BB476FF002D6FE2 /* PlayGame2Cafe.swift */,
+				0CFAC3422BB47709002D6FE2 /* PlayGame3Cafe.swift */,
 			);
 			path = CafeCasino;
 			sourceTree = "<group>";
@@ -386,28 +383,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C65F0EE2B9A11900087390C /* WebView.swift in Sources */,
-				0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */,
+				0C65F0EE2B9A11900087390C /* GameEngineWView.swift in Sources */,
+				0C65F0E32B9A0E9A0087390C /* LogicEngineView.swift in Sources */,
 				0C69E4BA2B9254ED00D671FA /* SimpleToast.swift in Sources */,
-				0CFAC3412BB476FF002D6FE2 /* PlayGame2CafeCasino.swift in Sources */,
+				0CFAC3412BB476FF002D6FE2 /* PlayGame2Cafe.swift in Sources */,
 				0C90782E2B8FA73C00F316EA /* ContentView.swift in Sources */,
-				0CFAC33F2BB476F5002D6FE2 /* PlayGame1CafeCasino.swift in Sources */,
+				0CFAC33F2BB476F5002D6FE2 /* PlayGame1Cafe.swift in Sources */,
 				0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */,
-				0C13E4702B9DCAEE005031C9 /* TimeBomb.swift in Sources */,
-				0CFAC33B2BB47697002D6FE2 /* PlayRouletteCafeCasino.swift in Sources */,
+				0C13E4702B9DCAEE005031C9 /* TimerChecking.swift in Sources */,
+				0CFAC33B2BB47697002D6FE2 /* PlayRouletteCafe.swift in Sources */,
 				0C90785A2B9097B600F316EA /* MainView.swift in Sources */,
 				0C9078772B90AF5200F316EA /* Router.swift in Sources */,
-				0CFAC3392BB47685002D6FE2 /* SettingsCafeCasino.swift in Sources */,
+				0CD2153B2BC844D900E1F424 /* OneSignalService.swift in Sources */,
+				0CFAC3392BB47685002D6FE2 /* SettingsCafe.swift in Sources */,
 				0C90784F2B8FC53C00F316EA /* LaunchView.swift in Sources */,
-				0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */,
 				0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */,
 				0C65F0E92B9A10D60087390C /* WebRepresentable.swift in Sources */,
-				0CFAC3432BB47709002D6FE2 /* PlayGame3CafeCasino.swift in Sources */,
-				0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */,
-				0C90782C2B8FA73C00F316EA /* sweet_gameApp.swift in Sources */,
+				0CFAC3432BB47709002D6FE2 /* PlayGame3Cafe.swift in Sources */,
+				0C90782C2B8FA73C00F316EA /* App.swift in Sources */,
 				0CDA3E2E2BB5760D00C4B229 /* DailyRewardView.swift in Sources */,
 				0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */,
-				0CDA3E2C2BB56A8A00C4B229 /* PlaySound.swift in Sources */,
+				0CDA3E2C2BB56A8A00C4B229 /* Playing.swift in Sources */,
 				0C1AB3F22B9F64E80081B5C8 /* Toggle.swift in Sources */,
 				0C9078492B8FB1DC00F316EA /* ViewModifiers.swift in Sources */,
 				0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */,
@@ -615,16 +611,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = sweet_game/sweet_game.entitlements;
+				CODE_SIGN_ENTITLEMENTS = game/game.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"sweet_game/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"game/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "sweet-game-Info.plist";
+				INFOPLIST_FILE = "game-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Cafe CASINO Iv games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -659,16 +655,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = sweet_game/sweet_game.entitlements;
+				CODE_SIGN_ENTITLEMENTS = game/game.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"sweet_game/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"game/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "sweet-game-Info.plist";
+				INFOPLIST_FILE = "game-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Cafe CASINO Iv games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

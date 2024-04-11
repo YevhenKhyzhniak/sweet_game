@@ -9,9 +9,9 @@ import Foundation
 import Firebase
 import OneSignalFramework
 
-final class ATTracking: NSObject {
+final class OneSignalService: NSObject {
     
-    static let shared = ATTracking()
+    static let shared = OneSignalService()
     
     private override init() {
         super.init()
@@ -22,10 +22,6 @@ final class ATTracking: NSObject {
     func initOneSignal(_ options: [UIApplication.LaunchOptionsKey: Any]?) {
         OneSignal.initialize("d4f1487-dea1-4327-817a-641580adaed1", withLaunchOptions: options)
     }
-    
-}
-
-final class OneSignalService {
     
     class func getIdentifier() -> String? {
         return OneSignal.User.pushSubscription.id
@@ -39,4 +35,5 @@ final class OneSignalService {
             }, fallbackToSettings: false)
         }
     }
+    
 }

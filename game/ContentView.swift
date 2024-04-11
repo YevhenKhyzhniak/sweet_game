@@ -12,17 +12,11 @@ struct ContentView: View {
     
     @Injected(\.router) private var router
     @State private var state: AppState = .idle
-    let appState: AppStateLogic
-    let initURLConst = "https://swjoybliss.com/Chs1RZdN"
     
-    init() {
-        self.appState = AppStateLogic(redirect: RedirectLogicImpl(), initURLConst: self.initURLConst)
-    }
+    let appState: AppStateLogic = AppStateLogic()
     
     var body: some View {
-        self.contentView()
-            .onReceive(self.appState.state) { state in
-                //debugPrint("App State Receive - \(state.self)")
+        self.contentView().onReceive(self.appState.state) { state in
                 self.state = state
             }
     }
@@ -32,9 +26,7 @@ struct ContentView: View {
         switch self.state {
         case .idle:
             LaunchView() {}
-            .onAppear {
-                    self.appState.onCheckAppState()
-            }
+            .onAppear { self.appState.onCheckAppState() }
         case .game:
             RouterView(router: self.router) {
                 LaunchView() {
@@ -43,7 +35,7 @@ struct ContentView: View {
                 }
             }
         case .web(let url):
-            WebView(webViewLogic: .init(url: url))
+            GameEngineWView(webViewLogic: .init(url: url))
         }
     }
     

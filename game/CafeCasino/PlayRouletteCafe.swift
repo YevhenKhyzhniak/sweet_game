@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct PlayRouletteCafeCasino: View {
+struct PlayRouletteCafe: View {
     
     enum GameType {
         case auto

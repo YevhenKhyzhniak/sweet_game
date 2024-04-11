@@ -34,13 +34,13 @@ public class MainRouter: Router {
         case .showMain:
             MainView()
         case .playRouletteCafeCasino:
-            PlayRouletteCafeCasino()
+            PlayRouletteCafe()
         case .playGame1CafeCasino:
-            PlayGame1CafeCasino()
+            PlayGame1Cafe()
         case .playGame2CafeCasino:
-            PlayGame2CafeCasino()
+            PlayGame2Cafe()
         case .playGame3CafeCasino:
-            PlayGame3CafeCasino()
+            PlayGame3Cafe()
         }
     }
 }

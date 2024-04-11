@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct PlayGame2CafeCasino: View {
+struct PlayGame3Cafe: View {
     
     enum Show: Identifiable {
         case win(Double)
@@ -30,25 +30,19 @@ struct PlayGame2CafeCasino: View {
     }
     
     enum SlotItem: String, CaseIterable, Hashable {
-        case game_2_icon_1
-        case game_2_icon_2
-        case game_2_icon_3
-        case game_2_icon_4
-        case game_2_icon_5
-        case game_2_icon_6
-        case game_2_icon_7
-        case game_2_icon_8
-        case game_2_icon_9
-        case game_2_icon_10
-        case game_2_icon_11
-        case game_2_icon_12
-        case game_2_icon_13
-        case game_2_icon_14
-        case game_2_icon_15
+        case game_3_icon_1
+        case game_3_icon_2
+        case game_3_icon_3
+        case game_3_icon_4
+        case game_3_icon_5
+        case game_3_icon_6
+        case game_3_icon_7
+        case game_3_icon_8
+        case game_3_icon_9
         
         static var randomValues: [SlotItem] {
             var result: [SlotItem] = []
-            for _ in 0...50 {
+            for _ in 0...30 {
                 result.append(SlotItem.allCases.randomElement()!)
             }
             return result
@@ -65,11 +59,9 @@ struct PlayGame2CafeCasino: View {
         }
     }
     
-    @State private var firstSlot: SlotItem = .game_2_icon_4
-    @State private var secondSlot: SlotItem = .game_2_icon_7
-    @State private var thirdSlot: SlotItem = .game_2_icon_12
-    @State private var fourSlot: SlotItem = .game_2_icon_3
-    @State private var fiveSlot: SlotItem = .game_2_icon_6
+    @State private var firstSlot: SlotItem = .game_3_icon_4
+    @State private var secondSlot: SlotItem = .game_3_icon_7
+    @State private var thirdSlot: SlotItem = .game_3_icon_9
     
     @State var allValuesOnSlots: [SlotItem] = []
     
@@ -86,7 +78,7 @@ struct PlayGame2CafeCasino: View {
     
     var body: some View {
         ZStack {
-            Image("game_2_background").resizable().scaleEffect(1.2)
+            Image("game_3_background").resizable().scaleEffect(1.2)
             self.contentView()
                 .blur(radius: self.show != nil ? 5.0 : 0.0)
         }
@@ -102,28 +94,28 @@ struct PlayGame2CafeCasino: View {
             switch self.show {
             case .lose:
                 VStack(spacing: 15) {
-                    Text("SO SORRY...").bold().foregroundColor(.white)
+                    Text("SO SORRY...").bold().foregroundColor(.green)
                     
-                    Text("YOU DON'T HAVE ENOUGH COINS. PLEASE CHECK DAILY REWARD TO RECEIVE BONUS COINS").bold().foregroundColor(.white)
+                    Text("YOU DON'T HAVE ENOUGH COINS. PLEASE CHECK DAILY REWARD TO RECEIVE BONUS COINS").bold().foregroundColor(.green)
                     
                     Button {
                         self.show = nil
                         self.router.presentFullScreen(.showMain)
                     } label: {
                         Text("CHECK DAILY REWARD")
-                            .foregroundColor(.black)
+                            .foregroundColor(.green)
                             .padding()
-                            .background(Image("game_1_large_button").resizable())
+                            .background(Image("game_3_large_button").resizable())
                     }
                 }
                 .padding()
-                .background(Image("game_1_win_back").resizable())
+                .background(Image("game_3_win_back").resizable())
                 .padding()
             case let .win(value):
                 VStack(spacing: 15) {
-                    Text("YOU WIN!!!").bold().foregroundColor(.white)
+                    Text("YOU WIN!!!").bold().foregroundColor(.green)
                     
-                    Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().foregroundColor(.white)
+                    Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().foregroundColor(.green)
                     
                     Button {
                         self.show = nil
@@ -131,14 +123,13 @@ struct PlayGame2CafeCasino: View {
                         self.router.presentFullScreen(.showMain)
                     } label: {
                         Text("TAKE REWARD&CLOSE")
-                            .bold()
-                            .foregroundColor(.black)
+                            .foregroundColor(.green)
                             .padding()
-                            .background(Image("game_1_large_button").resizable())
+                            .background(Image("game_3_large_button").resizable())
                     }
                 }
                 .padding()
-                .background(Image("game_1_win_back").resizable())
+                .background(Image("game_3_win_back").resizable())
                 .padding()
                 .padding()
             default:
@@ -149,21 +140,20 @@ struct PlayGame2CafeCasino: View {
     
     
     private func contentView() -> some View {
-        HStack(spacing: 10) {
+        HStack(spacing: 20) {
             VStack {
                 self.balanceRow()
                 Spacer(minLength: 1)
                 self.slotsView()
                 Spacer(minLength: 1)
             }
+            Spacer(minLength: 1)
             VStack {
                 Spacer(minLength: 1)
                 self.spintsView()
             }
-            .padding(.trailing, 8)
         }
-        .padding(.leading)
-        .padding(.trailing, 5)
+        .padding(.horizontal)
         .padding(.vertical, 10)
     }
     
@@ -172,7 +162,7 @@ struct PlayGame2CafeCasino: View {
             Button {
                 self.router.presentFullScreen(.showMain)
             } label: {
-                Image("game_2_back_button")
+                Image("game_3_back_button")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 45, height: 45)
@@ -180,14 +170,14 @@ struct PlayGame2CafeCasino: View {
             
             Spacer(minLength: 1)
             
-            Text(String(format: "BALANCE: %.2f", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
+            Text(String(format: "BALANCE: %.2f", self.coins)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
                 .background(
-                    Image("game_2_label_back").resizable().frame(height: 30)
+                    Image("game_3_label_back").resizable().frame(height: 30)
                 )
             
-            Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.white)
+            Text(String(format: "TOTAL WIN: %.2f", self.winCount)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
                 .background(
-                    Image("game_2_label_back").resizable().frame(height: 30)
+                    Image("game_3_label_back").resizable().frame(height: 30)
                 )
             
 
@@ -241,51 +231,21 @@ struct PlayGame2CafeCasino: View {
             .scaledToFit()
             .scaleEffect(CGSize(width: 2.0, height: 2.0))
             
-            Picker("", selection: $fourSlot) {
-                ForEach(self.allValuesOnSlots, id: \.self) { value in
-                    Image(value.rawValue)
-                        .resizable() // Make the image resizable
-                        .frame(width: 25, height: 25) // Set the desired size
-                        .tag(value.rawValue)
-                }
-            }
-            .clipped()
-            .frame(width: 80, height: 120)
-            .labelsHidden()
-            .pickerStyle(WheelPickerStyle())
-            .scaledToFit()
-            .scaleEffect(CGSize(width: 2.0, height: 2.0))
-            
-            Picker("", selection: $fiveSlot) {
-                ForEach(self.allValuesOnSlots, id: \.self) { value in
-                    Image(value.rawValue)
-                        .resizable() // Make the image resizable
-                        .frame(width: 25, height: 25) // Set the desired size
-                        .tag(value.rawValue)
-                }
-            }
-            .clipped()
-            .frame(width: 80, height: 120)
-            .labelsHidden()
-            .pickerStyle(WheelPickerStyle())
-            .scaledToFit()
-            .scaleEffect(CGSize(width: 2.0, height: 2.0))
-            
         }
         .padding()
         .padding(.vertical, 30)
-        .background(Image("game_2_slots_back").resizable())
+        .background(Image("game_3_slots_back").resizable())
         .disabled(true)
-        .scaleEffect(0.9)
+        .scaleEffect(1.2)
     }
     
     private func spintsView() -> some View {
         VStack(spacing: 15) {
-            Text("AUTOSPIN").bold().foregroundColor(.black)
+            Text("AUTOSPIN").bold().foregroundColor(.green)
             
-            Text(String(format: "TIMES: %d", self.autoSpinTimes)).bold().padding(.horizontal).font(.footnote).foregroundColor(.brown)
+            Text(String(format: "TIMES: %d", self.autoSpinTimes)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
                 .background(
-                    Image("game_2_label_back").resizable().frame(height: 30)
+                    Image("game_3_label_back").resizable().frame(height: 30)
                 )
             
             HStack {
@@ -294,11 +254,11 @@ struct PlayGame2CafeCasino: View {
                         self.autoSpinTimes -= 1
                     }
                 } label: {
-                    Image("game_2_small_button")
+                    Image("game_3_small_button")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 70)
-                        .overlay(Text("-").bold().foregroundColor(.brown))
+                        .overlay(Text("-").bold().foregroundColor(.black))
                 }
 
                 Button {
@@ -306,11 +266,11 @@ struct PlayGame2CafeCasino: View {
                         self.autoSpinTimes += 1
                     }
                 } label: {
-                    Image("game_2_small_button")
+                    Image("game_3_small_button")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 70)
-                        .overlay(Text("+").bold().foregroundColor(.brown))
+                        .overlay(Text("+").bold().foregroundColor(.black))
                 }
                 
             }
@@ -339,21 +299,21 @@ struct PlayGame2CafeCasino: View {
                 
                 
             } label: {
-                Image("game_2_large_button")
+                Image("game_3_large_button")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150)
-                    .overlay(Text(self.timerActive ? "DISABLE" : "ENABLE").bold().foregroundColor(.brown))
+                    .overlay(Text(self.timerActive ? "DISABLE" : "ENABLE").bold().foregroundColor(.black))
             }
             
             
             Text("YOUR BET")
                 .bold()
-                .foregroundColor(.black)
+                .foregroundColor(.green)
             
-            Text(String(format: "TIMES: %d", self.manualSpinTimes)).bold().padding(.horizontal).font(.footnote).foregroundColor(.brown)
+            Text(String(format: "TIMES: %d", self.manualSpinTimes)).bold().padding(.horizontal).font(.footnote).foregroundColor(.green)
                 .background(
-                    Image("game_2_label_back").resizable().frame(height: 30)
+                    Image("game_3_label_back").resizable().frame(height: 30)
                 )
             
             HStack {
@@ -362,11 +322,11 @@ struct PlayGame2CafeCasino: View {
                         self.manualSpinTimes -= 1
                     }
                 } label: {
-                    Image("game_2_small_button")
+                    Image("game_3_small_button")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 70)
-                        .overlay(Text("-").bold().foregroundColor(.brown))
+                        .overlay(Text("-").bold().foregroundColor(.black))
                 }
 
                 Button {
@@ -374,11 +334,11 @@ struct PlayGame2CafeCasino: View {
                         self.manualSpinTimes += 1
                     }
                 } label: {
-                    Image("game_2_small_button")
+                    Image("game_3_small_button")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 70)
-                        .overlay(Text("+").bold().foregroundColor(.brown))
+                        .overlay(Text("+").bold().foregroundColor(.black))
                 }
                 
             }
@@ -389,15 +349,15 @@ struct PlayGame2CafeCasino: View {
                     self.manualSpinTimes -= 1
                 }
             } label: {
-                Image("game_2_large_button")
+                Image("game_3_large_button")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 150)
-                    .overlay(Text("SPIN").bold().foregroundColor(.brown))
+                    .overlay(Text("SPIN").bold().foregroundColor(.black))
             }
         }
         .padding()
-        .background(Image("game_2_spin_back").resizable())
+        .background(Image("game_3_spin_back").resizable())
     }
     
     private func spinSlots(_ type: GameType) {
@@ -418,13 +378,11 @@ struct PlayGame2CafeCasino: View {
         if coins < self.winCount || coins == 0 {
             self.show = .lose
         } else {
-            PlaySound.run2()
+            Playing.run2()
             withAnimation {
                 self.firstSlot = SlotItem.allCases.randomElement()!
                 self.secondSlot = SlotItem.allCases.randomElement()!
                 self.thirdSlot = SlotItem.allCases.randomElement()!
-                self.fourSlot = SlotItem.allCases.randomElement()!
-                self.fiveSlot = SlotItem.allCases.randomElement()!
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.makeResult()
@@ -434,114 +392,65 @@ struct PlayGame2CafeCasino: View {
     }
     
     private func makeResult() {
-        let allSelectedSlots = [self.firstSlot, self.secondSlot, self.thirdSlot, self.fourSlot, self.fiveSlot]
+        let allSelectedSlots = [self.firstSlot, self.secondSlot, self.thirdSlot]
         
-        if (firstSlot == .game_2_icon_5 && secondSlot == .game_2_icon_5)
-        ||  (thirdSlot == .game_2_icon_5 && fourSlot == .game_2_icon_5)
-        ||  (secondSlot == .game_2_icon_5 && fourSlot == .game_2_icon_5)
-        ||  (firstSlot == .game_2_icon_5 && thirdSlot == .game_2_icon_5)
-        ||  (fourSlot == .game_2_icon_5 && fiveSlot == .game_2_icon_5) {
+        if (firstSlot == .game_3_icon_5 && secondSlot == .game_3_icon_5)
+        ||  (secondSlot == .game_3_icon_5 && thirdSlot == .game_3_icon_5) {
             self.winCount += 10
-            PlaySound.run4()
+            Playing.run4()
         }
         else
-        if (firstSlot == .game_2_icon_1 && secondSlot == .game_2_icon_1)
-        ||  (thirdSlot == .game_2_icon_1 && fourSlot == .game_2_icon_1)
-        ||  (secondSlot == .game_2_icon_1 && fourSlot == .game_2_icon_1)
-        ||  (firstSlot == .game_2_icon_1 && thirdSlot == .game_2_icon_1)
-        ||  (fourSlot == .game_2_icon_1 && fiveSlot == .game_2_icon_1) {
+        if (firstSlot == .game_3_icon_1 && secondSlot == .game_3_icon_1)
+        ||  (firstSlot == .game_3_icon_1 && thirdSlot == .game_3_icon_1) {
             self.winCount += 20
-            PlaySound.run4()
+            Playing.run4()
         }
         else
-        if (firstSlot == .game_2_icon_11 && secondSlot == .game_2_icon_11)
-        ||  (thirdSlot == .game_2_icon_11 && fourSlot == .game_2_icon_11)
-        ||  (secondSlot == .game_2_icon_11 && fourSlot == .game_2_icon_11)
-        ||  (firstSlot == .game_2_icon_11 && thirdSlot == .game_2_icon_11)
-        ||  (fourSlot == .game_2_icon_11 && fiveSlot == .game_2_icon_11) {
+        if (firstSlot == .game_3_icon_9 && secondSlot == .game_3_icon_9)
+        ||  (firstSlot == .game_3_icon_9 && thirdSlot == .game_3_icon_9) {
             self.winCount += 50
-            PlaySound.run4()
+            Playing.run4()
         }
         else
-        if (firstSlot == .game_2_icon_12 && secondSlot == .game_2_icon_12)
-        ||  (thirdSlot == .game_2_icon_12 && fourSlot == .game_2_icon_12)
-        ||  (secondSlot == .game_2_icon_12 && fourSlot == .game_2_icon_12)
-        ||  (firstSlot == .game_2_icon_12 && thirdSlot == .game_2_icon_12)
-        ||  (fourSlot == .game_2_icon_12 && fiveSlot == .game_2_icon_12) {
-            self.winCount += 150
-            PlaySound.run4()
+        if (firstSlot == .game_3_icon_3 && secondSlot == .game_3_icon_3)
+        ||  (firstSlot == .game_3_icon_3 && thirdSlot == .game_3_icon_3) {
+            self.winCount += 25
+            Playing.run4()
         }
         else
-        if (firstSlot == .game_2_icon_3 && secondSlot == .game_2_icon_3)
-        ||  (thirdSlot == .game_2_icon_3 && fourSlot == .game_2_icon_3)
-        ||  (secondSlot == .game_2_icon_3 && fourSlot == .game_2_icon_3)
-        ||  (firstSlot == .game_2_icon_3 && thirdSlot == .game_2_icon_3)
-        ||  (fourSlot == .game_2_icon_3 && fiveSlot == .game_2_icon_3) {
-            self.winCount += 5
-            PlaySound.run4()
-        }
-        else
-        if (firstSlot == .game_2_icon_9 && secondSlot == .game_2_icon_9)
-        ||  (thirdSlot == .game_2_icon_9 && fourSlot == .game_2_icon_9)
-        ||  (secondSlot == .game_2_icon_9 && fourSlot == .game_2_icon_9)
-        ||  (firstSlot == .game_2_icon_9 && thirdSlot == .game_2_icon_9)
-        ||  (fourSlot == .game_2_icon_9 && fiveSlot == .game_2_icon_9) {
-            self.winCount += 15
-            PlaySound.run4()
-        }
-        else
-        if (firstSlot == .game_2_icon_2 && secondSlot == .game_2_icon_2)
-        ||  (thirdSlot == .game_2_icon_2 && fourSlot == .game_2_icon_2)
-        ||  (secondSlot == .game_2_icon_2 && fourSlot == .game_2_icon_2)
-        ||  (firstSlot == .game_2_icon_2 && thirdSlot == .game_2_icon_2)
-        ||  (fourSlot == .game_2_icon_2 && fiveSlot == .game_2_icon_2) {
+        if (firstSlot == .game_3_icon_4 && secondSlot == .game_3_icon_4)
+        ||  (firstSlot == .game_3_icon_4 && thirdSlot == .game_3_icon_4) {
             self.coins -= 5
             if coins < 0 {
                 self.coins = 0
                 self.show = .lose
-                PlaySound.run5()
+                Playing.run5()
             }
         }
         else
-        if (firstSlot == .game_2_icon_7 && secondSlot == .game_2_icon_7)
-        ||  (thirdSlot == .game_2_icon_7 && fourSlot == .game_2_icon_7)
-        ||  (secondSlot == .game_2_icon_7 && fourSlot == .game_2_icon_7)
-        ||  (firstSlot == .game_2_icon_7 && thirdSlot == .game_2_icon_7)
-        ||  (fourSlot == .game_2_icon_7 && fiveSlot == .game_2_icon_7) {
+        if (firstSlot == .game_3_icon_7 && secondSlot == .game_3_icon_7)
+        ||  (firstSlot == .game_3_icon_7 && thirdSlot == .game_3_icon_7) {
             self.coins -= 20
             if coins < 0 {
                 self.coins = 0
                 self.show = .lose
-                PlaySound.run5()
-            }
-        }
-        else
-        if (firstSlot == .game_2_icon_8 && secondSlot == .game_2_icon_8)
-        ||  (thirdSlot == .game_2_icon_8 && fourSlot == .game_2_icon_8)
-        ||  (secondSlot == .game_2_icon_8 && fourSlot == .game_2_icon_8)
-        ||  (firstSlot == .game_2_icon_8 && thirdSlot == .game_2_icon_8)
-        ||  (fourSlot == .game_2_icon_8 && fiveSlot == .game_2_icon_8) {
-            self.coins -= 10
-            if coins < 0 {
-                self.coins = 0
-                self.show = .lose
-                PlaySound.run5()
+                Playing.run5()
             }
         }
         else {
-            if allSelectedSlots == [.game_2_icon_5, .game_2_icon_5, .game_2_icon_5, .game_2_icon_5, .game_2_icon_5] {
+            if allSelectedSlots == [.game_3_icon_5, .game_3_icon_5, .game_3_icon_5] {
                 self.winCount += 500
-                PlaySound.run4()
+                Playing.run4()
             }
             else
-            if allSelectedSlots == [.game_2_icon_11, .game_2_icon_11, .game_2_icon_11, .game_2_icon_11, .game_2_icon_11] {
+            if allSelectedSlots == [.game_3_icon_1, .game_3_icon_1, .game_3_icon_1] {
                 self.winCount += 1500
-                PlaySound.run4()
+                Playing.run4()
             }
             else
-            if allSelectedSlots == [.game_2_icon_1, .game_2_icon_1, .game_2_icon_1, .game_2_icon_1, .game_2_icon_1] {
+            if allSelectedSlots == [.game_3_icon_9, .game_3_icon_9, .game_3_icon_9] {
                 self.winCount += 300
-                PlaySound.run4()
+                Playing.run4()
             }
         }
     }

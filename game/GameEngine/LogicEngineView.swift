@@ -10,14 +10,14 @@ import WebKit
 import Combine
 import AdSupport
 
-public enum LogicWebViewState {
+public enum LogicViewState {
     case inProcess
     case playGame(URLRequest)
 }
 
-public class LogicWebView {
+public class LogicEngineView {
     
-    public let state: PassthroughSubject<LogicWebViewState, Never> = .init()
+    public let state: PassthroughSubject<LogicViewState, Never> = .init()
     
     public init(url: URL) {
         self.initialUrl = url
@@ -25,7 +25,7 @@ public class LogicWebView {
     
     private let initialUrl: URL
     
-    @Storage(key: "LogicWebView.DynamicURLKey", defaultValue: nil)
+    @Storage(key: "GameView.DynamicKey", defaultValue: nil)
     var dynamicURL: URL?
     
     

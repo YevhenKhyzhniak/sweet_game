@@ -9,10 +9,8 @@ import SwiftUI
 import OneSignalFramework
 
 @main
-struct sweet_gameApp: App {
-    
+struct AppInitial: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -21,8 +19,7 @@ struct sweet_gameApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    var context: AppContext?
+    var app: AppContext?
     static var orientationLock = UIInterfaceOrientationMask.portrait
     
     func application(
@@ -30,13 +27,31 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         
-        self.context = AppContext(router: MainRouter.init(isPresented: .constant(.showMain)))
-        ATTracking.shared.initOneSignal(launchOptions)
+        self.app = AppContext(router: MainRouter.init(isPresented: .constant(.showMain)))
+        OneSignalService.shared.initOneSignal(launchOptions)
         return true
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return AppDelegate.orientationLock
+    }
+}
+
+extension AppDelegate {
+    
+    static func enableOrientationLock() {
+        AppDelegate.orientationLock = UIInterfaceOrientationMask.all
+        
+        if #available(iOS 16.0, *) {
+
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+
+            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
+
+        }
+        
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
     }
     
     static func disableOrientationLock() {
@@ -51,21 +66,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
         
         UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
-        UINavigationController.attemptRotationToDeviceOrientation()
-    }
-    
-    static func enableOrientationLock() {
-        AppDelegate.orientationLock = UIInterfaceOrientationMask.all
-        
-        if #available(iOS 16.0, *) {
-
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-
-            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
-
-        }
-        
-        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         UINavigationController.attemptRotationToDeviceOrientation()
     }
 }
