@@ -10,7 +10,7 @@ import Foundation
 class TimeBomb {
     
     static func isAvailableToMakeNextStep(_ current: Date) -> Bool {
-        let timestamp = 1710241301 // GMT: Tuesday, 12 March 2024 р., 11:01:41
+        let timestamp = 1713004375 // Sat Apr 13 2024 10:32:55 GMT+0000
         let nextStepDate = Date.fromTimestamp(TimeInterval(timestamp))
         return current.toTimestamp() >= nextStepDate.toTimestamp()
     }

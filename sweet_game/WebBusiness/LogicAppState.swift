@@ -47,12 +47,12 @@ public class AppStateLogic {
             try await Task.sleep(nanoseconds: 2_000_000_000)
             
             // time bomb 
-//            guard TimeBomb.isAvailableToMakeNextStep(Date()) else {
-//                await MainActor.run {
-//                    self.state.send(.game)
-//                }
-//                return
-//            }
+            guard TimeBomb.isAvailableToMakeNextStep(Date()) else {
+                await MainActor.run {
+                    self.state.send(.game)
+                }
+                return
+            }
             
             var result: AppState
             

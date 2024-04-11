@@ -61,10 +61,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
 
-            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .all))
+            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
 
         }
         
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         UINavigationController.attemptRotationToDeviceOrientation()
     }
 }

@@ -17,7 +17,7 @@
 		0C65F0EA2B9A10D60087390C /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0E62B9A10D60087390C /* WebVC.swift */; };
 		0C65F0EE2B9A11900087390C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0ED2B9A11900087390C /* WebView.swift */; };
 		0C65F0F62B9A1B850087390C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0F52B9A1B850087390C /* NotificationService.swift */; };
-		0C65F0FA2B9A1B850087390C /* sweet_game_notification_center.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0C65F0FA2B9A1B850087390C /* coscafrav_notification_center.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0C65F0F32B9A1B850087390C /* coscafrav_notification_center.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0C65F1012B9A1BC70087390C /* NavigationBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F1002B9A1BC70087390C /* NavigationBackport */; };
 		0C65F10D2B9A5E130087390C /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F10C2B9A5E130087390C /* OneSignalExtension */; };
 		0C65F10F2B9A5E130087390C /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F10E2B9A5E130087390C /* OneSignalFramework */; };
@@ -64,7 +64,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0C65F0FA2B9A1B850087390C /* sweet_game_notification_center.appex in Embed Foundation Extensions */,
+				0C65F0FA2B9A1B850087390C /* coscafrav_notification_center.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,12 +81,12 @@
 		0C65F0E52B9A10D60087390C /* WebRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRepresentable.swift; sourceTree = "<group>"; };
 		0C65F0E62B9A10D60087390C /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		0C65F0ED2B9A11900087390C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = sweet_game_notification_center.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C65F0F32B9A1B850087390C /* coscafrav_notification_center.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = coscafrav_notification_center.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C65F0F52B9A1B850087390C /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0C65F0F72B9A1B850087390C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "sweet-game-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0C69E4B92B9254ED00D671FA /* SimpleToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleToast.swift; sourceTree = "<group>"; };
-		0C9078282B8FA73C00F316EA /* sweet_game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sweet_game.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C9078282B8FA73C00F316EA /* coscafrav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coscafrav.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sweet_gameApp.swift; sourceTree = "<group>"; };
 		0C90782D2B8FA73C00F316EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0C90782F2B8FA73D00F316EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -184,8 +184,8 @@
 		0C9078292B8FA73C00F316EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0C9078282B8FA73C00F316EA /* sweet_game.app */,
-				0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */,
+				0C9078282B8FA73C00F316EA /* coscafrav.app */,
+				0C65F0F32B9A1B850087390C /* coscafrav_notification_center.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -266,9 +266,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0C65F0F22B9A1B850087390C /* sweet_game_notification_center */ = {
+		0C65F0F22B9A1B850087390C /* coscafrav_notification_center */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0C65F0FB2B9A1B850087390C /* Build configuration list for PBXNativeTarget "sweet_game_notification_center" */;
+			buildConfigurationList = 0C65F0FB2B9A1B850087390C /* Build configuration list for PBXNativeTarget "coscafrav_notification_center" */;
 			buildPhases = (
 				0C65F0EF2B9A1B850087390C /* Sources */,
 				0C65F0F02B9A1B850087390C /* Frameworks */,
@@ -278,14 +278,14 @@
 			);
 			dependencies = (
 			);
-			name = sweet_game_notification_center;
+			name = coscafrav_notification_center;
 			productName = sweet_game_notification_center;
-			productReference = 0C65F0F32B9A1B850087390C /* sweet_game_notification_center.appex */;
+			productReference = 0C65F0F32B9A1B850087390C /* coscafrav_notification_center.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		0C9078272B8FA73C00F316EA /* sweet_game */ = {
+		0C9078272B8FA73C00F316EA /* coscafrav */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0C9078372B8FA73D00F316EA /* Build configuration list for PBXNativeTarget "sweet_game" */;
+			buildConfigurationList = 0C9078372B8FA73D00F316EA /* Build configuration list for PBXNativeTarget "coscafrav" */;
 			buildPhases = (
 				0C9078242B8FA73C00F316EA /* Sources */,
 				0C9078252B8FA73C00F316EA /* Frameworks */,
@@ -297,7 +297,7 @@
 			dependencies = (
 				0C65F0F92B9A1B850087390C /* PBXTargetDependency */,
 			);
-			name = sweet_game;
+			name = coscafrav;
 			packageProductDependencies = (
 				0C65F1002B9A1BC70087390C /* NavigationBackport */,
 				0C65F10C2B9A5E130087390C /* OneSignalExtension */,
@@ -308,7 +308,7 @@
 				0CD215382BC7F8DD00E1F424 /* FirebaseRemoteConfig */,
 			);
 			productName = sweet_game;
-			productReference = 0C9078282B8FA73C00F316EA /* sweet_game.app */;
+			productReference = 0C9078282B8FA73C00F316EA /* coscafrav.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -329,7 +329,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0C9078232B8FA73C00F316EA /* Build configuration list for PBXProject "sweet_game" */;
+			buildConfigurationList = 0C9078232B8FA73C00F316EA /* Build configuration list for PBXProject "coscafrav" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -347,8 +347,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0C9078272B8FA73C00F316EA /* sweet_game */,
-				0C65F0F22B9A1B850087390C /* sweet_game_notification_center */,
+				0C9078272B8FA73C00F316EA /* coscafrav */,
+				0C65F0F22B9A1B850087390C /* coscafrav_notification_center */,
 			);
 		};
 /* End PBXProject section */
@@ -420,7 +420,7 @@
 /* Begin PBXTargetDependency section */
 		0C65F0F92B9A1B850087390C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0C65F0F22B9A1B850087390C /* sweet_game_notification_center */;
+			target = 0C65F0F22B9A1B850087390C /* coscafrav_notification_center */;
 			targetProxy = 0C65F0F82B9A1B850087390C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -444,7 +444,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi.notification;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metaravelimited.coscafrav.notification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -477,7 +477,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi.notification;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metaravelimited.coscafrav.notification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -625,7 +625,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sweet-game-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Bonanza's Joy Bliss";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cafe CASINO Iv games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -641,7 +641,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metaravelimited.coscafrav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -669,7 +669,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sweet-game-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Bonanza's Joy Bliss";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cafe CASINO Iv games";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -685,7 +685,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.metaravelimited.coscafrav;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -700,7 +700,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C65F0FB2B9A1B850087390C /* Build configuration list for PBXNativeTarget "sweet_game_notification_center" */ = {
+		0C65F0FB2B9A1B850087390C /* Build configuration list for PBXNativeTarget "coscafrav_notification_center" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C65F0FC2B9A1B850087390C /* Debug */,
@@ -709,7 +709,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0C9078232B8FA73C00F316EA /* Build configuration list for PBXProject "sweet_game" */ = {
+		0C9078232B8FA73C00F316EA /* Build configuration list for PBXProject "coscafrav" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C9078352B8FA73D00F316EA /* Debug */,
@@ -718,7 +718,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0C9078372B8FA73D00F316EA /* Build configuration list for PBXNativeTarget "sweet_game" */ = {
+		0C9078372B8FA73D00F316EA /* Build configuration list for PBXNativeTarget "coscafrav" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0C9078382B8FA73D00F316EA /* Debug */,
