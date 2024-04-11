@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import Firebase
+import FirebaseRemoteConfig
 
 public enum AppState: Codable, Equatable {
     case idle
@@ -33,54 +35,35 @@ public class AppStateLogic {
     
     public func onCheckAppState() {
         
-        self.state.send(.game)
-        return
-        
         guard self.appState == .idle else {
             self.state.send(self.appState)
             return
         }
         
-        guard let initialURL = URL(string: self.initialURLConstant) else {
-            self.state.send(.game)
-            return
-        }
-        
         Task {
-            // 1 step
-            //debugPrint("call requestTracking - \(Date())")
-            try await ATTracking.shared.requestTracking(2.0)
-            // 2 step
+            
             //debugPrint("call requestNotifications - \(Date())")
             await OneSignalService.requestNotifications()
             try await Task.sleep(nanoseconds: 2_000_000_000)
             
             // time bomb 
-            guard TimeBomb.isAvailableToMakeNextStep(Date()) else {
-                await MainActor.run {
-                    self.state.send(.game)
-                }
-                return
-            }
-            
-            // 3 step
-            //let trackingID = ATTracking.shared.getTrackingIdentifier() // unused
-            let oneSignalID = OneSignalService.getIdentifier()
-            let appsFlyerCampaign = ATTracking.shared.appsFlyerCampaign
-            let appsFlyerID = ATTracking.shared.getAppsFlyerID()
-            
-            let enrichedUrl = await self.makeEnrichedURL(initialURL, appleTrackingID: nil, oneSignalID: oneSignalID, appsFlyerCampaign: appsFlyerCampaign, appsFlyerID: appsFlyerID)
+//            guard TimeBomb.isAvailableToMakeNextStep(Date()) else {
+//                await MainActor.run {
+//                    self.state.send(.game)
+//                }
+//                return
+//            }
             
             var result: AppState
             
-            do {
-                // 4 step
-                let redirectURL = try await self.redirect.getRedirectionUrl(URLRequest(url: enrichedUrl))
-                
-                //debugPrint(enrichedUrl, redirectURL)
-                
-                result = enrichedUrl != redirectURL ? .web(redirectURL) : .game
-            } catch {
+            let urlStr = await self.makeRemoteUrl()
+            if urlStr.isEmpty {
+                result = .game
+            }
+            
+            if let url = URL(string: urlStr) {
+                result = .web(url)
+            } else {
                 result = .game
             }
             
@@ -92,35 +75,27 @@ public class AppStateLogic {
         }
     }
     
-    private func makeEnrichedURL(
-        _ initial: URL,
-        appleTrackingID: String?,
-        oneSignalID: String?,
-        appsFlyerCampaign: String,
-        appsFlyerID: String
-    ) async -> URL {
+    private func makeRemoteUrl() async -> String {
+        let config = RemoteConfig.remoteConfig()
+        let key = "initial_dns"
         
-        var params = [
-            "sub15": appleTrackingID ?? "",
-            "sub7": oneSignalID ?? "",
-            "sub6": appsFlyerID
-        ]
-        
-        let appsFlyerParams = self.makeParamsFromAppsFlyer(appsFlyerCampaign)
-        params = params.merging(appsFlyerParams, uniquingKeysWith: { (first, _) in first })
-        
-        return initial.addParams(params: params)
+        return await withCheckedContinuation { continuation in
+            config.fetch(withExpirationDuration: 0) { (_, error) in
+                guard error == nil else {
+                    continuation.resume(returning: "")
+                    return
+                }
+                config.activate()
+                if  let url = config.configValue(forKey: key).stringValue {
+                    continuation.resume(returning: url)
+                } else {
+                    continuation.resume(returning: "")
+                }
+            }
+        }
     }
     
-    private func makeParamsFromAppsFlyer(_ id: String) -> [String: String] {
-        let arr = id.split(separator: "_")
-        var finalDict = [String: String]()
-
-        for (index, element) in arr.enumerated() {
-            finalDict["sub\(index + 1)"] = String(element)
-        }
-        return finalDict
-    }
+    
 }
 
 extension URL {

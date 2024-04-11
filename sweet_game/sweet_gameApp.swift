@@ -16,9 +16,6 @@ struct sweet_gameApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onOpenURL(perform: { url in
-                    ATTracking.shared.openURL(url)
-                })
         }
     }
 }
@@ -54,6 +51,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
         
         UIDevice.current.setValue(UIInterfaceOrientation.landscapeLeft.rawValue, forKey: "orientation")
+        UINavigationController.attemptRotationToDeviceOrientation()
+    }
+    
+    static func enableOrientationLock() {
+        AppDelegate.orientationLock = UIInterfaceOrientationMask.all
+        
+        if #available(iOS 16.0, *) {
+
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+
+            windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: .all))
+
+        }
+        
         UINavigationController.attemptRotationToDeviceOrientation()
     }
 }

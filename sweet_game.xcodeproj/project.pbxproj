@@ -10,7 +10,6 @@
 		0C13E4702B9DCAEE005031C9 /* TimeBomb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C13E46F2B9DCAEE005031C9 /* TimeBomb.swift */; };
 		0C1AB3F22B9F64E80081B5C8 /* Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB3F12B9F64E80081B5C8 /* Toggle.swift */; };
 		0C1AB4062BA0B51A0081B5C8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1AB4052BA0B51A0081B5C8 /* Haptic.swift */; };
-		0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */; };
 		0C65F0E12B9A0E9A0087390C /* LogicAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0D92B9A0E9A0087390C /* LogicAppState.swift */; };
 		0C65F0E32B9A0E9A0087390C /* LogicWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DB2B9A0E9A0087390C /* LogicWebView.swift */; };
 		0C65F0E42B9A0E9A0087390C /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C65F0DC2B9A0E9A0087390C /* Redirect.swift */; };
@@ -36,6 +35,9 @@
 		0C9078772B90AF5200F316EA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9078762B90AF5200F316EA /* Router.swift */; };
 		0C927F9F2B90D1D100AD261D /* GamesBusines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C927F9E2B90D1D100AD261D /* GamesBusines.swift */; };
 		0CC668602B98E8FC00F18D7A /* ATTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */; };
+		0CD215342BC7F81C00E1F424 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD215332BC7F81C00E1F424 /* GoogleService-Info.plist */; };
+		0CD215372BC7F8DD00E1F424 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0CD215362BC7F8DD00E1F424 /* FirebaseAnalytics */; };
+		0CD215392BC7F8DD00E1F424 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0CD215382BC7F8DD00E1F424 /* FirebaseRemoteConfig */; };
 		0CDA3E2C2BB56A8A00C4B229 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDA3E2B2BB56A8A00C4B229 /* PlaySound.swift */; };
 		0CDA3E2E2BB5760D00C4B229 /* DailyRewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */; };
 		0CFAC3392BB47685002D6FE2 /* SettingsCafeCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */; };
@@ -97,6 +99,7 @@
 		0C9078762B90AF5200F316EA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		0C927F9E2B90D1D100AD261D /* GamesBusines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesBusines.swift; sourceTree = "<group>"; };
 		0CC6685F2B98E8FC00F18D7A /* ATTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTracking.swift; sourceTree = "<group>"; };
+		0CD215332BC7F81C00E1F424 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0CDA3E2B2BB56A8A00C4B229 /* PlaySound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		0CDA3E2D2BB5760D00C4B229 /* DailyRewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRewardView.swift; sourceTree = "<group>"; };
 		0CFAC3382BB47685002D6FE2 /* SettingsCafeCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCafeCasino.swift; sourceTree = "<group>"; };
@@ -118,12 +121,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD215372BC7F8DD00E1F424 /* FirebaseAnalytics in Frameworks */,
 				0C65F1112B9A5E130087390C /* OneSignalInAppMessages in Frameworks */,
 				0C65F10F2B9A5E130087390C /* OneSignalFramework in Frameworks */,
 				0C65F1012B9A1BC70087390C /* NavigationBackport in Frameworks */,
 				0C65F10D2B9A5E130087390C /* OneSignalExtension in Frameworks */,
 				0C65F1132B9A5E130087390C /* OneSignalLocation in Frameworks */,
-				0C65F0D42B9A08DC0087390C /* AppsFlyerLib-Dynamic in Frameworks */,
+				0CD215392BC7F8DD00E1F424 /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				0C65F1272B9B3DAF0087390C /* sweet-game-Info.plist */,
+				0CD215332BC7F81C00E1F424 /* GoogleService-Info.plist */,
 				0C65F0DD2B9A0E9A0087390C /* WebBusiness */,
 				0C9078452B8FB1CE00F316EA /* core */,
 				0C90782B2B8FA73C00F316EA /* sweet_gameApp.swift */,
@@ -294,12 +299,13 @@
 			);
 			name = sweet_game;
 			packageProductDependencies = (
-				0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */,
 				0C65F1002B9A1BC70087390C /* NavigationBackport */,
 				0C65F10C2B9A5E130087390C /* OneSignalExtension */,
 				0C65F10E2B9A5E130087390C /* OneSignalFramework */,
 				0C65F1102B9A5E130087390C /* OneSignalInAppMessages */,
 				0C65F1122B9A5E130087390C /* OneSignalLocation */,
+				0CD215362BC7F8DD00E1F424 /* FirebaseAnalytics */,
+				0CD215382BC7F8DD00E1F424 /* FirebaseRemoteConfig */,
 			);
 			productName = sweet_game;
 			productReference = 0C9078282B8FA73C00F316EA /* sweet_game.app */;
@@ -333,9 +339,9 @@
 			);
 			mainGroup = 0C90781F2B8FA73C00F316EA;
 			packageReferences = (
-				0C65F0D22B9A08DC0087390C /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Dynamic" */,
 				0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */,
 				0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+				0CD215352BC7F8DD00E1F424 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0C9078292B8FA73C00F316EA /* Products */;
 			projectDirPath = "";
@@ -361,6 +367,7 @@
 			files = (
 				0C9078342B8FA73D00F316EA /* Preview Assets.xcassets in Resources */,
 				0C9078302B8FA73D00F316EA /* Assets.xcassets in Resources */,
+				0CD215342BC7F81C00E1F424 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +618,7 @@
 				CODE_SIGN_ENTITLEMENTS = sweet_game/sweet_game.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sweet_game/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -619,7 +626,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sweet-game-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Bonanza's Joy Bliss";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Use device id tracking technology to provide personalized ads for you. The collected data will not be associated with you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -628,12 +634,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -655,7 +662,7 @@
 				CODE_SIGN_ENTITLEMENTS = sweet_game/sweet_game.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"sweet_game/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -663,7 +670,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "sweet-game-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sweet Bonanza's Joy Bliss";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Use device id tracking technology to provide personalized ads for you. The collected data will not be associated with you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -672,12 +678,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neacklyneacls.sweegammi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -723,14 +730,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0C65F0D22B9A08DC0087390C /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Dynamic" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Dynamic";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.13.1;
-			};
-		};
 		0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnpatrickmorgan/NavigationBackport.git";
@@ -747,14 +746,17 @@
 				minimumVersion = 5.1.3;
 			};
 		};
+		0CD215352BC7F8DD00E1F424 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.24.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0C65F0D32B9A08DC0087390C /* AppsFlyerLib-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0C65F0D22B9A08DC0087390C /* XCRemoteSwiftPackageReference "AppsFlyerFramework-Dynamic" */;
-			productName = "AppsFlyerLib-Dynamic";
-		};
 		0C65F1002B9A1BC70087390C /* NavigationBackport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0C65F0FF2B9A1BC70087390C /* XCRemoteSwiftPackageReference "NavigationBackport" */;
@@ -779,6 +781,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0C65F10B2B9A5E130087390C /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
 			productName = OneSignalLocation;
+		};
+		0CD215362BC7F8DD00E1F424 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CD215352BC7F8DD00E1F424 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0CD215382BC7F8DD00E1F424 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CD215352BC7F8DD00E1F424 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

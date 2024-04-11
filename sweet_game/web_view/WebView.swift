@@ -22,6 +22,7 @@ struct WebView: View {
             self.state = state
         }
         .onAppear {
+            AppDelegate.disableOrientationLock()
             self.webViewLogic.onStart()
         }
     }
